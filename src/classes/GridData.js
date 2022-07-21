@@ -8,7 +8,7 @@ const tileMatcher = constraint => tileId => [
   (constraint[3] === '*' || constraint[3] === tileId[3]),
 ].every(check => check === true);
 
-class Grid {
+class GridData {
   constructor(config) {
     this.config = config;
   }
@@ -82,4 +82,4 @@ class Grid {
   }
 };
 
-export default Grid;
+export default GridData;

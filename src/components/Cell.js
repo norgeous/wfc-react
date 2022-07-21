@@ -7,9 +7,9 @@ import {
   Right,
   Bottom,
   Left
-} from './grid.js';
+} from './styled';
 
-const Cell = ({ onClick, value, ...props }) => {
+const Cell = ({ value, onClick, ...props }) => {
   const bits = value ? value.split('') : ['?','?','?','?'];
   return (
     <Item onClick={onClick} {...props}>

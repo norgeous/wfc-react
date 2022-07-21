@@ -1,6 +1,6 @@
-import Grid from '../classes/Grid';
+import GridData from '../classes/GridData';
 
-const gridInstance = new Grid({
+const gridInstance = new GridData({
   unCollapsed: '****',
   outOfBounds: '****',
 });

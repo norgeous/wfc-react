@@ -1,12 +1,16 @@
 [
   './src/tilesets/ascii-tileset.js',
+
   './src/utils.js',
-  './src/classes/Grid.js',
+
+  './src/classes/GridData.js',
   './src/hooks/useGrid.js',
 
-  './src/components/grid.js',
-  './src/components/Cell.js',
+  './src/components/styled.js',
+
   './src/components/App.js',
+  './src/components/Grid.js',
+  './src/components/Cell.js',
 
   './src/index.js', // important: this should be last in the list
 ].forEach(url => {

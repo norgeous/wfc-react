@@ -1,4 +1,4 @@
-export const Grid = window.styled.pre`
+export const GridContainer = window.styled.pre`
   margin: 0;
   font-size: 146px;
   font-family: monospace;
