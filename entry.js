@@ -18,5 +18,5 @@
   './src/index.js', // important: this should be last in the list
 ].forEach(url => {
   const tag = `<script type="text/babel" data-type="module" data-plugins="transform-modules-umd" data-presets="react,stage-3" src="${url}" />`;
-  document.body.insertAdjacentHTML('beforeend', tag);
+  document.head.insertAdjacentHTML('beforeend', tag);
 });
