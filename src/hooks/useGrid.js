@@ -1,4 +1,4 @@
-import Grid from '../class/Grid.js';
+import Grid from '../classes/Grid';
 
 const gridInstance = new Grid({
   unCollapsed: '****',

@@ -1,4 +1,4 @@
-import { labelToChar } from '../utils.js';
+import { labelToChar } from '../utils';
 import {
   Item,
   Status,

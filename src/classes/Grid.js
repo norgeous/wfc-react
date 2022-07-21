@@ -1,5 +1,5 @@
-import { randomFrom } from '../utils.js';
-import tiles from '../ascii-tileset.js';
+import { randomFrom } from '../utils';
+import tiles from '../tilesets/ascii-tileset';
 
 const tileMatcher = constraint => tileId => [
   (constraint[0] === '*' || constraint[0] === tileId[0]),

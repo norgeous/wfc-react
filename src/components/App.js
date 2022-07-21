@@ -1,6 +1,6 @@
-import { Grid, Row } from './components/grid.js';
-import useGrid from './hooks/useGrid.js';
-import Cell from './components/Cell.js';
+import { Grid, Row } from './grid';
+import useGrid from '../hooks/useGrid';
+import Cell from './Cell';
 
 const App = () => {
   const [width, setWidth] = React.useState(12);
