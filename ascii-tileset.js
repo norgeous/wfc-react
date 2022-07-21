@@ -155,4 +155,4 @@ const tiles3 = {
 
 
 
-export default tiles3;
+export default tiles;
