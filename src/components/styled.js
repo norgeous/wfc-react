@@ -1,7 +1,5 @@
 export const GridContainer = window.styled.pre`
   margin: 0;
-  font-size: 146px;
-  font-family: monospace;
 `;
 
 export const Row = window.styled.div`
@@ -10,13 +8,14 @@ export const Row = window.styled.div`
 
 export const Item = window.styled.div`
   font-size: 146px;
+  line-height: normal;
   font-family: monospace;
   position: relative;
   cursor: pointer;
   width: 80px;
   height: 171px;
   :hover {
-    background: silver;
+    background: #222;
   }
 `;
 
@@ -29,19 +28,19 @@ export const Status = window.styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: aqua;
+  color: #0ff4;
   text-align: center;
 `;
 
 export const Domain = window.styled.div`
   font-size: 30px;
-  color: aqua;
+  color: black;
 `;
 
 export const Top = window.styled.div`
   position: absolute;
   font-size: 20px;
-  color: magenta;
+  color: #f0f4;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -50,7 +49,7 @@ export const Top = window.styled.div`
 export const Right = window.styled.div`
   position: absolute;
   font-size: 20px;
-  color: magenta;
+  color: #f0f4;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
@@ -59,7 +58,7 @@ export const Right = window.styled.div`
 export const Bottom = window.styled.div`
   position: absolute;
   font-size: 20px;
-  color: magenta;
+  color: #f0f4;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -68,7 +67,7 @@ export const Bottom = window.styled.div`
 export const Left = window.styled.div`
   position: absolute;
   font-size: 20px;
-  color: magenta;
+  color: #f0f4;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
