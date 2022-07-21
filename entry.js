@@ -8,9 +8,9 @@
 
   './src/components/styled.js',
 
-  './src/components/App.js',
-  './src/components/Grid.js',
   './src/components/Cell.js',
+  './src/components/Grid.js',
+  './src/components/App.js',
 
   './src/index.js', // important: this should be last in the list
 ].forEach(url => {
