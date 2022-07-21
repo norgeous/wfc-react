@@ -1,5 +1,4 @@
 import { randomFrom } from '../utils';
-import tiles from '../tilesets/ascii-tileset';
 
 const tileMatcher = constraint => tileId => [
   (constraint[0] === '*' || constraint[0] === tileId[0]),
@@ -13,14 +12,15 @@ class GridData {
     this.config = config;
   }
 
-  newGrid(width, height) {
+  newGrid(tileset, width, height) {
+    this.tileset = tileset;
     const { unCollapsed } = this.config;
     this.grid = [
       ...Array(height).fill([
         ...Array(width).fill(unCollapsed),
       ]),
     ];
-    this.grid.forEach((row, y) => row.forEach((oldValue, x) => this.partiallyCollapseCell(x, y)));
+    // this.grid.forEach((row, y) => row.forEach((oldValue, x) => this.partiallyCollapseCell(x, y)));
   }
 
   updateCell(x, y, newValue) {
@@ -44,8 +44,7 @@ class GridData {
     this.partiallyCollapseCell(x, y);
     const value = this.grid[y][x];
 
-    const possibilities = Object.keys(tiles).filter(tileMatcher(value));
-    // console.log({ possibilities });
+    const possibilities = Object.keys(this.tileset.tiles).filter(tileMatcher(value));
     if (!possibilities.length) return;
 
     const randomTile = randomFrom(possibilities);
@@ -71,11 +70,8 @@ class GridData {
     }, []).filter(cell => cell.value.includes('*'));
 
     const sorted = flat.sort((a, b) => a.domainSize - b.domainSize);
-
     const lowestDomainSize = sorted[0].domainSize;
-
     const cells = sorted.filter(cell => cell.domainSize === lowestDomainSize);
-
     const nextCellToCollapse = randomFrom(cells);
 
     this.collapseCell(nextCellToCollapse.x, nextCellToCollapse.y);

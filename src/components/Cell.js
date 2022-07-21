@@ -1,4 +1,4 @@
-import { labelToChar } from '../utils';
+import { randomFrom } from '../utils';
 import {
   Item,
   Status,
@@ -9,7 +9,9 @@ import {
   Left
 } from './styled';
 
-const Cell = ({ value, onClick, ...props }) => {
+const labelToChar = (tiles, label) => randomFrom(tiles[label]);
+
+const Cell = ({ tileset, value, onClick, ...props }) => {
   const bits = value ? value.split('') : ['?','?','?','?'];
   return (
     <Item onClick={onClick} {...props}>
@@ -21,7 +23,7 @@ const Cell = ({ value, onClick, ...props }) => {
         {value}
         <Domain>{[...value].reduce((count, char) => char === '*' ? count + 1 : count, 0)}</Domain>
       </Status>
-      {value.includes('*') ? '·' : labelToChar(value)}
+      {value.includes('*') ? '·' : labelToChar(tileset.tiles, value)}
     </Item>
   );
 };

@@ -5,11 +5,11 @@ const gridInstance = new GridData({
   outOfBounds: '****',
 });
 
-const useGrid = ({ width, height }) => {
+const useGrid = ({ tileset, width, height }) => {
   const [grid, setGrid] = React.useState(gridInstance.grid);
 
   React.useEffect(() => {
-    gridInstance.newGrid(width, height);
+    gridInstance.newGrid(tileset, width, height);
     setGrid(gridInstance.grid);
   }, [width, height]);
 

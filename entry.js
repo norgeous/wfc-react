@@ -1,5 +1,8 @@
 [
-  './src/tilesets/ascii-tileset.js',
+  './src/tilesets/ascii-box-drawing.js',
+  './src/tilesets/ascii-squares.js',
+  './src/tilesets/ascii-triangles.js',
+  './src/tilesets/index.js',
 
   './src/utils.js',
 
