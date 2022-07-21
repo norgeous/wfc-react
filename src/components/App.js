@@ -19,7 +19,7 @@ const App = () => {
       <input type="number" onChange={collapseRandomHighEntropyCell} />
       <button onClick={collapseRandomHighEntropyCell}>collapse random</button>
 
-      {/* <Grid grid={grid} /> */}
+      <Grid grid={grid} />
       <Domain>{typeof Grid}</Domain>
     </div>
   );

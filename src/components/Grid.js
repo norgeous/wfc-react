@@ -1,9 +1,9 @@
-// import { GridContainer, Row } from './styled';
-// import Cell from './Cell';
+import { GridContainer, Row } from './styled';
+import Cell from './Cell';
 
 const Grid = ({ grid }) => (
-  <div>
-    {/* {grid.map((row, y) => (
+  <GridContainer>
+    {grid.map((row, y) => (
       <Row key={y}>
         {row.map((value, x) => (
           <Cell
@@ -13,9 +13,8 @@ const Grid = ({ grid }) => (
           />
         ))}
       </Row>
-    ))} */}
-    test
-  </div>
+    ))}
+  </GridContainer>
 );
 
 export default Grid;
