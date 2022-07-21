@@ -1,12 +1,12 @@
 import useGrid from '../hooks/useGrid';
 import Grid from './Grid';
-import { Domain } from './styled';
 
 const App = () => {
   const [width, setWidth] = React.useState(12);
   const [height, setHeight] = React.useState(5);
   const {
     grid,
+    collapse,
     collapseRandomHighEntropyCell,
   } = useGrid({ width, height });
 
@@ -19,8 +19,7 @@ const App = () => {
       <input type="number" onChange={collapseRandomHighEntropyCell} />
       <button onClick={collapseRandomHighEntropyCell}>collapse random</button>
 
-      <Grid grid={grid} />
-      <Domain>{typeof Grid}</Domain>
+      <Grid grid={grid} collapse={collapse} />
     </div>
   );
 };
