@@ -28,7 +28,7 @@ export const Status = window.styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #0ff4;
+  color: #0ffa;
   text-align: center;
 `;
 
