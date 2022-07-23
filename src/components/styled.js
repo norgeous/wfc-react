@@ -1,12 +1,12 @@
-export const GridContainer = window.styled.pre`
+export const GridContainer = styled.pre`
   margin: 0;
 `;
 
-export const Row = window.styled.div`
+export const Row = styled.div`
   display: flex;
 `;
 
-export const Item = window.styled.div`
+export const Item = styled.div`
   font-size: 146px;
   line-height: normal;
   font-family: monospace;
@@ -19,7 +19,7 @@ export const Item = window.styled.div`
   }
 `;
 
-export const Status = window.styled.div`
+export const Status = styled.div`
   position: absolute;
   font-size: 10px;
   width: 100%;
@@ -32,12 +32,12 @@ export const Status = window.styled.div`
   text-align: center;
 `;
 
-export const Domain = window.styled.div`
+export const Domain = styled.div`
   font-size: 30px;
   color: black;
 `;
 
-export const Top = window.styled.div`
+export const Top = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
@@ -46,7 +46,7 @@ export const Top = window.styled.div`
   transform: translateX(-50%);
 `;
 
-export const Right = window.styled.div`
+export const Right = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
@@ -55,7 +55,7 @@ export const Right = window.styled.div`
   transform: translateY(-50%);
 `;
 
-export const Bottom = window.styled.div`
+export const Bottom = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
@@ -64,7 +64,7 @@ export const Bottom = window.styled.div`
   transform: translateX(-50%);
 `;
 
-export const Left = window.styled.div`
+export const Left = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
