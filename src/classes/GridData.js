@@ -44,7 +44,7 @@ class GridData {
     this.partiallyCollapseCell(x, y);
     const value = this.grid[y][x];
 
-    const possibilities = Object.keys(this.tileset.tiles).filter(tileMatcher(value));
+    const possibilities = this.tileset.tileIds.filter(tileMatcher(value));
     if (!possibilities.length) return;
 
     const randomTile = randomFrom(possibilities);

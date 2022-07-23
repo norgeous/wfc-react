@@ -12,8 +12,8 @@ export const Item = styled.div`
   font-family: monospace;
   position: relative;
   cursor: pointer;
-  width: 80px;
-  height: 171px;
+  /* width: 80px;
+  height: 171px; */
   :hover {
     background: #222;
   }
@@ -34,7 +34,7 @@ export const Status = styled.div`
 
 export const Domain = styled.div`
   font-size: 30px;
-  color: black;
+  color: #0ff3;
 `;
 
 export const Top = styled.div`
