@@ -62,7 +62,7 @@ const App = () => {
       <Content>  
         <Layout>
           <Sider width={200}>
-            <Layout style={{ gap: 20 }}>
+            <Layout style={{ padding: 20, gap: 20 }}>
               <Select value={tileset.name} onChange={handleChangeTileset}>
                 {tilesets.map(({ name }) => <Option key={name}>{name}</Option>)}
               </Select>
