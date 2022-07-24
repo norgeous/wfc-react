@@ -1,9 +1,11 @@
 import {
   Layout,
+  Space,
   Select,
   InputNumber,
   Button,
   Switch,
+  Spin,
 } from 'antd';
 
 import tilesets from '../tilesets/index';
@@ -17,14 +19,14 @@ const { Header, Content, Sider } = Layout;
 const { Option } = Select;
 
 const App = () => {
-  const [tileset, setTileset] = React.useState(tilesets[2]);
+  const [tileset, setTileset] = React.useState(tilesets[3]);
   const [size, setSize] = React.useState(50);
-  const [debug, setDebug] = React.useState(true);
+  const [debug, setDebug] = React.useState(false);
+
   const [continual, setContinual] = React.useState(false);
+  const toggleContinual = () => setContinual(old => !old);
 
   const { vw, vh } = useResize();
-
-  console.log(vw,vh);
 
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
@@ -32,7 +34,8 @@ const App = () => {
   const {
     grid,
     collapse,
-    collapseRandomHighEntropyCell
+    collapseRandomHighEntropyCell,
+    reset,
   } = useGrid({
     tileset,
     width,
@@ -66,10 +69,24 @@ const App = () => {
               <Select value={tileset.name} onChange={handleChangeTileset}>
                 {tilesets.map(({ name }) => <Option key={name}>{name}</Option>)}
               </Select>
-              <InputNumber value={size} onChange={setSize} step={10} />
-              <Switch checkedChildren="debug on" unCheckedChildren="debug off" checked={debug} onChange={setDebug} />
-              <Switch checkedChildren="continual" unCheckedChildren="paused" checked={continual} onChange={setContinual} />
-              <Button onClick={collapseRandomHighEntropyCell}>collapse next</Button>
+              <Space>
+                Size
+                <InputNumber value={size} onChange={setSize} step={10} />
+              </Space>
+              <Space>
+                Debug
+                <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
+              </Space>
+              <Button onClick={collapseRandomHighEntropyCell}>
+                Collapse next
+              </Button>
+              <Button onClick={toggleContinual} >
+                <Space>
+                  Collapse all 
+                  {continual && <Spin size="small" />}
+                </Space>
+              </Button>
+              <Button onClick={reset}>Reset</Button>
             </Layout>
           </Sider>
           <Content>

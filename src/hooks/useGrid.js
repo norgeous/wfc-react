@@ -23,10 +23,16 @@ const useGrid = ({ tileset, width, height }) => {
     setGrid(gridInstance.grid);
   };
 
+  const reset = () => {
+    gridInstance.newGrid(tileset, width, height);
+    setGrid(gridInstance.grid);
+  };
+
   return {
     grid,
     collapse,
     collapseRandomHighEntropyCell,
+    reset,
   };
 };
 

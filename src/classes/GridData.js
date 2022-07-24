@@ -70,11 +70,14 @@ class GridData {
     }, []).filter(cell => cell.value.includes('*'));
 
     const sorted = flat.sort((a, b) => a.domainSize - b.domainSize);
-    const lowestDomainSize = sorted[0].domainSize;
-    const cells = sorted.filter(cell => cell.domainSize === lowestDomainSize);
-    const nextCellToCollapse = randomFrom(cells);
 
-    this.collapseCell(nextCellToCollapse.x, nextCellToCollapse.y);
+    if (sorted[0]) { 
+      const lowestDomainSize = sorted[0].domainSize;
+      const cells = sorted.filter(cell => cell.domainSize === lowestDomainSize);
+      const nextCellToCollapse = randomFrom(cells);
+      
+      this.collapseCell(nextCellToCollapse.x, nextCellToCollapse.y);
+    }
   }
 };
 

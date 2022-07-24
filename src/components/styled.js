@@ -2,6 +2,11 @@
 
 export const GridContainer = styled.pre`
   margin: 0;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Row = styled.div`

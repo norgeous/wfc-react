@@ -4,14 +4,9 @@ const Tile = styled.div`
   height: ${({ size }) => size}px;
   ${({ tileId, size }) => ({
     '****': `
-      width: ${size}px;
-      height: ${size}px;
       background: #f0f2;
     `,
-    '0000': `
-      width: ${size}px;
-      height: ${size}px;
-    `,
+    '0000': ``,
     '1001': `
       width: 0;
       height: 0;

@@ -2,6 +2,7 @@
   './src/tilesets/ascii-box-drawing.js',
   './src/tilesets/ascii-squares.js',
   './src/tilesets/css-triangles.js',
+  './src/tilesets/css-polygon-triangles.js',
   './src/tilesets/index.js',
   './src/utils.js',
   './src/classes/GridData.js',
