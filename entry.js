@@ -5,10 +5,12 @@
   './src/tilesets/index.js',
   './src/utils.js',
   './src/classes/GridData.js',
+  './src/hooks/useResize.js',
   './src/hooks/useGrid.js',
   './src/components/styled.js',
   './src/components/Cell.js',
   './src/components/Grid.js',
+  './src/components/GithubCorner.js',
   './src/components/App.js',
   './src/index.js',
 ].forEach(url => {

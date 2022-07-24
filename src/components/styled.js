@@ -1,3 +1,5 @@
+// import styled from 'styled-components';
+
 export const GridContainer = styled.pre`
   margin: 0;
 `;
@@ -12,8 +14,6 @@ export const Item = styled.div`
   font-family: monospace;
   position: relative;
   cursor: pointer;
-  /* width: 80px;
-  height: 171px; */
   :hover {
     background: #222;
   }
@@ -71,4 +71,18 @@ export const Left = styled.div`
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+`;
+
+export const Corner = styled.a`
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  margin: 20px;
+  font-size: 30px;
+  line-height: 30px;
+  :hover {
+    background: #222;
+  }
 `;
