@@ -46,7 +46,7 @@ const App = () => {
     if (continual) {
       const t = setInterval(() => {
         collapseRandomHighEntropyCell();
-      }, 1);
+      }, 50);
       return () => clearInterval(t);
     }
   }, [continual]);
