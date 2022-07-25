@@ -47,17 +47,15 @@ export const Top = styled.div`
   font-size: 20px;
   color: #f0f4;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
 `;
 
 export const Right = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
+  top: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 `;
 
 export const Bottom = styled.div`
@@ -65,17 +63,15 @@ export const Bottom = styled.div`
   font-size: 20px;
   color: #f0f4;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
 `;
 
 export const Left = styled.div`
   position: absolute;
   font-size: 20px;
   color: #f0f4;
+  bottom: 0;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
 `;
 
 export const Corner = styled.a`

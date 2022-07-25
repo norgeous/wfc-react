@@ -1,38 +1,35 @@
-import GridData from '../classes/GridData';
+const getCell = (rawGrid, x, y) => {
+  const points = [
+    rawGrid[y][x],
+    rawGrid[y][x+1],
+    rawGrid[y+1][x+1],
+    rawGrid[y+1][x],
+  ];
 
-const gridInstance = new GridData({
-  unCollapsed: '****',
-  outOfBounds: '****',
-});
+  return points.join('');
+}
 
-const useGrid = ({ tileset, width, height }) => {
-  const [grid, setGrid] = React.useState(gridInstance.grid);
+
+const useGrid = ({ rawGrid }) => {
+  const [grid, setGrid] = React.useState([[]]);
 
   React.useEffect(() => {
-    gridInstance.newGrid(tileset, width, height);
-    setGrid(gridInstance.grid);
-  }, [width, height]);
+    const newGrid = [];
 
-  const collapse = (x, y) => {
-    gridInstance.collapseCell(x, y);
-    setGrid(gridInstance.grid);
-  };
+    for (let y = 0; y < rawGrid.length - 1; y++) {
+      const row = rawGrid[y];
+      const newRow = [];
+      for (let x = 0; x < row.length - 1; x++) {
+        newRow.push(getCell(rawGrid, x, y));
+      }
+      newGrid.push(newRow);
+    }
 
-  const collapseRandomHighEntropyCell = () => {
-    gridInstance.collapseRandomHighEntropyCell();
-    setGrid(gridInstance.grid);
-  };
-
-  const reset = () => {
-    gridInstance.newGrid(tileset, width, height);
-    setGrid(gridInstance.grid);
-  };
+    setGrid(newGrid);
+  }, [rawGrid]);
 
   return {
     grid,
-    collapse,
-    collapseRandomHighEntropyCell,
-    reset,
   };
 };
 

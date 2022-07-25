@@ -10,7 +10,9 @@ import {
 
 import tilesets from '../tilesets/index';
 import useResize from '../hooks/useResize';
+import useRawGrid from '../hooks/useRawGrid';
 import useGrid from '../hooks/useGrid';
+import useDomainSizes from '../hooks/useDomainSizes';
 import Grid from './Grid';
 import GithubCorner from './GithubCorner';
 
@@ -19,9 +21,9 @@ const { Header, Content, Sider } = Layout;
 const { Option } = Select;
 
 const App = () => {
-  const [tileset, setTileset] = React.useState(tilesets[3]);
-  const [size, setSize] = React.useState(50);
-  const [debug, setDebug] = React.useState(false);
+  const [tileset, setTileset] = React.useState(tilesets[4]);
+  const [size, setSize] = React.useState(100);
+  const [debug, setDebug] = React.useState(true);
 
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
@@ -31,27 +33,24 @@ const App = () => {
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
 
-  const {
-    grid,
-    collapse,
-    collapseRandomHighEntropyCell,
-    reset,
-  } = useGrid({
-    tileset,
-    width,
-    height,
-  });
-
+  const { rawGrid, collapse, reset } = useRawGrid({ tileset, width, height });
+  const { grid } = useGrid({ rawGrid });
+  const { domainSizes, collapseRandomHighEntropyCell } = useDomainSizes({ grid, collapse });
+  
   React.useEffect(() => {
     if (continual) {
       const t = setInterval(() => {
         collapseRandomHighEntropyCell();
-      }, 50);
+      }, 200);
       return () => clearInterval(t);
     }
-  }, [continual]);
+  }, [continual, collapseRandomHighEntropyCell]);
 
-  if (!grid) return null;
+  React.useEffect(() => {
+    if (domainSizes.length === 0) {
+      setContinual(false);
+    }
+  }, [domainSizes]);
 
   const handleChangeTileset = value => {
     setTileset(tilesets.find(({ name }) => name === value));
@@ -87,6 +86,9 @@ const App = () => {
                 </Space>
               </Button>
               <Button onClick={reset}>Reset</Button>
+              <pre style={{lineHeight: '12px', textAlign: 'center', overflow: 'hidden'}}>
+                {rawGrid?.map(row => row.join('')).join('\n')}
+              </pre>
             </Layout>
           </Sider>
           <Content>
