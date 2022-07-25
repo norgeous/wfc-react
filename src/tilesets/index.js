@@ -6,8 +6,8 @@ import cssPolygonTrianglesRefactor from './css-polygon-triangles-refactor';
 import cssPolygonWalls from './css-polygon-walls';
 
 export default [
-  cssPolygonWalls,
   cssPolygonTrianglesRefactor,
+  cssPolygonWalls,
   // asciiBoxDrawing,
   // asciiSquares,
   // cssTriangles,
