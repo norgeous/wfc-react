@@ -21,7 +21,7 @@ const { Header, Content, Sider } = Layout;
 const { Option } = Select;
 
 const App = () => {
-  const [tileset, setTileset] = React.useState(tilesets[4]);
+  const [tileset, setTileset] = React.useState(tilesets[0]);
   const [size, setSize] = React.useState(100);
   const [debug, setDebug] = React.useState(false);
 
