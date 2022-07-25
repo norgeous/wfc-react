@@ -23,7 +23,7 @@ const { Option } = Select;
 const App = () => {
   const [tileset, setTileset] = React.useState(tilesets[4]);
   const [size, setSize] = React.useState(100);
-  const [debug, setDebug] = React.useState(true);
+  const [debug, setDebug] = React.useState(false);
 
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
@@ -41,7 +41,7 @@ const App = () => {
     if (continual) {
       const t = setInterval(() => {
         collapseRandomHighEntropyCell();
-      }, 200);
+      }, 100);
       return () => clearInterval(t);
     }
   }, [continual, collapseRandomHighEntropyCell]);
@@ -72,10 +72,6 @@ const App = () => {
                 Size
                 <InputNumber value={size} onChange={setSize} step={10} />
               </Space>
-              <Space>
-                Debug
-                <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
-              </Space>
               <Button onClick={collapseRandomHighEntropyCell}>
                 Collapse next
               </Button>
@@ -89,6 +85,10 @@ const App = () => {
               <pre style={{lineHeight: '12px', textAlign: 'center', overflow: 'hidden'}}>
                 {rawGrid?.map(row => row.join('')).join('\n')}
               </pre>
+              <Space>
+                Debug
+                <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
+              </Space>
             </Layout>
           </Sider>
           <Content>
