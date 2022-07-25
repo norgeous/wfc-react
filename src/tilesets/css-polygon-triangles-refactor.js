@@ -70,7 +70,7 @@ const Tile = styled.div`
 `;
 
 export default {
-  name: 'css polygon triangles refactor',
+  name: 'triangles',
   uncollapsed: '*',
   tileIds,
   Tile,

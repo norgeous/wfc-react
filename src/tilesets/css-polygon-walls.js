@@ -45,9 +45,7 @@ const getShape = (constraint) => {
 };
 
 const Tile = styled.div`
-  background:
-    /* url("data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%22 y=%2280%22 text-anchor=%22middle%22 font-size=%2290%22 opacity=%22.1%22>💗</text></svg>") */
-    #f0f3;
+  background: #f0f3;
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transition: all 400ms ease-in;
@@ -62,7 +60,7 @@ const Tile = styled.div`
 `;
 
 export default {
-  name: 'css polygon walls',
+  name: 'walls',
   uncollapsed: '*',
   tileIds,
   Tile,

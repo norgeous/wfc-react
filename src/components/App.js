@@ -1,7 +1,7 @@
 import {
   Layout,
   Space,
-  Select,
+  Radio,
   InputNumber,
   Button,
   Switch,
@@ -18,7 +18,6 @@ import GithubCorner from './GithubCorner';
 
 // antd elements
 const { Header, Content, Sider } = Layout;
-const { Option } = Select;
 
 const App = () => {
   const [tileset, setTileset] = React.useState(tilesets[0]);
@@ -65,9 +64,9 @@ const App = () => {
         <Layout>
           <Sider width={200}>
             <Layout style={{ padding: 20, gap: 20 }}>
-              <Select value={tileset.name} onChange={handleChangeTileset}>
-                {tilesets.map(({ name }) => <Option key={name}>{name}</Option>)}
-              </Select>
+              <Radio.Group value={tileset.name} onChange={event => handleChangeTileset(event.target.value)}>
+                {tilesets.map(({ name }) =><Radio key={name} value={name}>{name}</Radio>)}
+              </Radio.Group>
               <Space>
                 Size
                 <InputNumber value={size} onChange={setSize} step={10} />
