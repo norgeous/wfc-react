@@ -34,7 +34,7 @@ const tileIds = [
   'gbwb',
   'wbgb',
 
-  // 'gggg',
+  'gggg',
 ];
 
 const topLeft = (background) => `
@@ -173,12 +173,15 @@ export default {
   tileIds,
   Tile,
   weights: {
+    s: 3, // sea
     w: 3, // water
     b: 3, // beach
     g: 3, // grass
+    f: 3, // forest
+    m: 3, // mountain
   },
   wfcRules: [
-    ['w','b']
-    ['b','g']
+    ['s','w','b','g','f'],
+    ['g','m'],
   ],
 };
