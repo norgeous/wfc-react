@@ -1,10 +1,10 @@
 const tileIds = [
   'wwww',
  
-  'wwwb',
   'bwww',
   'wbww',
   'wwbw',
+  'wwwb',
 
   'wwbb',
   'bwwb',
@@ -17,8 +17,21 @@ const tileIds = [
   'bbbw',
 
   'bbbb',
+  
+  'gbbb',
+  'bgbb',
+  'bbgb',
+  'bbbg',
 
-  // 'bbgg',
+  'bbgg',
+  'gbbg',
+  'ggbb',
+  'bggb',
+
+  'bggg',
+  'gbgg',
+  'ggbg',
+  'gggb',
 
   'gggg',
 ];
@@ -29,17 +42,6 @@ const getStyle = (constraint) => {
       background: darkblue;
     `,
 
-    'wwwb': `
-      background: blue;
-      :after {
-        bottom: 0;
-        left: 0;
-        width: 50%;
-        height: 50%;
-        background: yellow;
-        border-top-right-radius: 50%;
-      }
-    `,
     'bwww': `
       background: blue;
       :after {
@@ -71,6 +73,17 @@ const getStyle = (constraint) => {
         height: 50%;
         background: yellow;
         border-top-left-radius: 50%;
+      }
+    `,
+    'wwwb': `
+      background: blue;
+      :after {
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background: yellow;
+        border-top-right-radius: 50%;
       }
     `,
 
@@ -164,13 +177,157 @@ const getStyle = (constraint) => {
       background: lightyellow;
     `,
 
-    'bbgg': `
-      border-top: 50px solid lightyellow;
-      background: green;
+
+
+
+
+
+    'gbbb': `
+      background: yellow;
+      :after {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background: green;
+        border-bottom-right-radius: 50%;
+      }
+    `,
+    'bgbb': `
+      background: yellow;
+      :after {
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 50%;
+        background: green;
+        border-bottom-left-radius: 50%;
+      }
+    `,
+    'bbgb': `
+      background: yellow;
+      :after {
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 50%;
+        background: green;
+        border-top-left-radius: 50%;
+      }
+    `,
+    'bbbg': `
+      background: yellow;
+      :after {
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background: green;
+        border-top-right-radius: 50%;
+      }
     `,
 
-    'gggg': `
+
+
+
+
+
+    'bbgg': `
+      background: yellow;
+      :after {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: green;
+      }
+    `,
+    'gbbg': `
+      background: yellow;
+      :after {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: green;
+      }
+    `,
+    'ggbb': `
+      background: yellow;
+      :after {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: green;
+      }
+    `,
+    'bggb': `
+      background: yellow;
+      :after {
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: green;
+      }
+    `,
+
+
+
+
+
+
+    'bggg': `
       background: green;
+      :after {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background: yellow;
+        border-bottom-right-radius: 50%;
+      }
+    `,
+    'gbgg': `
+      background: green;
+      :after {
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 50%;
+        background: yellow;
+        border-bottom-left-radius: 50%;
+      }
+    `,
+    'ggbg': `
+      background: green;
+      :after {
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 50%;
+        background: yellow;
+        border-top-left-radius: 50%;
+      }
+    `,
+    'gggb': `
+      background: green;
+      :after {
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        background: yellow;
+        border-top-right-radius: 50%;
+      }
+    `,
+
+
+
+
+    'gggg': `
+      background: darkgreen;
     `,
   }[constraint];
 
