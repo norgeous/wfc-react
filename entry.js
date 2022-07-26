@@ -5,6 +5,7 @@
   './src/tilesets/css-polygon-triangles.js',
   './src/tilesets/css-polygon-triangles-refactor.js',
   './src/tilesets/css-polygon-walls.js',
+  './src/tilesets/terrain.js',
   './src/tilesets/index.js',
   './src/utils.js',
   './src/classes/GridData.js',

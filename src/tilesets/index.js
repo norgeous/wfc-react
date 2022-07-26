@@ -4,8 +4,10 @@
 // import cssPolygonTriangles from './css-polygon-triangles';
 import cssPolygonTrianglesRefactor from './css-polygon-triangles-refactor';
 import cssPolygonWalls from './css-polygon-walls';
+import terrain from './terrain';
 
 export default [
+  terrain,
   cssPolygonTrianglesRefactor,
   cssPolygonWalls,
   // asciiBoxDrawing,
