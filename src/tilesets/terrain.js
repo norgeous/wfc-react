@@ -20,7 +20,7 @@ const tileIds = [
 
   // 'bbgg',
 
-  'gggg',
+  // 'gggg',
 ];
 
 const getStyle = (constraint) => {
