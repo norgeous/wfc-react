@@ -184,4 +184,42 @@ export default {
     ['s','w','b','g','f'],
     ['g','m'],
   ],
+  wfc: {
+    // sea
+    s: {
+      weight: 3,
+      colour: 'darkblue',
+      canTouch: 'sw',
+    },
+    // water
+    w: {
+      weight: 3,
+      colour: 'aqua',
+      canTouch: 'wsc',
+    },
+    // coast
+    c: {
+      weight: 3,
+      colour: 'yellow',
+      canTouch: 'cwg',
+    },
+    // grass
+    g: {
+      weight: 3,
+      colour: 'green',
+      canTouch: 'gcfm',
+    },
+    // forest
+    f: {
+      weight: 3,
+      colour: 'darkgreen',
+      canTouch: 'fg',
+    },
+    // mountain
+    m: {
+      weight: 3,
+      colour: 'snow',
+      canTouch: 'mg',
+    },
+  }
 };

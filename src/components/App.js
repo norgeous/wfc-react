@@ -14,6 +14,7 @@ import useRawGrid from '../hooks/useRawGrid';
 import useGrid from '../hooks/useGrid';
 import useDomainSizes from '../hooks/useDomainSizes';
 import Grid from './Grid';
+import GridDebug from './GridDebug';
 import GithubCorner from './GithubCorner';
 
 // antd elements
@@ -81,9 +82,7 @@ const App = () => {
                 </Space>
               </Button>
               <Button onClick={reset}>Reset</Button>
-              <pre style={{lineHeight: '12px', textAlign: 'center', overflow: 'hidden'}}>
-                {rawGrid?.map(row => row.join('')).join('\n')}
-              </pre>
+              <GridDebug rawGrid={rawGrid} />
               <Space>
                 Debug
                 <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
