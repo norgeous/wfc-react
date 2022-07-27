@@ -14,6 +14,7 @@ import useRawGrid from '../hooks/useRawGrid';
 import useGrid from '../hooks/useGrid';
 import useDomainSizes from '../hooks/useDomainSizes';
 import Grid from './Grid';
+import GridDebug from './GridDebug';
 import GithubCorner from './GithubCorner';
 
 // antd elements
@@ -81,10 +82,19 @@ const App = () => {
                 </Space>
               </Button>
               <Button onClick={reset}>Reset</Button>
-              <GridDebug tileset={tileset} rawGrid={rawGrid} collapseSingle={collapseSingle} />
+              <GridDebug
+                tileset={tileset}
+                rawGrid={rawGrid}
+                collapseSingle={collapseSingle}
+              />
               <Space>
                 Debug
-                <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
+                <Switch
+                  checkedChildren="on"
+                  unCheckedChildren="off"
+                  checked={debug}
+                  onChange={setDebug}
+                />
               </Space>
             </Layout>
           </Sider>

@@ -14,6 +14,7 @@
   './src/components/CellDebug.js',
   './src/components/Cell.js',
   './src/components/Grid.js',
+  './src/components/GridDebug.js',
   './src/components/GithubCorner.js',
   './src/components/App.js',
   './src/index.js',
