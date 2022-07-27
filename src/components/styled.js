@@ -22,6 +22,7 @@ export const Item = styled.div`
   :hover {
     background: #222;
   }
+  ${({ debug }) => debug && `box-shadow: inset 0 0 1px #0ff2;`}
 `;
 
 export const Status = styled.div`
@@ -72,6 +73,14 @@ export const Left = styled.div`
   color: #f0f4;
   bottom: 0;
   left: 0;
+`;
+
+export const SingleCell = styled.span`
+  cursor: pointer;
+  color: ${({ color }) => color};
+  :hover {
+    background-color: #222;
+  }
 `;
 
 export const Corner = styled.a`

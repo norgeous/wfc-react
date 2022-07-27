@@ -1,38 +1,38 @@
 const tileIds = [
   'wwww',
  
-  'bwww',
-  'wbww',
-  'wwbw',
-  'wwwb',
-  'wwbb',
-  'bwwb',
-  'bbww',
-  'wbbw',
-  'wbbb',
-  'bwbb',
-  'bbwb',
-  'bbbw',
+  'cwww',
+  'wcww',
+  'wwcw',
+  'wwwc',
+  'wwcc',
+  'cwwc',
+  'ccww',
+  'wccw',
+  'wccc',
+  'cwcc',
+  'ccwc',
+  'cccw',
 
-  'bbbb',
+  'cccc',
   
-  'gbbb',
-  'bgbb',
-  'bbgb',
-  'bbbg',
-  'bbgg',
-  'gbbg',
-  'ggbb',
-  'bggb',
-  'bggg',
-  'gbgg',
-  'ggbg',
-  'gggb',
+  'gccc',
+  'cgcc',
+  'ccgc',
+  'cccg',
+  'ccgg',
+  'gccg',
+  'ggcc',
+  'cggc',
+  'cggg',
+  'gcgg',
+  'ggcg',
+  'gggc',
 
-  'bwbg',
-  'bgbw',
-  'gbwb',
-  'wbgb',
+  'cwcg',
+  'cgcw',
+  'gcwc',
+  'wcgc',
 
   'gggg',
 ];
@@ -104,39 +104,39 @@ const getStyle = (constraint) => {
   const c = {
     'wwww': `background: darkblue;`,
 
-    'bwww': `background: blue; ::before{${topLeft('lightyellow')}};`,
-    'wbww': `background: blue; ::before{${topRight('lightyellow')}};`,
-    'wwbw': `background: blue; ::before{${bottomRight('lightyellow')}};`,
-    'wwwb': `background: blue; ::before{${bottomLeft('lightyellow')}};`,
-    'wwbb': `background: blue; ::before{${bottomHalf('lightyellow')}};`,
-    'bwwb': `background: blue; ::before{${leftHalf('lightyellow')}};`,
-    'bbww': `background: blue; ::before{${topHalf('lightyellow')}};`,
-    'wbbw': `background: blue; ::before{${rightHalf('lightyellow')}};`,
-    'wbbb': `background: lightyellow; ::before{${topLeft('blue')}};`,
-    'bwbb': `background: lightyellow; ::before{${topRight('blue')}};`,
-    'bbwb': `background: lightyellow; ::before{${bottomRight('blue')}};`,
-    'bbbw': `background: lightyellow; ::before{${bottomLeft('blue')}};`,
+    'cwww': `background: blue; ::before{${topLeft('lightyellow')}};`,
+    'wcww': `background: blue; ::before{${topRight('lightyellow')}};`,
+    'wwcw': `background: blue; ::before{${bottomRight('lightyellow')}};`,
+    'wwwc': `background: blue; ::before{${bottomLeft('lightyellow')}};`,
+    'wwcc': `background: blue; ::before{${bottomHalf('lightyellow')}};`,
+    'cwwc': `background: blue; ::before{${leftHalf('lightyellow')}};`,
+    'ccww': `background: blue; ::before{${topHalf('lightyellow')}};`,
+    'wccw': `background: blue; ::before{${rightHalf('lightyellow')}};`,
+    'wccc': `background: lightyellow; ::before{${topLeft('blue')}};`,
+    'cwcc': `background: lightyellow; ::before{${topRight('blue')}};`,
+    'ccwc': `background: lightyellow; ::before{${bottomRight('blue')}};`,
+    'cccw': `background: lightyellow; ::before{${bottomLeft('blue')}};`,
 
-    'bbbb': `background: yellow;`,
+    'cccc': `background: yellow;`,
 
-    'gbbb': `background: lightyellow; ::before{${topLeft('green')}};`,
-    'bgbb': `background: lightyellow; ::before{${topRight('green')}};`,
-    'bbgb': `background: lightyellow; ::before{${bottomRight('green')}};`,
-    'bbbg': `background: lightyellow; ::before{${bottomLeft('green')}};`,
-    'bbgg': `background: lightyellow; ::before{${bottomHalf('green')}};`,
-    'gbbg': `background: lightyellow; ::before{${leftHalf('green')}};`,
-    'ggbb': `background: lightyellow; ::before{${topHalf('green')}};`,
-    'bggb': `background: lightyellow; ::before{${rightHalf('green')}};`,
-    'bggg': `background: green; ::before{${topLeft('lightyellow')}};`,
-    'gbgg': `background: green; ::before{${topRight('lightyellow')}};`,
-    'ggbg': `background: green; ::before{${bottomRight('lightyellow')}};`,
-    'gggb': `background: green; ::before{${bottomLeft('lightyellow')}};`,
+    'gccc': `background: lightyellow; ::before{${topLeft('green')}};`,
+    'cgcc': `background: lightyellow; ::before{${topRight('green')}};`,
+    'ccgc': `background: lightyellow; ::before{${bottomRight('green')}};`,
+    'cccg': `background: lightyellow; ::before{${bottomLeft('green')}};`,
+    'ccgg': `background: lightyellow; ::before{${bottomHalf('green')}};`,
+    'gccg': `background: lightyellow; ::before{${leftHalf('green')}};`,
+    'ggcc': `background: lightyellow; ::before{${topHalf('green')}};`,
+    'cggc': `background: lightyellow; ::before{${rightHalf('green')}};`,
+    'cggg': `background: green; ::before{${topLeft('lightyellow')}};`,
+    'gcgg': `background: green; ::before{${topRight('lightyellow')}};`,
+    'ggcg': `background: green; ::before{${bottomRight('lightyellow')}};`,
+    'gggc': `background: green; ::before{${bottomLeft('lightyellow')}};`,
 
-    'bwbg': `background: lightyellow; ::before{${topRight('blue')}}; ::after{${bottomLeft('green')}};`,
-    'bgbw': `background: lightyellow; ::before{${topRight('green')}}; ::after{${bottomLeft('blue')}};`,
+    'cwcg': `background: lightyellow; ::before{${topRight('blue')}}; ::after{${bottomLeft('green')}};`,
+    'cgcw': `background: lightyellow; ::before{${topRight('green')}}; ::after{${bottomLeft('blue')}};`,
 
-    'gbwb': `background: lightyellow; ::before{${topLeft('green')}}; ::after{${bottomRight('blue')}};`,
-    'wbgb': `background: lightyellow; ::before{${topLeft('blue')}}; ::after{${bottomRight('green')}};`,
+    'gcwc': `background: lightyellow; ::before{${topLeft('green')}}; ::after{${bottomRight('blue')}};`,
+    'wcgc': `background: lightyellow; ::before{${topLeft('blue')}}; ::after{${bottomRight('green')}};`,
 
     'gggg': `background: darkgreen;`,
   }[constraint];
@@ -177,8 +177,53 @@ export default {
     b: 3, // beach
     g: 3, // grass
   },
-  wfcRules: [
-    ['w','b']
-    ['b','g']
-  ],
+  wfc: {
+    // uncollapsed
+    '*': {
+      color: 'magenta',
+      canTouch: 'swcgfm',
+    },
+
+    // sea
+    s: {
+      weight: 3,
+      color: 'blue',
+      canTouch: 'sw',
+    },
+
+    // water
+    w: {
+      weight: 3,
+      color: 'blue',
+      canTouch: 'wsc',
+    },
+
+    // coast
+    c: {
+      weight: 3,
+      color: 'darkyellow',
+      canTouch: 'cwg',
+    },
+
+    // grass
+    g: {
+      weight: 3,
+      color: 'green',
+      canTouch: 'gcfm',
+    },
+
+    // forest
+    f: {
+      weight: 3,
+      color: 'darkgreen',
+      canTouch: 'fg',
+    },
+
+    // mountain
+    m: {
+      weight: 3,
+      color: 'snow',
+      canTouch: 'mg',
+    },
+  }
 };

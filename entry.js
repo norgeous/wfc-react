@@ -1,10 +1,7 @@
 [
+  './src/tilesets/triangles.js',
+  './src/tilesets/walls.js',
   './src/tilesets/ascii-box-drawing.js',
-  './src/tilesets/ascii-squares.js',
-  './src/tilesets/css-triangles.js',
-  './src/tilesets/css-polygon-triangles.js',
-  './src/tilesets/css-polygon-triangles-refactor.js',
-  './src/tilesets/css-polygon-walls.js',
   './src/tilesets/terrain.js',
   './src/tilesets/index.js',
   './src/utils.js',

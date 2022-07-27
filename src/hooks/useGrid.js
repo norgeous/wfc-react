@@ -9,7 +9,6 @@ const getCell = (rawGrid, x, y) => {
   return points.join('');
 }
 
-
 const useGrid = ({ rawGrid }) => {
   const [grid, setGrid] = React.useState([[]]);
 

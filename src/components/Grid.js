@@ -2,8 +2,6 @@ import { GridContainer, Row } from './styled';
 import Cell from './Cell';
 
 const Grid = ({ grid, tileset, size, debug, collapse }) => {
-  // console.log('grid', grid);
-
   return (
     <GridContainer>
       {grid.map((row, y) => (
@@ -14,7 +12,7 @@ const Grid = ({ grid, tileset, size, debug, collapse }) => {
               tileset={tileset}
               size={size}
               debug={debug}
-              value={`${value}`}
+              value={value}
               onClick={() => collapse(x, y)}
             />
           ))}
