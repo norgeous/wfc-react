@@ -22,7 +22,7 @@ const Tile = styled.div`
   transition: all 400ms ease-in;
   clip-path: ${({ tileId }) => getShape(tileId)};
   background: ${({ solveLevel }) => ({
-    0: '#0ff2',
+    0: '#ff02',
     1: '#0ff3',
     2: '#0ff4',
     3: '#0ff5',
