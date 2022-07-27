@@ -11,7 +11,7 @@ const GridDebug = ({ tileset, rawGrid, collapseSingle }) => {
             {row.map((cell, x) => (
               <SingleCell
                 key={x}
-                color={tileset.wfc[cell]?.color}
+                color={tileset.wfc[cell]?.color || 'red'}
                 onClick={() => collapseSingle(x, y)}
               >
                 {cell || '?'}

@@ -49,7 +49,7 @@ export default {
   Tile,
   wfc: {
     '*': {
-      color: 'aqua',
+      color: '#ff02',
       canTouch: '01',
     },
     0: {
@@ -59,7 +59,7 @@ export default {
     },
     1: {
       weight: 3,
-      color: 'purple',
+      color: '#f0f2',
       canTouch: '01',
       patterns: ['1000', '1100', '1010', '1110', '1111'],
     },

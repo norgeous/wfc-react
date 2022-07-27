@@ -174,7 +174,7 @@ export default {
   wfc: {
     // uncollapsed
     '*': {
-      color: 'magenta',
+      color: '#ff02',
       canTouch: 'swcgfm',
     },
 

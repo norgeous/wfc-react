@@ -46,7 +46,7 @@ export default {
     },
     1: {
       weight: 3,
-      color: 'magenta',
+      color: '#f0f2',
       canTouch: '01',
       patterns: ['1000', '1100', '1110'],
     },
