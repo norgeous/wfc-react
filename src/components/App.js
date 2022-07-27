@@ -32,7 +32,7 @@ const App = () => {
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
 
-  const { rawGrid, collapse, reset } = useRawGrid({ tileset, width, height });
+  const { rawGrid, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
   const { grid } = useGrid({ rawGrid });
   const { domainSizes, collapseRandomHighEntropyCell } = useDomainSizes({ grid, collapse });
   
@@ -81,9 +81,7 @@ const App = () => {
                 </Space>
               </Button>
               <Button onClick={reset}>Reset</Button>
-              <pre style={{lineHeight: '12px', textAlign: 'center', overflow: 'hidden'}}>
-                {rawGrid?.map(row => row.join('')).join('\n')}
-              </pre>
+              <GridDebug tileset={tileset} rawGrid={rawGrid} collapseSingle={collapseSingle} />
               <Space>
                 Debug
                 <Switch checkedChildren="on" unCheckedChildren="off" checked={debug} onChange={setDebug} />
