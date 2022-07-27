@@ -36,7 +36,7 @@ export default {
   Tile,
   wfc: {
     '*': {
-      color: '#0ff2',
+      color: '#ff02',
       canTouch: '01',
     },
     0: {

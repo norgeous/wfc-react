@@ -170,16 +170,7 @@ const Tile = styled.div`
 export default {
   name: 'terrain',
   uncollapsed: '*',
-  tileIds,
   Tile,
-  weights: {
-    s: 3, // sea
-    w: 3, // water
-    b: 3, // beach
-    g: 3, // grass
-    f: 3, // forest
-    m: 3, // mountain
-  },
   wfc: {
     // uncollapsed
     '*': {
@@ -192,6 +183,12 @@ export default {
       weight: 3,
       color: 'blue',
       canTouch: 'sw',
+      patterns: [
+        'wwww', 'cwww', 'ccww', 'cccw',
+        'cccc', 'gccc', 'ggcc', 'gggc',
+        'gggg',
+        'cwcg',
+      ],
     },
 
     // water

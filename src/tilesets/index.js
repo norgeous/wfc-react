@@ -6,6 +6,6 @@ import terrain from './terrain';
 export default [
   triangles,
   walls,
-  asciiBoxDrawing,
+  // asciiBoxDrawing,
   terrain,
 ];

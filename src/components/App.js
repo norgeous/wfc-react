@@ -66,7 +66,7 @@ const App = () => {
           <Sider width={200}>
             <Layout style={{ padding: 20, gap: 20 }}>
               <Radio.Group value={tileset.name} onChange={event => handleChangeTileset(event.target.value)}>
-                {tilesets.map(({ name }) =><Radio key={name} value={name}>{name}</Radio>)}
+                {tilesets.map(({ name }) => <div><Radio key={name} value={name}>{name}</Radio></div>)}
               </Radio.Group>
               <Space>
                 Size
