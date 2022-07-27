@@ -43,13 +43,12 @@ export default {
       weight: 3,
       color: '#222',
       canTouch: '01',
-      // patterns: ['0111', '0011', '0001', '0000'],
     },
     1: {
       weight: 3,
       color: 'magenta',
       canTouch: '01',
-      patterns: ['1000', '1100', '1110', '1111'],
+      patterns: ['1000', '1100', '1110'],
     },
   },
 };

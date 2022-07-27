@@ -56,7 +56,6 @@ export default {
       weight: 3,
       color: '#222',
       canTouch: '01',
-      // patterns: ['0111', '0011', '0001', '0000'],
     },
     1: {
       weight: 3,
