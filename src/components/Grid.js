@@ -20,7 +20,7 @@ const Grid = ({ grid, tileset, tileIds, size, debug, collapse }) => {
         </Row>
       ))}
       <GridContainer2>
-        {[...Array(45).keys()].map(v=> <div><div style={{position: 'absolute', transform: 'translate(-50%, -50%)', pointerEvents: 'all'}}>{v}</div></div>)}
+        {[...Array(45).keys()].map(v=> <div><div style={{position: 'absolute', transform: 'translate(-50%, -50%)', pointerEvents: 'auto', width: 30, height: 30, lineHeight: '30px', textAlign:'center', background: '#0ff2', cursor: 'pointer'}}>{v}</div></div>)}
       </GridContainer2>
     </GridContainer>
   );

@@ -23,6 +23,8 @@ export const GridContainer2 = styled.div`
 
   position: absolute;
   inset: 0;
+
+  pointer-events: none;
 `;
 
 export const Row = styled.div`
