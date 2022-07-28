@@ -16,6 +16,7 @@ import useDomainSizes from '../hooks/useDomainSizes';
 import Grid from './Grid';
 import GridDebug from './GridDebug';
 import GithubCorner from './GithubCorner';
+import TileModal from './TileModal';
 
 // antd elements
 const { Header, Content, Sider } = Layout;
@@ -55,6 +56,10 @@ const App = () => {
   const handleChangeTileset = value => {
     setTileset(tilesets.find(({ name }) => name === value));
   };
+
+  console.log({tileIds});
+
+  const { Tile } = tileset;
 
   return (
     <Layout>
@@ -96,6 +101,12 @@ const App = () => {
                   onChange={setDebug}
                 />
               </Space>
+
+              <TileModal
+                tileset={tileset}
+                tileIds={tileIds}
+                Tile={Tile}
+              />
             </Layout>
           </Sider>
           <Content>

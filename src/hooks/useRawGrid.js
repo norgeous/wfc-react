@@ -63,7 +63,7 @@ const useRawGrid = ({ tileset, width, height }) => {
   const [tileIds, setTileIds] = React.useState([]);
   
   const createTileIds = () => {
-    const newTileIds = tileset.patterns.map(rotate4).flat().filter(unique).sort();
+    const newTileIds = tileset.patterns.map(rotate4).flat().filter(unique);
     setTileIds(newTileIds);
   };
 

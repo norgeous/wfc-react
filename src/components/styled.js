@@ -39,7 +39,6 @@ const config = [
 ];
 
 const shapeWhitelist = ['*','0','1'];
-
 const getShape = (constraint) => {
   const constraint2 = [...constraint].map(d => shapeWhitelist.includes(d) ? d : 1);
 
@@ -66,7 +65,7 @@ const backgrounds = {
 };
 
 
-const polygonPaths = {
+const wallPolygonPaths = {
   '0000': '50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%',
   
   '1000': '0% 0%, 5% 0%, 10% 0%, 10% 5%, 10% 10%, 5% 10%, 0% 10%, 0% 5%',
@@ -91,7 +90,7 @@ const polygonPaths = {
 };
 
 const getWallShape = (constraint) => {
-  const points = polygonPaths[constraint];
+  const points = wallPolygonPaths[constraint];
   return `polygon(${points})`;
 };
 
@@ -101,6 +100,7 @@ const getWallShape = (constraint) => {
 
 
 const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
+  console.log('getClipPath', { tilesetName, solveLevel, tileId });
   const setup = {
     triangles: getShape(tileId),
     walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
