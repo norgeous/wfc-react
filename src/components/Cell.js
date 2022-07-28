@@ -6,9 +6,10 @@ const Cell = ({ tileset, size, debug, value, onClick, ...props }) => {
   const solveLevel = 4 - [...value].filter(d => d === '*').length;
   const { Tile } = tileset;
   return (
-    <Item onClick={onClick} debug={debug} {...props}>
+    <Item onClick={onClick} debug={debug} value={value} {...props}>
       {debug && <CellDebug value={value} />}
       <Tile
+        tilesetName={tileset.name}
         tileId={value}
         size={size}
         solveLevel={solveLevel}

@@ -149,7 +149,6 @@ const Tile = styled.div`
   height: ${({ size }) => size}px;
   transition: all 400ms ease-in;
   border: 0 solid none;
-  opacity: 0.5;
   ::before,
   ::after {
     content: '';
@@ -163,8 +162,24 @@ const Tile = styled.div`
     position: absolute;
     transition: all 400ms ease-in;
   }
+  background: ${({ solveLevel }) => ({
+    0: '#ff02',
+    1: '#0ff3',
+    2: '#0ff4',
+    3: '#0ff5',
+    4: '#f0f2',
+  })[solveLevel]};
+
+  clip-path: polygon(25% 25%, 50% 25%, 75% 25%, 75% 50%, 75% 75%, 50% 75%, 25% 75%, 25% 50%);
+  ${({solveLevel}) => solveLevel === 4 && `
+    clip-path: polygon(0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);    
+  `}
+
   ${({ tileId }) => getStyle(tileId)};
-  ${({tileId}) => tileId === '****' && 'background: #ff03;'};
+
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
 export default {

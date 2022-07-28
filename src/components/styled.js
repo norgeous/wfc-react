@@ -25,6 +25,104 @@ export const Item = styled.div`
   ${({ debug }) => debug && `box-shadow: inset 0 0 1px #0ff2;`}
 `;
 
+
+const config = [
+  { '*': '25% 25%', 0: '50% 50%', 1: '0% 0%' },
+  { '**': '50% 20%', '11': '50% 0%', '10':'25% 25%', '01': '75% 25%', '00': '50% 50%' },
+  { '*': '75% 25%', 0: '50% 50%', 1: '100% 0%' },
+  { '**': '80% 50%', '11': '100% 50%', '10': '75% 25%', '01': '75% 75%', '00': '50% 50%' },
+  { '*': '75% 75%', 0: '50% 50%', 1: '100% 100%' },
+  { '**': '50% 80%', '11': '50% 100%', '10': '75% 75%', '01': '25% 75%', '00': '50% 50%' },
+  { '*': '25% 75%', 0: '50% 50%', 1: '0% 100%' },
+  { '**': '20% 50%', '11': '0% 50%', '10': '25% 75%', '01': '25% 25%', '00': '50% 50%' },
+];
+
+const getShape = (constraint) => {
+  const points = [
+    config[0][constraint[0]],
+    config[1][`${constraint[0]}${constraint[1]}`] || config[1]['**'],
+    config[2][constraint[1]],
+    config[3][`${constraint[1]}${constraint[2]}`] || config[3]['**'],
+    config[4][constraint[2]],
+    config[5][`${constraint[2]}${constraint[3]}`] || config[5]['**'],
+    config[6][constraint[3]],
+    config[7][`${constraint[3]}${constraint[0]}`] || config[7]['**'],
+  ];
+
+  return `polygon(${points.join()})`;
+};
+
+const backgrounds = {
+  0: '#ff02',
+  1: '#0ff3',
+  2: '#0ff4',
+  3: '#0ff5',
+  4: '#f0f2',
+};
+
+
+const polygonPaths = {
+  '0000': '50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%',
+  
+  '1000': '0% 0%, 5% 0%, 10% 0%, 10% 5%, 10% 10%, 5% 10%, 0% 10%, 0% 5%',
+  '0100': '90% 0%, 95% 0, 100% 0%, 100% 5%, 100% 10%, 95% 10%, 90% 10%, 90% 5%',
+  '0010': '90% 90%, 95% 90%, 100% 90%, 100% 95%, 100% 100%, 95% 100%, 90% 100%, 90% 95%',
+  '0001': '0% 90%, 5% 90%, 10% 90%, 10% 95%, 10% 100%, 5% 100%, 0% 100%, 0% 95%',
+  
+  '1100': '0% 0%, 50% 0%, 100% 0, 100% 5%, 100% 10%, 50% 10%, 0% 10%, 0% 5%',
+  '0110': '90% 0%, 95% 0%, 100% 0%, 100% 50%, 100% 100%, 95% 100%, 90% 100%, 90% 50%',
+  '0011': '0% 90%, 50% 90%, 100% 90%, 100% 95%, 100% 100%, 50% 100%, 0% 100%, 0% 95%',
+  '1001': '0% 0%, 5% 0%, 10% 0%, 10% 50%, 10% 100%, 5% 100%, 0% 100%, 0% 50%',
+  
+  '1110': '0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 90% 100%, 90% 10%, 0% 10%',
+  '0111': '90% 90%, 90% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 90%',
+  '1011': '0% 0%, 10% 0%, 10% 90%, 100% 90%, 100% 100%, 50% 100%, 0% 100%, 0% 50%',
+  '1101': '0% 0%, 50% 0%, 100% 0%, 100% 10%, 10% 10%, 10% 100%, 0% 100%, 0% 50%',
+
+  '1010': '0% 0%, 10% 0%, 55% 45%, 100% 90%, 100% 100%, 90% 100%, 45% 55%, 0% 10%',
+  '0101': '45% 45%, 90% 0%, 100% 0%, 100% 10%, 55% 55%, 10% 100%, 0% 100%, 0% 90%',
+  
+  '1111': '0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%',
+};
+
+const getWallShape = (constraint) => {
+  const points = polygonPaths[constraint];
+  return `polygon(${points})`;
+};
+
+
+
+
+
+
+const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
+  const setup = {
+    triangles: getShape(tileId),
+    walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
+  };
+  
+  return setup[tilesetName];
+};
+
+export const TileBase = styled.div`
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
+  transition: all 400ms ease-in;
+  background: ${({ solveLevel }) => backgrounds[solveLevel]};
+  clip-path: ${getClipPath};
+`;
+
+
+
+
+
+
+
+
+
+
+
+
 export const Status = styled.div`
   position: absolute;
   font-size: 10px;
@@ -49,6 +147,7 @@ export const Top = styled.div`
   color: #f0f4;
   top: 0;
   left: 0;
+  z-index: 1;
 `;
 
 export const Right = styled.div`
@@ -57,6 +156,7 @@ export const Right = styled.div`
   color: #f0f4;
   top: 0;
   right: 0;
+  z-index: 1;
 `;
 
 export const Bottom = styled.div`
@@ -65,6 +165,7 @@ export const Bottom = styled.div`
   color: #f0f4;
   bottom: 0;
   right: 0;
+  z-index: 1;
 `;
 
 export const Left = styled.div`
@@ -73,6 +174,7 @@ export const Left = styled.div`
   color: #f0f4;
   bottom: 0;
   left: 0;
+  z-index: 1;
 `;
 
 export const SingleCell = styled.span`
