@@ -38,7 +38,8 @@ const updateCell = (rawGrid, x, y, tile) => {
 const unique = (value, index, self) => self.indexOf(value) === index;
 
 const arrayRotate = (arr) => {
-  arr.push(arr.shift());
+  // arr.push(arr.shift());
+  arr.unshift(arr.pop())
   return arr;
 }
 

@@ -1,5 +1,6 @@
 import {
   Layout,
+  Menu,
   Space,
   Radio,
   InputNumber,
@@ -18,10 +19,15 @@ import GridDebug from './GridDebug';
 import GithubCorner from './GithubCorner';
 import TileModal from './TileModal';
 
-// antd elements
 const { Header, Content, Sider } = Layout;
 
+const routes = {
+  generator: 'GENERATOR',
+  tileEditor: 'EDITOR',
+};
+
 const App = () => {
+  const [route, setRoute] = React.useState(routes.generator);
   const [tileset, setTileset] = React.useState(tilesets[0]);
   const [size, setSize] = React.useState(100);
   const [debug, setDebug] = React.useState(false);
@@ -57,14 +63,27 @@ const App = () => {
     setTileset(tilesets.find(({ name }) => name === value));
   };
 
-  console.log({tileIds});
 
   const { Tile } = tileset;
 
+  const mainMenuItems = Object.entries(routes).map(([key, value]) => ({
+    key: value,
+    label: key,
+  }));
+
   return (
     <Layout>
-      <Header className="header">
-        <h1>🌊 norgeous/wfc-react</h1>
+      <Header className="header" style={{ padding: '0 20px' }}>
+        <div style={{ float: 'left', paddingRight: '20px' }}>
+          <h1>🌊 norgeous/wfc-react</h1>
+        </div>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          items={mainMenuItems}
+          selectedKeys={[route]}
+          onSelect={({ key }) => setRoute(key)}
+        />
       </Header>
       <Content>  
         <Layout>
@@ -101,23 +120,28 @@ const App = () => {
                   onChange={setDebug}
                 />
               </Space>
+            </Layout>
+          </Sider>
+          <Content>
+            {route === routes.generator && (
+              <Grid
+                grid={grid}
+                tileset={tileset}
+                tileIds={tileIds}
+                size={size}
+                debug={debug}
+                collapse={collapse}
+              />
+            )}
 
+            {route === routes.tileEditor && (
               <TileModal
                 tileset={tileset}
                 tileIds={tileIds}
                 Tile={Tile}
               />
-            </Layout>
-          </Sider>
-          <Content>
-            <Grid
-              grid={grid}
-              tileset={tileset}
-              tileIds={tileIds}
-              size={size}
-              debug={debug}
-              collapse={collapse}
-            />
+            )}
+
             <GithubCorner />
           </Content>
         </Layout>

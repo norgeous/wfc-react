@@ -1,13 +1,28 @@
 // import styled from 'styled-components';
 import { topLeft, topRight, bottomRight, bottomLeft, topHalf, rightHalf, bottomHalf, leftHalf } from '../style-mixins';
 
-export const GridContainer = styled.pre`
+export const GridContainer = styled.div`
   margin: 0;
   height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  position: relative;
+`;
+
+export const GridContainer2 = styled.div`
+  display: grid;
+  gap: 100px;
+  grid-template-columns: repeat(5, 0);
+  grid-template-rows: repeat(9, 0);
+
+  justify-content: center;
+  align-content: center;
+
+  position: absolute;
+  inset: 0;
 `;
 
 export const Row = styled.div`
@@ -100,7 +115,6 @@ const getWallShape = (constraint) => {
 
 
 const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
-  console.log('getClipPath', { tilesetName, solveLevel, tileId });
   const setup = {
     triangles: getShape(tileId),
     walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
