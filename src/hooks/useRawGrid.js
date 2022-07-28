@@ -1,8 +1,3 @@
-// import GridData from '../classes/GridData';
-// const gridInstance1 = new GridData({
-//   unCollapsed: '*',
-//   outOfBounds: '*',
-// });
 import { randomFrom } from '../utils';
 
 const tileMatcher = constraint => tileId => [
@@ -66,12 +61,9 @@ const rotate4 = (arr) => {
 const useRawGrid = ({ tileset, width, height }) => {
   const [rawGrid, setRawGrid] = React.useState([[]]);
   const [tileIds, setTileIds] = React.useState([]);
-
+  
   const createTileIds = () => {
-    const newTileIds = Object.entries(tileset.wfc).reduce((acc, [key, tileConfig]) => [
-      ...acc,
-      ...(tileConfig.patterns ? tileConfig.patterns.map(rotate4) : []),
-    ], []).flat().filter(unique).sort();
+    const newTileIds = tileset.patterns.map(rotate4).flat().filter(unique).sort();
     setTileIds(newTileIds);
   };
 
@@ -125,6 +117,7 @@ const useRawGrid = ({ tileset, width, height }) => {
 
   return {
     rawGrid,
+    tileIds,
     collapseSingle,
     collapse,
     reset: createRawGrid,

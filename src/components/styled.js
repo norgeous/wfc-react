@@ -38,16 +38,20 @@ const config = [
   { '**': '20% 50%', '11': '0% 50%', '10': '25% 75%', '01': '25% 25%', '00': '50% 50%' },
 ];
 
+const shapeWhitelist = ['*','0','1'];
+
 const getShape = (constraint) => {
+  const constraint2 = [...constraint].map(d => shapeWhitelist.includes(d) ? d : 1);
+
   const points = [
-    config[0][constraint[0]],
-    config[1][`${constraint[0]}${constraint[1]}`] || config[1]['**'],
-    config[2][constraint[1]],
-    config[3][`${constraint[1]}${constraint[2]}`] || config[3]['**'],
-    config[4][constraint[2]],
-    config[5][`${constraint[2]}${constraint[3]}`] || config[5]['**'],
-    config[6][constraint[3]],
-    config[7][`${constraint[3]}${constraint[0]}`] || config[7]['**'],
+    config[0][constraint2[0]],
+    config[1][`${constraint2[0]}${constraint2[1]}`] || config[1]['**'],
+    config[2][constraint2[1]],
+    config[3][`${constraint2[1]}${constraint2[2]}`] || config[3]['**'],
+    config[4][constraint2[2]],
+    config[5][`${constraint2[2]}${constraint2[3]}`] || config[5]['**'],
+    config[6][constraint2[3]],
+    config[7][`${constraint2[3]}${constraint2[0]}`] || config[7]['**'],
   ];
 
   return `polygon(${points.join()})`;
@@ -100,7 +104,7 @@ const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
   const setup = {
     triangles: getShape(tileId),
     walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
-    terrain: solveLevel === 4 ? getShape('1111') : getShape([...tileId].map(d => d === '*' ? d : 1))
+    terrain: getShape([...tileId].map(d => d === '*' ? d : 1)),
   };
   
   return setup[tilesetName];
@@ -110,8 +114,12 @@ export const TileBase = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transition: all 400ms ease-in;
-  background: ${({ solveLevel }) => backgrounds[solveLevel]};
+  background: ${({ valid, solveLevel }) => {
+    if (!valid) return '#f002'; 
+    return backgrounds[solveLevel];
+  }};
   clip-path: ${getClipPath};
+
 `;
 
 

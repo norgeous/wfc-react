@@ -9,7 +9,7 @@
   './src/tilesets/index.js',
 
   './src/utils.js',
-  './src/classes/GridData.js',
+  // './src/classes/GridData.js',
   './src/hooks/useResize.js',
   './src/hooks/useRawGrid.js',
   './src/hooks/useGrid.js',

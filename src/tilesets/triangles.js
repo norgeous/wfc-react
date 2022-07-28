@@ -4,6 +4,7 @@ export default {
   name: 'triangles',
   uncollapsed: '*',
   Tile: TileBase,
+  patterns: ['1000', '1100', '1110'],
   wfc: {
     '*': {
       color: '#ff02',
@@ -18,7 +19,6 @@ export default {
       weight: 3,
       color: '#f0f2',
       canTouch: '01',
-      patterns: ['1000', '1100', '1110'],
     },
   },
 };

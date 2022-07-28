@@ -33,7 +33,7 @@ const App = () => {
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
 
-  const { rawGrid, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
+  const { rawGrid, tileIds, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
   const { grid } = useGrid({ rawGrid });
   const { domainSizes, collapseRandomHighEntropyCell } = useDomainSizes({ grid, collapse });
   
@@ -102,6 +102,7 @@ const App = () => {
             <Grid
               grid={grid}
               tileset={tileset}
+              tileIds={tileIds}
               size={size}
               debug={debug}
               collapse={collapse}

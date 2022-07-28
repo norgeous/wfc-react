@@ -1,7 +1,7 @@
 import { GridContainer, Row } from './styled';
 import Cell from './Cell';
 
-const Grid = ({ grid, tileset, size, debug, collapse }) => {
+const Grid = ({ grid, tileset, tileIds, size, debug, collapse }) => {
   return (
     <GridContainer>
       {grid.map((row, y) => (
@@ -10,6 +10,7 @@ const Grid = ({ grid, tileset, size, debug, collapse }) => {
             <Cell
               key={x}
               tileset={tileset}
+              tileIds={tileIds}
               size={size}
               debug={debug}
               value={value}
