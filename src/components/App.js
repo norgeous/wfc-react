@@ -16,7 +16,6 @@ import useGrid from '../hooks/useGrid';
 import useDomainSizes from '../hooks/useDomainSizes';
 import Grid from './Grid';
 import GridDebug from './GridDebug';
-import GithubCorner from './GithubCorner';
 import TileModal from './TileModal';
 
 const { Header, Content, Sider } = Layout;
@@ -74,9 +73,11 @@ const App = () => {
   return (
     <Layout>
       <Header className="header" style={{ padding: '0 20px' }}>
-        <div style={{ float: 'left', paddingRight: '20px' }}>
-          <h1>🌊 norgeous/wfc-react</h1>
-        </div>
+        <a href="https://github.com/norgeous/wfc-react" style={{ float: 'left', paddingRight: '20px' }}>
+          <h1>
+            🌊 norgeous/wfc-react
+          </h1>
+        </a>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -141,8 +142,6 @@ const App = () => {
                 Tile={Tile}
               />
             )}
-
-            <GithubCorner />
           </Content>
         </Layout>
       </Content>
