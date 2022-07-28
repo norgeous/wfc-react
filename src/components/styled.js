@@ -1,4 +1,5 @@
 // import styled from 'styled-components';
+import { topLeft, topRight, bottomRight, bottomLeft, topHalf, rightHalf, bottomHalf, leftHalf } from '../style-mixins';
 
 export const GridContainer = styled.pre`
   margin: 0;
@@ -99,6 +100,7 @@ const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
   const setup = {
     triangles: getShape(tileId),
     walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
+    terrain: solveLevel === 4 ? getShape('1111') : getShape([...tileId].map(d => d === '*' ? d : 1))
   };
   
   return setup[tilesetName];
@@ -114,6 +116,64 @@ export const TileBase = styled.div`
 
 
 
+
+
+
+
+export const TerrainTile = styled(TileBase)`
+  ::before,
+  ::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 0%;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    position: absolute;
+    transition: all 400ms ease-in;
+  }
+  ${({tileId}) => ({
+    'wwww': `background: darkblue;`,
+
+    'cwww': `background: blue; ::before{${topLeft('lightyellow')}};`,
+    'wcww': `background: blue; ::before{${topRight('lightyellow')}};`,
+    'wwcw': `background: blue; ::before{${bottomRight('lightyellow')}};`,
+    'wwwc': `background: blue; ::before{${bottomLeft('lightyellow')}};`,
+    'wwcc': `background: blue; ::before{${bottomHalf('lightyellow')}};`,
+    'cwwc': `background: blue; ::before{${leftHalf('lightyellow')}};`,
+    'ccww': `background: blue; ::before{${topHalf('lightyellow')}};`,
+    'wccw': `background: blue; ::before{${rightHalf('lightyellow')}};`,
+    'wccc': `background: lightyellow; ::before{${topLeft('blue')}};`,
+    'cwcc': `background: lightyellow; ::before{${topRight('blue')}};`,
+    'ccwc': `background: lightyellow; ::before{${bottomRight('blue')}};`,
+    'cccw': `background: lightyellow; ::before{${bottomLeft('blue')}};`,
+
+    'cccc': `background: yellow;`,
+
+    'gccc': `background: lightyellow; ::before{${topLeft('green')}};`,
+    'cgcc': `background: lightyellow; ::before{${topRight('green')}};`,
+    'ccgc': `background: lightyellow; ::before{${bottomRight('green')}};`,
+    'cccg': `background: lightyellow; ::before{${bottomLeft('green')}};`,
+    'ccgg': `background: lightyellow; ::before{${bottomHalf('green')}};`,
+    'gccg': `background: lightyellow; ::before{${leftHalf('green')}};`,
+    'ggcc': `background: lightyellow; ::before{${topHalf('green')}};`,
+    'cggc': `background: lightyellow; ::before{${rightHalf('green')}};`,
+    'cggg': `background: green; ::before{${topLeft('lightyellow')}};`,
+    'gcgg': `background: green; ::before{${topRight('lightyellow')}};`,
+    'ggcg': `background: green; ::before{${bottomRight('lightyellow')}};`,
+    'gggc': `background: green; ::before{${bottomLeft('lightyellow')}};`,
+
+    'cwcg': `background: lightyellow; ::before{${topRight('blue')}}; ::after{${bottomLeft('green')}};`,
+    'cgcw': `background: lightyellow; ::before{${topRight('green')}}; ::after{${bottomLeft('blue')}};`,
+
+    'gcwc': `background: lightyellow; ::before{${topLeft('green')}}; ::after{${bottomRight('blue')}};`,
+    'wcgc': `background: lightyellow; ::before{${topLeft('blue')}}; ::after{${bottomRight('green')}};`,
+
+    'gggg': `background: darkgreen;`,
+  })[tileId]}
+`;
 
 
 

@@ -1,5 +1,13 @@
 [
+  './src/style-mixins.js',
   './src/components/styled.js',
+  
+  './src/tilesets/triangles.js',
+  './src/tilesets/walls.js',
+  './src/tilesets/terrain.js',
+  // './src/tilesets/ascii-box-drawing.js',
+  './src/tilesets/index.js',
+
   './src/utils.js',
   './src/classes/GridData.js',
   './src/hooks/useResize.js',
@@ -11,11 +19,6 @@
   './src/components/Grid.js',
   './src/components/GridDebug.js',
   './src/components/GithubCorner.js',
-  './src/tilesets/triangles.js',
-  './src/tilesets/walls.js',
-  // './src/tilesets/ascii-box-drawing.js',
-  // './src/tilesets/terrain.js',
-  './src/tilesets/index.js',
   './src/components/App.js',
   './src/index.js',
 ].forEach(url => {
