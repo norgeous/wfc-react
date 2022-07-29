@@ -14,21 +14,31 @@ import useResize from '../hooks/useResize';
 import useRawGrid from '../hooks/useRawGrid';
 import useGrid from '../hooks/useGrid';
 import useDomainSizes from '../hooks/useDomainSizes';
+import useWFCGrid from '../hooks/useWFCGrid';
+import useWFCCollapser from '../hooks/useWFCCollapser';
 import Grid from './Grid';
+import Grid2 from './Grid2';
 import GridDebug from './GridDebug';
 import TileModal from './TileModal';
 
 const { Header, Content, Sider } = Layout;
 
 const routes = {
-  generator: 'GENERATOR',
+  solve: 'SOLVE',
+  constraints: 'CONSTRAINTS',
+  generatorOld: 'GENERATOR_OLD',
   tileEditor: 'EDITOR',
 };
 
+const mainMenuItems = Object.entries(routes).map(([key, value]) => ({
+  key: value,
+  label: key,
+}));
+
 const App = () => {
-  const [route, setRoute] = React.useState(routes.generator);
+  const [route, setRoute] = React.useState(routes.solve);
   const [tileset, setTileset] = React.useState(tilesets[0]);
-  const [size, setSize] = React.useState(100);
+  const [size, setSize] = React.useState(220);
   const [debug, setDebug] = React.useState(false);
 
   const [continual, setContinual] = React.useState(false);
@@ -39,35 +49,45 @@ const App = () => {
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
 
-  const { rawGrid, tileIds, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
-  const { grid } = useGrid({ rawGrid });
-  const { domainSizes, collapseRandomHighEntropyCell } = useDomainSizes({ grid, collapse });
-  
-  React.useEffect(() => {
-    if (continual) {
-      const t = setInterval(() => {
-        collapseRandomHighEntropyCell();
-      }, 100);
-      return () => clearInterval(t);
-    }
-  }, [continual, collapseRandomHighEntropyCell]);
+  // const { rawGrid, tileIds, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
+  // const { grid } = useGrid({ rawGrid });
+  // const { domainSizes, collapseRandomHighEntropyCell } = useDomainSizes({ grid, collapse });
 
-  React.useEffect(() => {
-    if (domainSizes.length === 0) {
-      setContinual(false);
-    }
-  }, [domainSizes]);
+  const {
+    grid,
+    // getCellByXY,
+    getCellNeighboursByXY,
+    updateCellByXY,
+  } = useWFCGrid({ w: width+1, h: height+1 });
+
+  const { collapseSingle } = useWFCCollapser({
+    tileset,
+    getCellNeighboursByXY,
+    updateCellByXY,
+  });
+
+
+  
+  // React.useEffect(() => {
+  //   if (continual) {
+  //     const t = setInterval(() => {
+  //       collapseRandomHighEntropyCell();
+  //     }, 100);
+  //     return () => clearInterval(t);
+  //   }
+  // }, [continual, collapseRandomHighEntropyCell]);
+
+  // React.useEffect(() => {
+  //   if (domainSizes.length === 0) {
+  //     setContinual(false);
+  //   }
+  // }, [domainSizes]);
 
   const handleChangeTileset = value => {
     setTileset(tilesets.find(({ name }) => name === value));
   };
 
   const { Tile } = tileset;
-
-  const mainMenuItems = Object.entries(routes).map(([key, value]) => ({
-    key: value,
-    label: key,
-  }));
 
   return (
     <Layout>
@@ -94,23 +114,24 @@ const App = () => {
               </Radio.Group>
               <Space>
                 Size
-                <InputNumber value={size} onChange={setSize} step={10} />
+                <InputNumber value={size} onChange={setSize} step={10} /> px
               </Space>
-              <Button onClick={collapseRandomHighEntropyCell}>
+              {`${width}×${height}`}
+              {/* <Button onClick={collapseRandomHighEntropyCell}>
                 Collapse next
-              </Button>
+              </Button> */}
               <Button onClick={toggleContinual} >
                 <Space>
                   Collapse all 
                   {continual && <Spin size="small" />}
                 </Space>
               </Button>
-              <Button onClick={reset}>Reset</Button>
-              <GridDebug
+              {/* <Button onClick={reset}>Reset</Button> */}
+              {/* <GridDebug
                 tileset={tileset}
                 rawGrid={rawGrid}
                 collapseSingle={collapseSingle}
-              />
+              /> */}
               <Space>
                 Debug
                 <Switch
@@ -123,7 +144,20 @@ const App = () => {
             </Layout>
           </Sider>
           <Content>
-            {route === routes.generator && (
+            {route === routes.solve && (
+              <Grid2
+                grid={grid}
+                width={width}
+                height={height}
+                tileset={tileset}
+                // tileIds={tileIds}
+                size={size}
+                debug={debug}
+                // collapse={collapse}
+              />
+            )}
+
+            {/* {route === routes.generatorOld && (
               <Grid
                 grid={grid}
                 tileset={tileset}
@@ -132,7 +166,7 @@ const App = () => {
                 debug={debug}
                 collapse={collapse}
               />
-            )}
+            )} */}
 
             {route === routes.tileEditor && (
               <TileModal

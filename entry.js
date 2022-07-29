@@ -10,14 +10,17 @@
 
   './src/utils.js',
   './src/hooks/useResize.js',
+  
   './src/hooks/useWFCGrid.js',
   './src/hooks/useWFCCollapser.js',
+
   './src/hooks/useRawGrid.js',
   './src/hooks/useGrid.js',
   './src/hooks/useDomainSizes.js',
   './src/components/CellDebug.js',
   './src/components/Cell.js',
   './src/components/Grid.js',
+  './src/components/Grid2.js',
   './src/components/GridDebug.js',
   './src/components/TileModal.js',
   './src/components/App.js',

@@ -2,24 +2,31 @@
 import { topLeft, topRight, bottomRight, bottomLeft, topHalf, rightHalf, bottomHalf, leftHalf } from '../style-mixins';
 
 export const GridContainer = styled.div`
-  margin: 0;
   height: calc(100vh - 64px);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  /* grid-template-columns: repeat(${({width}) => width}, ${({ size }) => `${size}`}px);
+  grid-template-rows: repeat(${({height}) => height}, ${({ size }) => `${size}`}px); */
+  /* grid-template-rows: repeat(${({height}) => height}, ${({ size }) => `${size}`}px); */
   justify-content: center;
-  align-items: center;
+  align-content: center;
+
+  grid-template-columns: ${({width, size}) => `repeat(${width}, ${size}px)`};
+  grid-template-rows: ${({height, size}) => `repeat(${height}, ${size}px)`};
+
+  place-content: center;
 
   position: relative;
 `;
 
 export const GridContainer2 = styled.div`
   display: grid;
-  gap: 100px;
-  grid-template-columns: repeat(5, 0);
-  grid-template-rows: repeat(9, 0);
+  gap: ${({size}) => size}px;
+  grid-template-columns: repeat(${({width}) => width + 1}, 0);
+  grid-template-rows: repeat(${({height}) => height + 1}, 0);
 
   justify-content: center;
   align-content: center;
+  place-content: center;
 
   position: absolute;
   inset: 0;
@@ -31,7 +38,10 @@ export const Row = styled.div`
   display: flex;
 `;
 
-export const Item = styled.div`
+export const Item = styled.button`
+  border: none;
+  padding: 0;
+  background: transparent;
   font-size: 146px;
   line-height: normal;
   font-family: monospace;
@@ -269,7 +279,8 @@ export const SingleCell = styled.span`
   }
 `;
 
-export const Point = styled.div`
+export const Point = styled.button`
+  border: none;
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: auto;

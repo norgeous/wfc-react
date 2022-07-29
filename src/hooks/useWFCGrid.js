@@ -9,7 +9,7 @@ const useWFCGrid = ({ w, h }) => {
 
       const newGrid = [];
       for (let y = 0; y < h; y++) {
-        for (let x = 0; x < h; x++) {
+        for (let x = 0; x < w; x++) {
           const oldCell = trimmedOldGrid.find(byXY(x, y));
           const newCell = oldCell ? oldCell : { x, y, v: '*' };
           newGrid.push(newCell);
@@ -34,7 +34,7 @@ const useWFCGrid = ({ w, h }) => {
     setGrid(oldGrid => [
       ...oldGrid.filter(cell => !byXY(x, y)(cell)),
       { x, y, v },
-    ]);
+    ].sort((a, b) => a.x - b.x).sort((a, b) => a.y - b.y));
   };
 
   console.log(grid);
