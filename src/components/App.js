@@ -62,7 +62,6 @@ const App = () => {
     setTileset(tilesets.find(({ name }) => name === value));
   };
 
-
   const { Tile } = tileset;
 
   const mainMenuItems = Object.entries(routes).map(([key, value]) => ({

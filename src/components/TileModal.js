@@ -1,10 +1,28 @@
 import { Space, Switch } from 'antd';
+import useWFCGrid from '../hooks/useWFCGrid';
+import useWFCCollapser from '../hooks/useWFCCollapser';
 
-const TileModal = ({ tileset, tileIds, Tile }) => {
+const Editor = ({ tileset, tileIds, Tile }) => {
+  const {
+    grid,
+    getCellByXY,
+    getCellNeighboursByXY,
+    updateCellByXY,
+  } = useWFCGrid({ w: 10, h: 10 });
+
+  const { collapseSingle } = useWFCCollapser({
+    tileset,
+    getCellNeighboursByXY,
+    updateCellByXY,
+  });
+
   return (
     <>
+      <button onClick={() => collapseSingle(5,5)}>collapseSingle</button>
+
       {tileIds.map(tileId => (
         <Space
+          key={tileId}
           direction="vertical"
           style={{
             border: '1px solid red',
@@ -31,4 +49,4 @@ const TileModal = ({ tileset, tileIds, Tile }) => {
   );
 };
 
-export default TileModal;
+export default Editor;

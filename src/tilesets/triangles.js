@@ -16,7 +16,7 @@ export default {
       canTouch: '01',
     },
     1: {
-      weight: 3,
+      weight: 300,
       color: '#f0f2',
       canTouch: '01',
     },

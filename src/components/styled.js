@@ -269,16 +269,20 @@ export const SingleCell = styled.span`
   }
 `;
 
-export const Corner = styled.a`
-  display: block;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  margin: 20px;
-  font-size: 30px;
-  line-height: 30px;
+export const Point = styled.div`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+  cursor: pointer;
+  border-radius:50%;
+  color: black;
+  font-size: 10px;
+  background: #0ff2;
   :hover {
-    background: #222;
+    background-color: #222;
   }
 `;
