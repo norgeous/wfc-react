@@ -32,10 +32,12 @@ const useWFCGrid = ({ w, h }) => {
 
   const updateCellByXY = ({ x, y, v }) => {
     setGrid(oldGrid => [
-      ...oldGrid.filter(!byXY(x, y)),
+      ...oldGrid.filter(cell => !byXY(x, y)(cell)),
       { x, y, v },
     ]);
   };
+
+  console.log(grid);
 
   return {
     grid,
