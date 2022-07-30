@@ -3,38 +3,28 @@ import Cell from './Cell';
 
 const Grid = ({ grid, width, height, size }) => {
 
-  console.log(grid, grid.filter(({ x, y }) => x < width && y < height));
+  // console.log(grid, grid.filter(({ x, y }) => x < width && y < height));
   return (
     <GridContainer size={size} width={width} height={height}>
-      {/* <div
-        style={{
-          display: 'grid',
-          gridTemplateRows: `repeat(${height}, ${size}px)`,
-          gridTemplateColumns: `repeat(${width}, ${size}px)`,
-          position: 'relative',
-        }}
-      > */}
         {grid
           .filter(({ x, y }) => x < width && y < height)
           .map(({ x, y, v }) => {
             const tabIndexOffset = 1;
-            // const tabIndex = tabIndexOffset + x + (y * width) + (width) + 1;
             const tabIndex = tabIndexOffset + x + ((y+1) * (width+1)) + (y*width);
             return (
-              <div
+              <button
                 key={`${x}:${y}`}
                 tabIndex={tabIndex}
-                style={{textAlign: 'center'}}
+                style={{textAlign: 'center', background: 'transparent', border: 'none'}}
               >
                 {tabIndex}
-              </div>
+              </button>
             );
           })}
 
         <GridContainer2 size={size} width={width} height={height}>
           {grid.map(({ x, y, v }) => {
             const tabIndexOffset = 1;
-            // const tabIndex = tabIndexOffset + x + (y * width) + (y * (width - 1));
             const tabIndex = tabIndexOffset + x + (width+1)*y + (y*width);
             return (
               <div key={`${x}:${y}`}>
@@ -49,7 +39,6 @@ const Grid = ({ grid, width, height, size }) => {
           })}
         </GridContainer2>
       
-      {/* </div> */}
     </GridContainer>
   );
 };
