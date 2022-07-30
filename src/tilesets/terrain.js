@@ -3,7 +3,7 @@ import { TerrainTile } from '../components/styled';
 export default {
   name: 'terrain',
   uncollapsed: '*',
-  Tile: TerrainTile,
+  TileFace: TerrainTile,
   patterns: [
     'wwww', 'cwww', 'ccww', 'cccw',
     'cccc', 'gccc', 'ggcc', 'gggc',

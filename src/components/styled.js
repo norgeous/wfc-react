@@ -50,8 +50,10 @@ export const Point = styled.button`
   text-align: center;
   border-radius: 50%;
   color: black;
+  opacity: 0;
   background: #0ff2;
   :hover {
+    opacity: 1;
     background-color: #222;
   }
 `;

@@ -5,29 +5,31 @@ import {
   Radio,
   InputNumber,
   Button,
-  Switch,
+  // Switch,
   Spin,
 } from 'antd';
 
 import tilesets from '../tilesets/index';
 import useResize from '../hooks/useResize';
-import useRawGrid from '../hooks/useRawGrid';
-import useGrid from '../hooks/useGrid';
-import useDomainSizes from '../hooks/useDomainSizes';
+// import useRawGrid from '../hooks/useRawGrid';
+// import useGrid from '../hooks/useGrid';
+// import useDomainSizes from '../hooks/useDomainSizes';
 import useWFCGrid from '../hooks/useWFCGrid';
 import useWFCCollapser from '../hooks/useWFCCollapser';
-import Grid from './Grid';
+// import Grid from './Grid';
 import Grid2 from './Grid2';
-import GridDebug from './GridDebug';
+// import GridDebug from './GridDebug';
 import TileModal from './TileModal';
+
+import { rotate4, unique } from '../utils';
 
 const { Header, Content, Sider } = Layout;
 
 const routes = {
   solve: 'SOLVE',
   constraints: 'CONSTRAINTS',
-  generatorOld: 'GENERATOR_OLD',
-  tileEditor: 'EDITOR',
+  // generatorOld: 'GENERATOR_OLD',
+  // tileEditor: 'EDITOR',
 };
 
 const mainMenuItems = Object.entries(routes).map(([key, value]) => ({
@@ -39,7 +41,7 @@ const App = () => {
   const [route, setRoute] = React.useState(routes.solve);
   const [tileset, setTileset] = React.useState(tilesets[0]);
   const [size, setSize] = React.useState(220);
-  const [debug, setDebug] = React.useState(false);
+  // const [debug, setDebug] = React.useState(false);
 
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
@@ -48,6 +50,8 @@ const App = () => {
 
   const width = Math.floor(vw / size);
   const height = Math.floor(vh / size);
+
+  const tileIds = tileset.patterns.map(rotate4).flat().filter(unique);
 
   // const { rawGrid, tileIds, collapseSingle, collapse, reset } = useRawGrid({ tileset, width, height });
   // const { grid } = useGrid({ rawGrid });
@@ -151,9 +155,9 @@ const App = () => {
                 width={width}
                 height={height}
                 tileset={tileset}
-                // tileIds={tileIds}
+                tileIds={tileIds}
                 size={size}
-                debug={debug}
+                // debug={debug}
                 getTileValue={getTileValue}
                 // collapse={collapse}
                 collapseSingle={collapseSingle}

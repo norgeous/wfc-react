@@ -1,7 +1,18 @@
 import { TileGrid, Tile, PointGrid, Point } from './styled';
 
-const Grid = ({ grid, width, height, size, getTileValue, tileset, collapseSingle, collapse4 }) => {
+const Grid = ({
+  grid,
+  width,
+  height,
+  size,
+  getTileValue,
+  tileset,
+  tileIds,
+  collapseSingle,
+  collapse4,
+}) => {
   const { TileFace } = tileset;
+
   return (
     <TileGrid size={size} width={width} height={height}>
         {grid
@@ -10,6 +21,8 @@ const Grid = ({ grid, width, height, size, getTileValue, tileset, collapseSingle
             const tabIndexOffset = 1;
             const tabIndex = tabIndexOffset + x + ((y+1) * (width+1)) + (y*width);
             const tileValue = getTileValue(x, y);
+            const solveLevel = 4 - [...tileValue].filter(d => d === '*').length;
+            const valid = tileValue.includes('*') || tileIds.includes(tileValue);
             return (
               <Tile
                 key={`${x}:${y}`}
@@ -19,8 +32,8 @@ const Grid = ({ grid, width, height, size, getTileValue, tileset, collapseSingle
                 <TileFace
                   tilesetName={tileset.name}
                   tileId={tileValue}
-                  solveLevel={4}
-                  valid={true}
+                  solveLevel={solveLevel}
+                  valid={valid}
                   size={size}
                 />
               </Tile>
