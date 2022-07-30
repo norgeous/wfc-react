@@ -23,9 +23,16 @@ const useWFCCollapser = ({ tileset, getCellNeighboursByXY, updateCellByXY }) => 
     updateCellByXY({ x, y, v: newValue });
   };
 
+  const collapse4 = (x, y) => {
+    collapseSingle(x, y);
+    collapseSingle(x + 1, y);
+    collapseSingle(x + 1, y + 1);
+    collapseSingle(x, y + 1);
+  };
+
   return {
     collapseSingle,
-    // collapse4,
+    collapse4,
   };
 };
 

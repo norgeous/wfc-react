@@ -24,11 +24,18 @@ const useWFCGrid = ({ w, h }) => {
   const getCellByXY = (x, y) => grid.find(byXY(x, y)) || { v: '*' };
 
   const getCellNeighboursByXY = (x, y) => [
-    getCellByXY(x, y - 1 ),
-    getCellByXY(x + 1, y ),
-    getCellByXY(x, y + 1 ),
-    getCellByXY(x - 1, y ),
+    getCellByXY(x, y - 1),
+    getCellByXY(x + 1, y),
+    getCellByXY(x, y + 1),
+    getCellByXY(x - 1, y),
   ];
+  
+  const getTileValue = (x, y) => [
+    getCellByXY(x, y),
+    getCellByXY(x + 1, y),
+    getCellByXY(x + 1, y + 1),
+    getCellByXY(x, y + 1),
+  ].map(({ v }) => v).join('');
 
   const updateCellByXY = ({ x, y, v }) => {
     setGrid(oldGrid => [
@@ -37,12 +44,13 @@ const useWFCGrid = ({ w, h }) => {
     ].sort((a, b) => a.x - b.x).sort((a, b) => a.y - b.y));
   };
 
-  console.log(grid);
+  // console.log(grid);
 
   return {
     grid,
     getCellByXY,
     getCellNeighboursByXY,
+    getTileValue,
     updateCellByXY,
   };
 };

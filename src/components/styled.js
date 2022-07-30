@@ -1,57 +1,77 @@
 // import styled from 'styled-components';
 import { topLeft, topRight, bottomRight, bottomLeft, topHalf, rightHalf, bottomHalf, leftHalf } from '../style-mixins';
 
-export const GridContainer = styled.div`
+export const TileGrid = styled.div`
   height: calc(100vh - 64px);
   display: grid;
-  /* grid-template-columns: repeat(${({width}) => width}, ${({ size }) => `${size}`}px);
-  grid-template-rows: repeat(${({height}) => height}, ${({ size }) => `${size}`}px); */
-  /* grid-template-rows: repeat(${({height}) => height}, ${({ size }) => `${size}`}px); */
-  justify-content: center;
-  align-content: center;
-
   grid-template-columns: ${({width, size}) => `repeat(${width}, ${size}px)`};
   grid-template-rows: ${({height, size}) => `repeat(${height}, ${size}px)`};
-
-  place-content: center;
-
-  position: relative;
-`;
-
-export const GridContainer2 = styled.div`
-  display: grid;
-  gap: ${({size}) => size}px;
-  grid-template-columns: repeat(${({width}) => width + 1}, 0);
-  grid-template-rows: repeat(${({height}) => height + 1}, 0);
-
   justify-content: center;
   align-content: center;
   place-content: center;
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
+  position: relative;
+  overflow: hidden;
 `;
 
-export const Row = styled.div`
-  display: flex;
-`;
-
-export const Item = styled.button`
+export const Tile = styled.button`
   border: none;
   padding: 0;
   background: transparent;
-  font-size: 146px;
-  line-height: normal;
-  font-family: monospace;
-  position: relative;
   cursor: pointer;
   :hover {
     background: #222;
   }
-  ${({ debug }) => debug && `box-shadow: inset 0 0 1px #0ff2;`}
 `;
+
+export const PointGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${({width}) => width + 1}, 0);
+  grid-template-rows: repeat(${({height}) => height + 1}, 0);
+  gap: ${({size}) => size}px;
+  justify-content: center;
+  align-content: center;
+  place-content: center;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+`;
+
+export const Point = styled.button`
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 50%;
+  color: black;
+  background: #0ff2;
+  :hover {
+    background-color: #222;
+  }
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const config = [
@@ -217,83 +237,57 @@ export const TerrainTile = styled(TileBase)`
 
 
 
-export const Status = styled.div`
-  position: absolute;
-  font-size: 10px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #0ffa;
-  text-align: center;
-`;
+// export const Status = styled.div`
+//   position: absolute;
+//   font-size: 10px;
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   color: #0ffa;
+//   text-align: center;
+// `;
 
-export const Domain = styled.div`
-  font-size: 30px;
-  color: #0ff3;
-`;
+// export const Domain = styled.div`
+//   font-size: 30px;
+//   color: #0ff3;
+// `;
 
-export const Top = styled.div`
-  position: absolute;
-  font-size: 20px;
-  color: #f0f4;
-  top: 0;
-  left: 0;
-  z-index: 1;
-`;
+// export const Top = styled.div`
+//   position: absolute;
+//   font-size: 20px;
+//   color: #f0f4;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+// `;
 
-export const Right = styled.div`
-  position: absolute;
-  font-size: 20px;
-  color: #f0f4;
-  top: 0;
-  right: 0;
-  z-index: 1;
-`;
+// export const Right = styled.div`
+//   position: absolute;
+//   font-size: 20px;
+//   color: #f0f4;
+//   top: 0;
+//   right: 0;
+//   z-index: 1;
+// `;
 
-export const Bottom = styled.div`
-  position: absolute;
-  font-size: 20px;
-  color: #f0f4;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-`;
+// export const Bottom = styled.div`
+//   position: absolute;
+//   font-size: 20px;
+//   color: #f0f4;
+//   bottom: 0;
+//   right: 0;
+//   z-index: 1;
+// `;
 
-export const Left = styled.div`
-  position: absolute;
-  font-size: 20px;
-  color: #f0f4;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-`;
+// export const Left = styled.div`
+//   position: absolute;
+//   font-size: 20px;
+//   color: #f0f4;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 1;
+// `;
 
-export const SingleCell = styled.span`
-  cursor: pointer;
-  color: ${({ color }) => color};
-  :hover {
-    background-color: #222;
-  }
-`;
-
-export const Point = styled.button`
-  border: none;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  pointer-events: auto;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align:center;
-  cursor: pointer;
-  border-radius:50%;
-  color: black;
-  font-size: 10px;
-  background: #0ff2;
-  :hover {
-    background-color: #222;
-  }
-`;

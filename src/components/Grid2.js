@@ -1,28 +1,33 @@
-import { GridContainer, GridContainer2, Row, Point } from './styled';
-import Cell from './Cell';
+import { TileGrid, Tile, PointGrid, Point } from './styled';
 
-const Grid = ({ grid, width, height, size }) => {
-
-  // console.log(grid, grid.filter(({ x, y }) => x < width && y < height));
+const Grid = ({ grid, width, height, size, getTileValue, tileset, collapseSingle, collapse4 }) => {
+  const { TileFace } = tileset;
   return (
-    <GridContainer size={size} width={width} height={height}>
+    <TileGrid size={size} width={width} height={height}>
         {grid
           .filter(({ x, y }) => x < width && y < height)
           .map(({ x, y, v }) => {
             const tabIndexOffset = 1;
             const tabIndex = tabIndexOffset + x + ((y+1) * (width+1)) + (y*width);
+            const tileValue = getTileValue(x, y);
             return (
-              <button
+              <Tile
                 key={`${x}:${y}`}
                 tabIndex={tabIndex}
-                style={{textAlign: 'center', background: 'transparent', border: 'none'}}
+                onClick={() => collapse4(x, y)}
               >
-                {tabIndex}
-              </button>
+                <TileFace
+                  tilesetName={tileset.name}
+                  tileId={tileValue}
+                  solveLevel={4}
+                  valid={true}
+                  size={size}
+                />
+              </Tile>
             );
           })}
 
-        <GridContainer2 size={size} width={width} height={height}>
+        <PointGrid size={size} width={width} height={height}>
           {grid.map(({ x, y, v }) => {
             const tabIndexOffset = 1;
             const tabIndex = tabIndexOffset + x + (width+1)*y + (y*width);
@@ -31,15 +36,16 @@ const Grid = ({ grid, width, height, size }) => {
                 <Point
                   title={`${x}:${y}`}
                   tabIndex={tabIndex}
-                  >
-                  {tabIndex}
+                  onClick={() => collapseSingle(x, y)}
+                >
+                  {v}
                 </Point>
               </div>
             );
           })}
-        </GridContainer2>
+        </PointGrid>
       
-    </GridContainer>
+    </TileGrid>
   );
 };
 

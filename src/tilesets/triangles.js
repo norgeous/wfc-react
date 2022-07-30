@@ -3,7 +3,7 @@ import { TileBase } from '../components/styled';
 export default {
   name: 'triangles',
   uncollapsed: '*',
-  Tile: TileBase,
+  TileFace: TileBase,
   patterns: ['1000', '1100', '1110'],
   wfc: {
     '*': {
@@ -11,12 +11,12 @@ export default {
       canTouch: '01',
     },
     0: {
-      weight: 3,
+      weight: 1,
       color: '#222',
       canTouch: '01',
     },
     1: {
-      weight: 300,
+      weight: 1,
       color: '#f0f2',
       canTouch: '01',
     },

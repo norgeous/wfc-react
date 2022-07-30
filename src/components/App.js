@@ -57,10 +57,11 @@ const App = () => {
     grid,
     // getCellByXY,
     getCellNeighboursByXY,
+    getTileValue,
     updateCellByXY,
   } = useWFCGrid({ w: width+1, h: height+1 });
 
-  const { collapseSingle } = useWFCCollapser({
+  const { collapseSingle, collapse4 } = useWFCCollapser({
     tileset,
     getCellNeighboursByXY,
     updateCellByXY,
@@ -132,7 +133,7 @@ const App = () => {
                 rawGrid={rawGrid}
                 collapseSingle={collapseSingle}
               /> */}
-              <Space>
+              {/* <Space>
                 Debug
                 <Switch
                   checkedChildren="on"
@@ -140,7 +141,7 @@ const App = () => {
                   checked={debug}
                   onChange={setDebug}
                 />
-              </Space>
+              </Space> */}
             </Layout>
           </Sider>
           <Content>
@@ -153,7 +154,10 @@ const App = () => {
                 // tileIds={tileIds}
                 size={size}
                 debug={debug}
+                getTileValue={getTileValue}
                 // collapse={collapse}
+                collapseSingle={collapseSingle}
+                collapse4={collapse4}
               />
             )}
 
