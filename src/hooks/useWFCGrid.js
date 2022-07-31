@@ -1,3 +1,5 @@
+import { weightedRandomFrom } from '../utils';
+
 const byXY = (x, y) => (cell) => cell.x === x && cell.y === y;
 
 const useWFCGrid = ({ w, h }) => {
@@ -44,8 +46,6 @@ const useWFCGrid = ({ w, h }) => {
       { x, y, v },
     ].sort((a, b) => a.x - b.x).sort((a, b) => a.y - b.y));
   };
-
-  // console.log(grid);
 
   return {
     grid,

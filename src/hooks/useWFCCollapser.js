@@ -3,6 +3,7 @@ import { weightedRandomFrom } from '../utils';
 const getConstraintsForValue = (tileset, v) => tileset.wfc[v].canTouch.split('');
 
 const useWFCCollapser = ({ tileset, getCellByXY, getCellNeighboursByXY, updateCellByXY }) => {
+
   const collapseSingle = (x, y) => {
     const { v } = getCellByXY(x, y);
     const neighbours = getCellNeighboursByXY(x, y);
@@ -33,9 +34,26 @@ const useWFCCollapser = ({ tileset, getCellByXY, getCellNeighboursByXY, updateCe
     collapseSingle(x, y + 1);
   };
 
+  const randomizeAll = () => {
+    setGrid(oldGrid => [
+      ...oldGrid.map(cell => {
+        const newValue = weightedRandomFrom(
+          tileset.map(({ key }) => key),
+          options.map(({ weight }) => weight),
+        );
+        return {
+          ...cell,
+          v: newValue,
+        };
+      }),
+    ]);
+
+  };
+
   return {
     collapseSingle,
     collapse4,
+    randomizeAll,
   };
 };
 
