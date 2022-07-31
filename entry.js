@@ -4,7 +4,6 @@
   './src/style-mixins.js',
   './src/components/styled.js',
 
-  
   './src/tilesets/triangles.js',
   './src/tilesets/walls.js',
   './src/tilesets/terrain.js',
@@ -21,17 +20,7 @@
   './src/hooks/useGrid.js',
   './src/hooks/useDomainSizes.js',
 
-
-
-
   './src/contexts/AppContext.js',
-  // './src/components/TilesetContext.js',
-
-
-  // './src/components/CellDebug.js',
-  // './src/components/Cell.js',
-  // './src/components/Grid2.js',
-  // './src/components/GridDebug.js',
   './src/components/ConstraintEditor.js',
   './src/components/Grid.js',
   './src/components/DebugInfo.js',
