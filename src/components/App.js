@@ -8,7 +8,7 @@ import Form from './Form';
 const { Content, Sider } = Layout;
 
 const App = () => {
-  const { routes,route } = useAppContext();
+  const { routes, route } = useAppContext();
   
   // React.useEffect(() => {
   //   if (continual) {
