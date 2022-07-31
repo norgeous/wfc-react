@@ -1,4 +1,4 @@
-import { byXY } from '../utils';
+import { byXY, randomFrom } from '../utils';
 
 const useWFCGrid = ({ w, h }) => {
   const [grid, setGrid] = React.useState([]);
@@ -60,7 +60,7 @@ const useWFCGrid = ({ w, h }) => {
     const newGrid = [];
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
-        const newCell = { x, y, v: Math.round(Math.random()) };
+        const newCell = { x, y, v: randomFrom('wc'.split('')) };
         newGrid.push(newCell);
       }
     }
