@@ -3,7 +3,7 @@ import { useAppContext } from '../contexts/AppContext';
 
 import AppHeader from './AppHeader';
 import Form from './Form';
-import Grid2 from './Grid';
+import Grid from './Grid';
 import ConstraintEditor from './ConstraintEditor';
 
 const { Content, Sider } = Layout;
@@ -20,7 +20,7 @@ const App = () => {
             <Form />
           </Sider>
           <Content>
-            {route === routes.solve && <Grid2 />}
+            {route === routes.solve && <Grid />}
             {route === routes.constraints && <ConstraintEditor />}
           </Content>
         </Layout>

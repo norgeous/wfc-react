@@ -21,6 +21,7 @@
   './src/hooks/useDomainSizes.js',
 
   './src/contexts/AppContext.js',
+  './src/components/GridDisplay.js',
   './src/components/ConstraintEditor.js',
   './src/components/Grid.js',
   './src/components/DebugInfo.js',

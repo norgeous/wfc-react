@@ -5,7 +5,6 @@ export const randomFrom = (obj = {}) => {
 };
 
 export const weightedRandomFrom = (obj = {}, weights = []) => {
-  // console.log({obj, weights});
   const keys = Object.keys(obj);
   const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
   const r = Math.random() * totalWeight;
@@ -16,10 +15,7 @@ export const weightedRandomFrom = (obj = {}, weights = []) => {
   }
 };
 
-export const unique = (value, index, self) => self.indexOf(value) === index;
-
 const arrayRotate = (arr) => {
-  // arr.push(arr.shift());
   arr.unshift(arr.pop())
   return arr;
 }
@@ -36,4 +32,5 @@ export const rotate4 = (arr) => {
  ];
 };
 
+export const unique = (value, index, self) => self.indexOf(value) === index;
 export const byXY = (x, y) => (cell) => cell.x === x && cell.y === y;

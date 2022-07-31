@@ -1,4 +1,5 @@
 import { Space, Switch } from 'antd';
+import GridDisplay from './GridDisplay';
 import { useAppContext } from '../contexts/AppContext';
 
 const ConstraintEditor = () => {
@@ -6,37 +7,47 @@ const ConstraintEditor = () => {
     tileset,
   } = useAppContext();
 
-  const { name, tiles, Tile } = tileset;
+  const { tiles } = tileset;
+
+  console.log(tiles);
 
   return (
     <>
-      {tiles.map(tileId => (
+      {tiles.map(({pattern, weight}) => (
         <Space
-          key={tileId}
+          key={pattern}
           direction="vertical"
+          gap={20}
           style={{
-            border: '1px solid red',
+            border: '1px solid #222',
             padding: 10,
+            margin: 10,
           }}
         >
-          {tileId}
-
-          <div style={{ position: 'relative' }}>
-            <Tile
-              key={tileId}
-              tilesetName={name}
-              valid={true}
-              tileId={tileId}
-              size={100}
-              solveLevel={4}
-            />
-          </div>
-
-          <Switch checked={true} />
+          <GridDisplay
+            grid={[
+              { x: 0, y: 0, v: pattern[0] },
+              { x: 1, y: 0, v: pattern[1] },
+              { x: 0, y: 1, v: pattern[3] },
+              { x: 1, y: 1, v: pattern[2] },
+            ]}
+            getTileValue={() => pattern}
+            width={1}
+            height={1}
+            size={100}
+            tileset={tileset}
+            debug={false}
+            style={{ height: 'auto', padding: 20 }}
+          />
+          <div>Pattern: {pattern}</div>
+          <div>Weight: {weight}</div>
+          {/* <Space>
+            Enabled
+            <Switch checked={true} />
+          </Space> */}
         </Space>
       ))}
 
-      <button onClick={() => collapseSingle(5,5)}>collapseSingle</button>
     </>
   );
 };
