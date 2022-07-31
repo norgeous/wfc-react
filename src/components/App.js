@@ -40,7 +40,7 @@ const mainMenuItems = Object.entries(routes).map(([key, value]) => ({
 const App = () => {
   const [route, setRoute] = React.useState(routes.solve);
   const [tileset, setTileset] = React.useState(tilesets[0]);
-  const [size, setSize] = React.useState(220);
+  const [size, setSize] = React.useState(100);
   // const [debug, setDebug] = React.useState(false);
 
   const [continual, setContinual] = React.useState(false);
