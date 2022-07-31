@@ -60,7 +60,7 @@ const useWFCGrid = ({ w, h }) => {
     const newGrid = [];
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
-        const newCell = { x, y, v: randomFrom('wc'.split('')) };
+        const newCell = { x, y, v: randomFrom('swcgfm'.split('')) };
         newGrid.push(newCell);
       }
     }

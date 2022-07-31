@@ -150,21 +150,43 @@ export const TileBase = styled.div`
     return backgrounds[solveLevel];
   }};
   clip-path: ${getClipPath};
+  background-blend-mode: darken;
 `;
 
 const tc = {
   s: 'darkblue', // deep sea
-  w: 'lightblue', // costal water
+  w: 'blue', // costal water
   c: 'yellow', // coast
   g: 'lawngreen', // grass
   f: 'darkgreen', // forest
   m: 'snow', // mountain
 };
-export const TerrainTile = styled(TileBase)`
-  background-image:
-    radial-gradient(at top left, ${({ tileId }) => tc[tileId[0]]}, transparent),
-    radial-gradient(at top right, ${({ tileId }) => tc[tileId[1]]}, transparent),
-    radial-gradient(at bottom right, ${({ tileId }) => tc[tileId[2]]}, transparent),
-    radial-gradient(at bottom left, ${({ tileId }) => tc[tileId[3]]}, transparent);
-  background-blend-mode: darken;
-`;
+// export const TerrainTile = styled(TileBase)`
+//   background-image:
+//     radial-gradient(at top left, ${({ tileId }) => tc[tileId[0]]} 33%, transparent),
+//     radial-gradient(at top right, ${({ tileId }) => tc[tileId[1]]} 33%, transparent),
+//     radial-gradient(at bottom right, ${({ tileId }) => tc[tileId[2]]} 33%, transparent),
+//     radial-gradient(at bottom left, ${({ tileId }) => tc[tileId[3]]} 33%, transparent);
+//   background-blend-mode: hue;
+// `;
+
+// export const TerrainTile = styled(TileBase)`
+//   background-image:
+//     linear-gradient(to top left, transparent, ${({ tileId }) => tc[tileId[0]]}),
+//     linear-gradient(to top right, transparent, ${({ tileId }) => tc[tileId[1]]}),
+//     linear-gradient(to bottom right, transparent, ${({ tileId }) => tc[tileId[2]]}),
+//     linear-gradient(to bottom left, transparent, ${({ tileId }) => tc[tileId[3]]});
+//   /* background-blend-mode: darken; */
+// `;
+export const TerrainTile = ({ tileId, ...props }) => {
+  return (
+    <TileBase tileId={tileId} {...props}>
+      <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style={{width: '100%', height: '100%'}}>
+        <path d="M 0 0 h 50 v 50 h -50 z" fill={tc[tileId[0]] || 'transparent'} opacity=".5"/>
+        <path d="M 50 0 h 50 v 50 h -50 z" fill={tc[tileId[1]] || 'transparent'} opacity=".5"/>
+        <path d="M 50 50 h 50 v 50 h -50 z" fill={tc[tileId[2]] || 'transparent'} opacity=".5"/>
+        <path d="M 0 50 h 50 v 50 h -50 z" fill={tc[tileId[3]] || 'transparent'} opacity=".5"/>
+      </svg>
+    </TileBase>
+  );
+};

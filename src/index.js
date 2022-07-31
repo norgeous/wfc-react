@@ -12,7 +12,8 @@ ReactDOM.createRoot(document.getElementById("root")).render((
   <AppProvider
     routes={routes}
     defaultRoute={routes.solve}
-    defaultTilesetName="triangles"
+    // defaultTilesetName="triangles"
+    defaultTilesetName="terrain"
     defaultSize={100}
   >
     <App />
