@@ -1,6 +1,4 @@
-import { weightedRandomFrom } from '../utils';
-
-const byXY = (x, y) => (cell) => cell.x === x && cell.y === y;
+import { byXY } from '../utils';
 
 const useWFCGrid = ({ w, h }) => {
   const [grid, setGrid] = React.useState([]);

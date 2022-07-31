@@ -43,7 +43,7 @@ export const AppProvider = ({
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
 
-  const [debug, setDebug] = React.useState(false);
+  const [debug, setDebug] = React.useState(true);
 
   return (
     <AppContext.Provider

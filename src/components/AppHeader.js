@@ -1,5 +1,5 @@
 import { Layout, Menu } from 'antd';
-import { useAppContext } from './AppContext';
+import { useAppContext } from '../contexts/AppContext';
 
 const { Header } = Layout;
 

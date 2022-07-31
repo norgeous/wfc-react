@@ -5,7 +5,8 @@ const unpackTileset = (newTilesetName) => {
   const newTileset = tilesets.find(({ name }) => name === newTilesetName);
   const { tiles } = newTileset;
 
-  const tilesExpanded =  tiles.reduce((acc, { pattern, rotate, weight }) => {
+  const tilesExpanded =  tiles.reduce((acc, { pattern, rotate = true, weight = 1, enabled = true }) => {
+    if (!enabled) return acc;
     const rotated = rotate ? rotate4(pattern).filter(unique) : [ pattern ];
     return [
       ...acc,

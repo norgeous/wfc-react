@@ -35,3 +35,5 @@ export const rotate4 = (arr) => {
     r3.join(''),
  ];
 };
+
+export const byXY = (x, y) => (cell) => cell.x === x && cell.y === y;

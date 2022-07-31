@@ -1,12 +1,16 @@
 import { Space, Switch } from 'antd';
+import { useAppContext } from '../contexts/AppContext';
 
-const Editor = ({ tileset, tileIds, Tile }) => {
+const ConstraintEditor = () => {
+  const {
+    tileset,
+  } = useAppContext();
 
+  const { name, tiles, Tile } = tileset;
 
   return (
     <>
-
-      {tileIds.map(tileId => (
+      {tiles.map(tileId => (
         <Space
           key={tileId}
           direction="vertical"
@@ -20,7 +24,7 @@ const Editor = ({ tileset, tileIds, Tile }) => {
           <div style={{ position: 'relative' }}>
             <Tile
               key={tileId}
-              tilesetName={tileset.name}
+              tilesetName={name}
               valid={true}
               tileId={tileId}
               size={100}
@@ -33,9 +37,8 @@ const Editor = ({ tileset, tileIds, Tile }) => {
       ))}
 
       <button onClick={() => collapseSingle(5,5)}>collapseSingle</button>
-
     </>
   );
 };
 
-export default Editor;
+export default ConstraintEditor;

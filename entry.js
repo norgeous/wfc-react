@@ -24,18 +24,19 @@
 
 
 
-  './src/components/AppContext.js',
-  './src/components/TilesetContext.js',
+  './src/contexts/AppContext.js',
+  // './src/components/TilesetContext.js',
 
 
-  './src/components/CellDebug.js',
-  './src/components/Cell.js',
+  // './src/components/CellDebug.js',
+  // './src/components/Cell.js',
+  // './src/components/Grid2.js',
+  // './src/components/GridDebug.js',
+  './src/components/ConstraintEditor.js',
   './src/components/Grid.js',
-  './src/components/Grid2.js',
-  './src/components/GridDebug.js',
-  './src/components/TileModal.js',
-  './src/components/AppHeader.js',
+  './src/components/DebugInfo.js',
   './src/components/Form.js',
+  './src/components/AppHeader.js',
   './src/components/App.js',
   './src/index.js',
 ].forEach(url => {
