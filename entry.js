@@ -1,7 +1,5 @@
 [
   './src/utils.js',
-
-  './src/style-mixins.js',
   './src/components/styled.js',
 
   './src/tilesets/triangles.js',
