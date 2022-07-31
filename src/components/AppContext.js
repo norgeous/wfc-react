@@ -23,6 +23,8 @@ export const AppProvider = ({
     getCellNeighboursByXY,
     getTileValue,
     updateCellByXY,
+    reset,
+    randomize,
   } = useWFCGrid({
     w: width + 1,
     h: height + 1,
@@ -63,6 +65,8 @@ export const AppProvider = ({
         getCellNeighboursByXY,
         getTileValue,
         updateCellByXY,
+        reset,
+        randomize,
 
         collapseSingle,
         collapse4,

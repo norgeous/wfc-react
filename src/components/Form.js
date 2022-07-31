@@ -24,6 +24,9 @@ const Form = () => {
 
     width,
     height,
+
+    reset,
+    randomize,
   } = useAppContext();
 
   const continual = false;
@@ -48,7 +51,8 @@ const Form = () => {
           {continual && <Spin size="small" />}
         </Space>
       </Button>
-      {/* <Button onClick={reset}>Reset</Button> */}
+      <Button onClick={randomize}>Randomize</Button>
+      <Button onClick={reset}>Reset</Button>
       {/* <GridDebug
         tileset={tileset}
         rawGrid={rawGrid}

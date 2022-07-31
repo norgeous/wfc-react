@@ -47,12 +47,36 @@ const useWFCGrid = ({ w, h }) => {
     ].sort((a, b) => a.x - b.x).sort((a, b) => a.y - b.y));
   };
 
+  const reset = () => {
+    const newGrid = [];
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const newCell = { x, y, v: '*' };
+        newGrid.push(newCell);
+      }
+    }
+    setGrid(newGrid);
+  };
+
+  const randomize = () => {
+    const newGrid = [];
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const newCell = { x, y, v: Math.round(Math.random()) };
+        newGrid.push(newCell);
+      }
+    }
+    setGrid(newGrid);
+  };
+
   return {
     grid,
     getCellByXY,
     getCellNeighboursByXY,
     getTileValue,
     updateCellByXY,
+    reset,
+    randomize,
   };
 };
 
