@@ -1,9 +1,12 @@
 import useTileset from '../hooks/useTileset';
 import useResize from '../hooks/useResize';
+import useWFCGrid from '../hooks/useWFCGrid';
+import useWFCCollapser from '../hooks/useWFCCollapser';
 
 const AppContext = React.createContext({});
 
 export const AppProvider = ({
+  routes,
   defaultRoute,
   defaultTilesetName,
   defaultSize,
@@ -14,30 +17,35 @@ export const AppProvider = ({
   const [size, setSize] = React.useState(defaultSize);
   const { width, height } = useResize(size);
 
-  console.log({size, width, height});
+  const {
+    grid,
+    getCellByXY,
+    getCellNeighboursByXY,
+    getTileValue,
+    updateCellByXY,
+  } = useWFCGrid({
+    w: width + 1,
+    h: height + 1,
+  });
 
-  // const {
-  //   grid,
-  //   getCellByXY,
-  //   getCellNeighboursByXY,
-  //   getTileValue,
-  //   updateCellByXY,
-  // } = useWFCGrid({
-  //   w: width + 1,
-  //   h: height + 1,
-  // });
+  const {
+    collapseSingle,
+    collapse4,
+  } = useWFCCollapser({
+    tileset,
+    getCellByXY,
+    getCellNeighboursByXY,
+    updateCellByXY,
+  });
 
-  // const { collapseSingle, collapse4 } = useWFCCollapser({
-  //   tileset,
-  //   getCellByXY,
-  //   getCellNeighboursByXY,
-  //   updateCellByXY,
-  // });
+  const [continual, setContinual] = React.useState(false);
+  const toggleContinual = () => setContinual(old => !old);
 
   return (
     <AppContext.Provider
       value={{
         route,
+        routes,
         setRoute,
 
         tileset,
@@ -50,14 +58,17 @@ export const AppProvider = ({
         width,
         height,
 
-        // grid,
-        // getCellByXY,
-        // getCellNeighboursByXY,
-        // getTileValue,
-        // updateCellByXY,
+        grid,
+        getCellByXY,
+        getCellNeighboursByXY,
+        getTileValue,
+        updateCellByXY,
 
-        // collapseSingle,
-        // collapse4,
+        collapseSingle,
+        collapse4,
+
+        continual,
+        toggleContinual,
       }}
     >
       {children}

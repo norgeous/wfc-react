@@ -1,16 +1,19 @@
 import { TileGrid, Tile, PointGrid, Point } from './styled';
+import { useAppContext } from './AppContext';
 
-const Grid = ({
-  grid,
-  width,
-  height,
-  size,
-  getTileValue,
-  tileset,
-  tileIds,
-  collapseSingle,
-  collapse4,
-}) => {
+const Grid = () => {
+  const {
+    grid,
+    width,
+    height,
+    size,
+    getTileValue,
+    tileset,
+    tileIds,
+    collapseSingle,
+    collapse4,
+  } = useAppContext();
+
   const { TileFace } = tileset;
 
   return (

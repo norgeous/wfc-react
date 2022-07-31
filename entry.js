@@ -34,6 +34,7 @@
   './src/components/Grid2.js',
   './src/components/GridDebug.js',
   './src/components/TileModal.js',
+  './src/components/AppHeader.js',
   './src/components/Form.js',
   './src/components/App.js',
   './src/index.js',
