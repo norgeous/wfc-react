@@ -11,6 +11,7 @@ const Grid = () => {
     tileset,
     collapseSingle,
     collapse4,
+    debug,
   } = useAppContext();
 
   console.log(tileset)
@@ -53,6 +54,7 @@ const Grid = () => {
                 <Point
                   title={`${x}:${y}`}
                   tabIndex={tabIndex}
+                  debug={debug}
                   onClick={() => collapseSingle(x, y)}
                 >
                   {v}

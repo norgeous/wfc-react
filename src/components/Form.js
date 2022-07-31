@@ -1,17 +1,14 @@
 import {
   Layout,
-  Menu,
   Space,
   Radio,
   InputNumber,
   Button,
-  // Switch,
+  Switch,
   Spin,
 } from 'antd';
 
-import tilesets from '../tilesets/index';
 import { useAppContext } from './AppContext';
-// import { useTileset } from './TilesetContext';
 
 const Form = () => {
   const {
@@ -27,6 +24,9 @@ const Form = () => {
 
     reset,
     randomize,
+
+    debug,
+    setDebug,
   } = useAppContext();
 
   const continual = false;
@@ -58,7 +58,7 @@ const Form = () => {
         rawGrid={rawGrid}
         collapseSingle={collapseSingle}
       /> */}
-      {/* <Space>
+      <Space>
         Debug
         <Switch
           checkedChildren="on"
@@ -66,7 +66,7 @@ const Form = () => {
           checked={debug}
           onChange={setDebug}
         />
-      </Space> */}
+      </Space>
     </Layout>
   );
 };

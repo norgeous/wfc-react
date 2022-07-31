@@ -50,7 +50,7 @@ export const Point = styled.button`
   text-align: center;
   border-radius: 50%;
   color: black;
-  opacity: 0;
+  opacity: ${({ debug }) => debug ? 1 : 0};
   background: #0ff2;
   :hover {
     opacity: 1;

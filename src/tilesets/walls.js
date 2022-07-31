@@ -7,6 +7,11 @@ export default {
   points: [ '0', '1' ],
   tiles: [
     {
+      pattern: '0000',
+      rotate: true,
+      weight: 3,
+    },
+    {
       pattern: '1000',
       rotate: true,
       weight: 3,
@@ -17,26 +22,19 @@ export default {
       weight: 3,
     },
     {
+      pattern: '1010',
+      rotate: true,
+      weight: 3,
+    },
+    {
       pattern: '1110',
       rotate: true,
       weight: 3,
     },
+    {
+      pattern: '1111',
+      rotate: true,
+      weight: 3,
+    },
   ],
-  // patterns: ['1000', '1100', '1010', '1110', '1111'],
-  // wfc: {
-  //   '*': {
-  //     color: '#ff02',
-  //     canTouch: '01',
-  //   },
-  //   0: {
-  //     weight: 3,
-  //     color: '#222',
-  //     canTouch: '01',
-  //   },
-  //   1: {
-  //     weight: 3,
-  //     color: '#f0f2',
-  //     canTouch: '01',
-  //   },
-  // },
 };

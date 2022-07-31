@@ -43,6 +43,8 @@ export const AppProvider = ({
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
 
+  const [debug, setDebug] = React.useState(false);
+
   return (
     <AppContext.Provider
       value={{
@@ -73,6 +75,9 @@ export const AppProvider = ({
 
         continual,
         toggleContinual,
+
+        debug,
+        setDebug,
       }}
     >
       {children}
