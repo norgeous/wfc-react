@@ -19,6 +19,7 @@ const useWFCGrid = ({ w, h }) => {
       return newGrid;
     });
   };
+
   React.useEffect(updateGridSize, [w, h]);
 
   const getCellByXY = (x, y) => grid.find(byXY(x, y)) || { v: '*' };

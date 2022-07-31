@@ -2,8 +2,9 @@ import { weightedRandomFrom } from '../utils';
 
 const getConstraintsForValue = (tileset, v) => tileset.wfc[v].canTouch.split('');
 
-const useWFCCollapser = ({ tileset, getCellNeighboursByXY, updateCellByXY }) => {
+const useWFCCollapser = ({ tileset, getCellByXY, getCellNeighboursByXY, updateCellByXY }) => {
   const collapseSingle = (x, y) => {
+    const { v } = getCellByXY(x, y);
     const neighbours = getCellNeighboursByXY(x, y);
     const constraints = Object.entries(tileset.wfc).map(([key, tileInfo]) => ({
       key,
@@ -15,7 +16,9 @@ const useWFCCollapser = ({ tileset, getCellNeighboursByXY, updateCellByXY }) => 
         getConstraintsForValue(tileset, neighbours[3].v).includes(key),
       ].reduce((acc, found) => found ? acc + 1 : acc, 0),
     }));
-    const options = constraints.filter(constraint => constraint.count === 4);
+    const options = constraints
+      .filter(constraint => constraint.count === 4)
+      .filter(({ key }) => key !== v);
     const newValue = weightedRandomFrom(
       options.map(({ key }) => key),
       options.map(({ weight }) => weight),

@@ -20,7 +20,6 @@ import useWFCCollapser from '../hooks/useWFCCollapser';
 import Grid2 from './Grid2';
 // import GridDebug from './GridDebug';
 import TileModal from './TileModal';
-
 import { rotate4, unique } from '../utils';
 
 const { Header, Content, Sider } = Layout;
@@ -59,7 +58,7 @@ const App = () => {
 
   const {
     grid,
-    // getCellByXY,
+    getCellByXY,
     getCellNeighboursByXY,
     getTileValue,
     updateCellByXY,
@@ -67,6 +66,7 @@ const App = () => {
 
   const { collapseSingle, collapse4 } = useWFCCollapser({
     tileset,
+    getCellByXY,
     getCellNeighboursByXY,
     updateCellByXY,
   });
