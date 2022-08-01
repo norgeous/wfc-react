@@ -4,15 +4,14 @@ import { AppProvider } from './components/AppContext';
 const routes = {
   solve: 'SOLVE',
   constraints: 'CONSTRAINTS',
-  // generatorOld: 'GENERATOR_OLD',
-  // tileEditor: 'EDITOR',
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render((
   <AppProvider
     routes={routes}
-    defaultRoute={routes.solve}
+    // defaultRoute={routes.solve}
     // defaultTilesetName="triangles"
+    defaultRoute={routes.constraints}
     defaultTilesetName="terrain"
     defaultSize={100}
   >

@@ -5,7 +5,7 @@ export default {
   uncollapsed: '*',
   TileFace: TileBase,
   points: [ '0', '1' ],
-  tiles: [
+  tileConfig: [
     {
       pattern: '0000',
       enabled: false,

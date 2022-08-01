@@ -3,9 +3,9 @@ import tilesets from '../tilesets/index';
 
 const unpackTileset = (newTilesetName) => {
   const newTileset = tilesets.find(({ name }) => name === newTilesetName);
-  const { tiles } = newTileset;
+  const { tileConfig } = newTileset;
 
-  const tilesExpanded =  tiles.reduce((acc, { pattern, rotate = false, weight = 1, enabled = true }) => {
+  const tiles =  tileConfig.reduce((acc, { pattern, rotate = false, weight = 1, enabled = true }) => {
     if (!enabled) return acc;
     const rotated = rotate ? rotate4(pattern).filter(unique) : [ pattern ];
     return [
@@ -19,7 +19,7 @@ const unpackTileset = (newTilesetName) => {
 
   return {
     ...newTileset,
-    tiles: tilesExpanded,
+    tiles,
   };
 };
 

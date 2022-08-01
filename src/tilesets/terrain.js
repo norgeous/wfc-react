@@ -4,7 +4,7 @@ export default {
   name: 'terrain',
   uncollapsed: '*',
   TileFace: TerrainTile,
-  tiles: [
+  tileConfig: [
     {
       pattern: 'ssss',
       weight: 1,
@@ -20,7 +20,13 @@ export default {
       rotate: true,
     },
     {
-      pattern: 'wwws',
+      pattern: 'wsws',
+      weight: 1,
+      rotate: true,
+      enabled: false,
+    },
+    {
+      pattern: 'swww',
       weight: 1,
       rotate: true,
     },
@@ -39,7 +45,7 @@ export default {
       rotate: true,
     },
     {
-      pattern: 'cccw',
+      pattern: 'wccc',
       weight: 1,
       rotate: true,
     },
@@ -58,7 +64,7 @@ export default {
       rotate: true,
     },
     {
-      pattern: 'gggc',
+      pattern: 'cggg',
       weight: 1,
       rotate: true,
     },
@@ -77,7 +83,7 @@ export default {
       rotate: true,
     },
     {
-      pattern: 'fffg',
+      pattern: 'gfff',
       weight: 1,
       rotate: true,
     },
@@ -96,7 +102,7 @@ export default {
       rotate: true,
     },
     {
-      pattern: 'mmmg',
+      pattern: 'gmmm',
       weight: 1,
       rotate: true,
     },

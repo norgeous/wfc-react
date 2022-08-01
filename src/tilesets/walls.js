@@ -5,10 +5,9 @@ export default {
   uncollapsed: '*',
   TileFace: TileBase,
   points: [ '0', '1' ],
-  tiles: [
+  tileConfig: [
     {
       pattern: '0000',
-      rotate: true,
       weight: 3,
     },
     {
@@ -33,7 +32,6 @@ export default {
     },
     {
       pattern: '1111',
-      rotate: true,
       weight: 3,
     },
   ],
