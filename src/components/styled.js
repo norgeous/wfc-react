@@ -18,7 +18,7 @@ export const Tile = styled.button`
   background: transparent;
   cursor: pointer;
   :hover {
-    background: #222;
+    opacity: 0.5;
   }
 `;
 
@@ -150,7 +150,10 @@ export const TileBase = styled.div`
     return backgrounds[solveLevel];
   }};
   clip-path: ${getClipPath};
-  background-blend-mode: darken;
+  ${({ valid }) => !valid && `
+    box-shadow: inset 0 0 10px #f00;
+    border 10px solid red;
+  `}
 `;
 
 const tc = {

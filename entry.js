@@ -14,8 +14,8 @@
   './src/hooks/useWFCGrid.js',
   './src/hooks/useWFCCollapser.js',
 
-  './src/hooks/useRawGrid.js',
-  './src/hooks/useGrid.js',
+  // './src/hooks/useRawGrid.js',
+  // './src/hooks/useGrid.js',
   './src/hooks/useDomainSizes.js',
 
   './src/contexts/AppContext.js',
