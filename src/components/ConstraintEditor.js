@@ -69,7 +69,7 @@ const ConstraintEditor = () => {
                     getTileValue={() => tile}
                     width={1}
                     height={1}
-                    size={100}
+                    size={50}
                     tileset={tileset}
                     tiles={tiles}
                     debug={false}
@@ -86,7 +86,7 @@ const ConstraintEditor = () => {
                     getTileValue={() => pattern}
                     width={1}
                     height={1}
-                    size={100}
+                    size={50}
                     tileset={tileset}
                     tiles={tiles}
                     debug={false}

@@ -25,9 +25,8 @@ export const Tile = styled.button`
     :after {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: 10%;
       border: 2px solid #f007;
-      margin: 10px;
     }
   `}
 `;
@@ -67,8 +66,6 @@ export const Point = styled.button`
   }
 `;
 
-
-
 const config = [
   { '*': '25% 25%', 0: '50% 50%', 1: '0% 0%' },
   { '**': '50% 20%', '11': '50% 0%', '10':'25% 25%', '01': '75% 25%', '00': '50% 50%' },
@@ -106,7 +103,6 @@ const backgrounds = {
   4: '#f0f2',
 };
 
-
 const wallPolygonPaths = {
   '0000': '50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%',
   
@@ -136,11 +132,6 @@ const getWallShape = (constraint) => {
   return `polygon(${points})`;
 };
 
-
-
-
-
-
 const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
   const setup = {
     triangles: getShape(tileId),
@@ -167,6 +158,7 @@ const tc = {
   f: 'darkgreen', // forest
   m: 'snow', // mountain
 };
+
 export const TerrainTile = ({ tileId, ...props }) => {
   return (
     <TileBase tileId={tileId} {...props}>
