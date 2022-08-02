@@ -29,13 +29,14 @@ const GridDisplay = ({
             <Tile
               key={`${x}:${y}`}
               tabIndex={tabIndex}
+              valid={valid}
               onClick={() => collapse4(x, y)}
             >
               <TileFace
                 // tilesetName={tileset.name}
                 tileId={tileValue}
                 solveLevel={solveLevel}
-                valid={valid}
+                // valid={valid}
                 size={size}
               />
             </Tile>

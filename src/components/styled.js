@@ -20,6 +20,16 @@ export const Tile = styled.button`
   :hover {
     opacity: 0.5;
   }
+  ${({ valid }) => !valid && `
+    position: relative;
+    :after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid #f007;
+      margin: 10px;
+    }
+  `}
 `;
 
 export const PointGrid = styled.div`
@@ -145,15 +155,8 @@ export const TileBase = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transition: all 400ms ease-in;
-  background: ${({ valid, solveLevel }) => {
-    if (!valid) return '#f002'; 
-    return backgrounds[solveLevel];
-  }};
+  background: ${({ solveLevel }) => backgrounds[solveLevel]};
   clip-path: ${getClipPath};
-  ${({ valid }) => !valid && `
-    box-shadow: inset 0 0 10px #f00;
-    border 10px solid red;
-  `}
 `;
 
 const tc = {
@@ -164,31 +167,14 @@ const tc = {
   f: 'darkgreen', // forest
   m: 'snow', // mountain
 };
-// export const TerrainTile = styled(TileBase)`
-//   background-image:
-//     radial-gradient(at top left, ${({ tileId }) => tc[tileId[0]]} 33%, transparent),
-//     radial-gradient(at top right, ${({ tileId }) => tc[tileId[1]]} 33%, transparent),
-//     radial-gradient(at bottom right, ${({ tileId }) => tc[tileId[2]]} 33%, transparent),
-//     radial-gradient(at bottom left, ${({ tileId }) => tc[tileId[3]]} 33%, transparent);
-//   background-blend-mode: hue;
-// `;
-
-// export const TerrainTile = styled(TileBase)`
-//   background-image:
-//     linear-gradient(to top left, transparent, ${({ tileId }) => tc[tileId[0]]}),
-//     linear-gradient(to top right, transparent, ${({ tileId }) => tc[tileId[1]]}),
-//     linear-gradient(to bottom right, transparent, ${({ tileId }) => tc[tileId[2]]}),
-//     linear-gradient(to bottom left, transparent, ${({ tileId }) => tc[tileId[3]]});
-//   /* background-blend-mode: darken; */
-// `;
 export const TerrainTile = ({ tileId, ...props }) => {
   return (
     <TileBase tileId={tileId} {...props}>
-      <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style={{width: '100%', height: '100%'}}>
-        <path d="M 0 0 h 50 v 50 h -50 z" fill={tc[tileId[0]] || 'transparent'} opacity=".5"/>
-        <path d="M 50 0 h 50 v 50 h -50 z" fill={tc[tileId[1]] || 'transparent'} opacity=".5"/>
-        <path d="M 50 50 h 50 v 50 h -50 z" fill={tc[tileId[2]] || 'transparent'} opacity=".5"/>
-        <path d="M 0 50 h 50 v 50 h -50 z" fill={tc[tileId[3]] || 'transparent'} opacity=".5"/>
+      <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style={{width: '100%', height: '100%', filter: 'blur(0px)' }}>
+        <path d="M 0 0 h 50 v 50 h -50 z" fill={tc[tileId[0]] || 'transparent'} />
+        <path d="M 50 0 h 50 v 50 h -50 z" fill={tc[tileId[1]] || 'transparent'} />
+        <path d="M 50 50 h 50 v 50 h -50 z" fill={tc[tileId[2]] || 'transparent'} />
+        <path d="M 0 50 h 50 v 50 h -50 z" fill={tc[tileId[3]] || 'transparent'} />
       </svg>
     </TileBase>
   );

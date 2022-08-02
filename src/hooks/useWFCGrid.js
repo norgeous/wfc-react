@@ -1,6 +1,6 @@
 import { byXY, randomFrom } from '../utils';
 
-const useWFCGrid = ({ w, h }) => {
+const useWFCGrid = ({ w, h, points }) => {
   const [grid, setGrid] = React.useState([]);
 
   const updateGridSize = () => {
@@ -60,7 +60,7 @@ const useWFCGrid = ({ w, h }) => {
     const newGrid = [];
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
-        const newCell = { x, y, v: randomFrom('swcgfm'.split('')) };
+        const newCell = { x, y, v: randomFrom(points) };
         newGrid.push(newCell);
       }
     }

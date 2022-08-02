@@ -51,6 +51,8 @@ const Form = () => {
         <InputNumber value={size} onChange={setSize} step={10} min={30} /> px
       </Space>
 
+      <Button onClick={randomize}>Randomize</Button>
+      
       {/* <Button onClick={collapseRandomHighEntropyCell}>
         Collapse next
       </Button> */}
@@ -61,8 +63,6 @@ const Form = () => {
           {continual && <Spin size="small" />}
         </Space>
       </Button>
-
-      <Button onClick={randomize}>Randomize</Button>
 
       <Button onClick={reset}>Reset</Button>
 

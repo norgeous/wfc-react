@@ -9,10 +9,8 @@ const routes = {
 ReactDOM.createRoot(document.getElementById("root")).render((
   <AppProvider
     routes={routes}
-    // defaultRoute={routes.solve}
-    // defaultTilesetName="triangles"
-    defaultRoute={routes.constraints}
-    defaultTilesetName="terrain"
+    defaultRoute={routes.solve}
+    defaultTilesetName="walls"
     defaultSize={100}
   >
     <App />

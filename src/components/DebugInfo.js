@@ -11,13 +11,13 @@ const DebugInfo = () => {
 
   return (
     <div>
-      valid tiles: {tiles.length}
+      tiles: {tiles.length}
       <br/>
       points: {points.join()}
       <br/>
-      tiles: {`${width}×${height}`} ({width*height})
+      grid tiles: {`${width}×${height}`} ({width*height})
       <br/>
-      points: {`${width+1}×${height+1}`} ({grid.length})
+      grid points: {`${width+1}×${height+1}`} ({grid.length})
     </div>
   );
 };

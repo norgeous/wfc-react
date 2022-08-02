@@ -35,6 +35,7 @@ export const AppProvider = ({
   } = useWFCGrid({
     w: width + 1,
     h: height + 1,
+    points,
   });
 
   const {
@@ -50,7 +51,7 @@ export const AppProvider = ({
   const [continual, setContinual] = React.useState(false);
   const toggleContinual = () => setContinual(old => !old);
 
-  const [debug, setDebug] = React.useState(true);
+  const [debug, setDebug] = React.useState(false);
 
   return (
     <AppContext.Provider
