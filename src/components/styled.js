@@ -170,11 +170,13 @@ const tc = {
 export const TerrainTile = ({ tileId, ...props }) => {
   return (
     <TileBase tileId={tileId} {...props}>
-      <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style={{width: '100%', height: '100%', filter: 'blur(0px)' }}>
-        <path d="M 0 0 h 50 v 50 h -50 z" fill={tc[tileId[0]] || 'transparent'} />
-        <path d="M 50 0 h 50 v 50 h -50 z" fill={tc[tileId[1]] || 'transparent'} />
-        <path d="M 50 50 h 50 v 50 h -50 z" fill={tc[tileId[2]] || 'transparent'} />
-        <path d="M 0 50 h 50 v 50 h -50 z" fill={tc[tileId[3]] || 'transparent'} />
+      <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style={{ width: '100%', height: '100%' }}>
+        <g style={{ filter: 'blur(10px)' }}>
+          <path d="M -50 -50 h 100 v 100 h -100 z" fill={tc[tileId[0]] || 'transparent'} />
+          <path d="M 50 -50  h 100 v 100 h -100 z" fill={tc[tileId[1]] || 'transparent'} />
+          <path d="M 50 50   h 100 v 100 h -100 z" fill={tc[tileId[2]] || 'transparent'} />
+          <path d="M -50 50  h 100 v 100 h -100 z" fill={tc[tileId[3]] || 'transparent'} />
+        </g>
       </svg>
     </TileBase>
   );
