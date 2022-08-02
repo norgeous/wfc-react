@@ -9,6 +9,7 @@ const Grid = () => {
     size,
     getTileValue,
     tileset,
+    tiles,
     collapseSingle,
     collapse4,
     debug,
@@ -22,6 +23,7 @@ const Grid = () => {
       size={size}
       getTileValue={getTileValue}
       tileset={tileset}
+      tiles={tiles}
       collapseSingle={collapseSingle}
       collapse4={collapse4}
       debug={debug}

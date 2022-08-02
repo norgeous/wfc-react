@@ -13,7 +13,14 @@ export const AppProvider = ({
   children,
 }) => {
   const [route, setRoute] = React.useState(defaultRoute);
-  const { tileset, tilesetNames, setTilesetByName } = useTileset(defaultTilesetName);
+  const {
+    tilesetNames,
+    setSelectedTilesetName,
+    tileset,
+    tiles,
+    points,
+    updatePatternConfig,
+  } = useTileset(defaultTilesetName);
   const [size, setSize] = React.useState(defaultSize);
   const { width, height } = useResize(size);
 
@@ -52,9 +59,12 @@ export const AppProvider = ({
         routes,
         setRoute,
 
-        tileset,
         tilesetNames,
-        setTilesetByName,
+        setSelectedTilesetName,
+        tileset,
+        tiles,
+        points,
+        updatePatternConfig,
 
         size,
         setSize,

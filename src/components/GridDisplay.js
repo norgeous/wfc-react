@@ -7,15 +7,13 @@ const GridDisplay = ({
   size,
   getTileValue,
   tileset,
+  tiles,
   collapseSingle,
   collapse4,
   debug,
   style,
 }) => {
-
-  // console.log(grid,tileset);
-
-  const { TileFace, tiles } = tileset;
+  const { TileFace } = tileset;
 
   return (
     <TileGrid size={size} width={width} height={height} style={style}>
@@ -34,7 +32,7 @@ const GridDisplay = ({
               onClick={() => collapse4(x, y)}
             >
               <TileFace
-                tilesetName={tileset.name}
+                // tilesetName={tileset.name}
                 tileId={tileValue}
                 solveLevel={solveLevel}
                 valid={valid}

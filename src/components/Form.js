@@ -13,9 +13,10 @@ import DebugInfo from './DebugInfo';
 
 const Form = () => {
   const {
-    tileset,
     tilesetNames,
-    setTilesetByName,
+    setSelectedTilesetName,
+    
+    tileset,
 
     size,
     setSize,
@@ -41,7 +42,7 @@ const Form = () => {
 
   return (
     <Layout style={{ padding: 20, gap: 20 }}>
-      <Radio.Group value={tileset.name} onChange={event => setTilesetByName(event.target.value)}>
+      <Radio.Group value={tileset.name} onChange={event => setSelectedTilesetName(event.target.value)}>
         {tilesetNames.map(name => <div key={name}><Radio value={name}>{name}</Radio></div>)}
       </Radio.Group>
 

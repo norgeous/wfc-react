@@ -11,15 +11,16 @@ import { rotate4, unique } from '../utils';
 const ConstraintEditor = () => {
   const {
     tileset,
+    tiles,
+    updatePatternConfig,
   } = useAppContext();
 
   const { tileConfig } = tileset;
 
-  // console.log(tileset);
-
   return (
     <>
       <Table
+        style={{padding: 20}}
         pagination={{ pageSize: 100, hideOnSinglePage: true }}
         dataSource={tileConfig.map((config,i) => ({ ...config, key: i }))}
         columns={[
@@ -31,31 +32,32 @@ const ConstraintEditor = () => {
           {
             title: 'Enabled',
             key: 'enabled',
-            render: (_, record) => (
-              <Switch checked={record.enabled === false ? false : true} />
+            render: (_, { pattern, enabled = true }) => (
+              <Switch checked={enabled} onChange={(newEnabled) => updatePatternConfig(tileset.name, pattern, { enabled: newEnabled })} />
             ),
           },
           {
             title: 'Rotate',
             key: 'rotate',
-            render: (_, record) => (
-              <Switch checked={record.rotate} />
+            render: (_, { pattern, rotate = false }) => (
+              <Switch checked={rotate} onChange={(newRotate) => updatePatternConfig(tileset.name, pattern, { rotate: newRotate })} />
             ),
           },
           {
             title: 'Weight',
             key: 'weight',
-            render: (_, record) => (
-              <InputNumber value={record.weight} />
+            render: (_, { pattern, weight = 1 }) => (
+              <InputNumber value={weight} onChange={(newWeight) => updatePatternConfig(tileset.name, pattern, { weight: newWeight })} min={0} />
             ),
           },
           {
             title: 'Tile(s)',
             key: 'tiles',
-            render: (_, record) => (
+            render: (_, { rotate = false, pattern }) => (
               <Space>
-                {record.rotate ? rotate4(record.pattern).filter(unique).map(tile => (
+                {rotate ? rotate4(pattern).filter(unique).map(tile => (
                   <GridDisplay
+                    key={tile}
                     grid={[
                       { x: 0, y: 0, v: tile[0] },
                       { x: 1, y: 0, v: tile[1] },
@@ -67,22 +69,24 @@ const ConstraintEditor = () => {
                     height={1}
                     size={100}
                     tileset={tileset}
+                    tiles={tiles}
                     debug={false}
                     style={{ height: 'auto', border: '1px solid #222' }}
                   />
                 )) : (
                   <GridDisplay
                     grid={[
-                      { x: 0, y: 0, v: record.pattern[0] },
-                      { x: 1, y: 0, v: record.pattern[1] },
-                      { x: 0, y: 1, v: record.pattern[3] },
-                      { x: 1, y: 1, v: record.pattern[2] },
+                      { x: 0, y: 0, v: pattern[0] },
+                      { x: 1, y: 0, v: pattern[1] },
+                      { x: 0, y: 1, v: pattern[3] },
+                      { x: 1, y: 1, v: pattern[2] },
                     ]}
-                    getTileValue={() => record.pattern}
+                    getTileValue={() => pattern}
                     width={1}
                     height={1}
                     size={100}
                     tileset={tileset}
+                    tiles={tiles}
                     debug={false}
                     style={{ height: 'auto', border: '1px solid #222' }}
                   />

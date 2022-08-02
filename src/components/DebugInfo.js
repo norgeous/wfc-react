@@ -2,7 +2,8 @@ import { useAppContext } from '../contexts/AppContext';
 
 const DebugInfo = () => {
   const {
-    tileset,
+    tiles,
+    points,
     width,
     height,
     grid,
@@ -10,7 +11,9 @@ const DebugInfo = () => {
 
   return (
     <div>
-      valid tiles: {tileset.tiles.length}
+      valid tiles: {tiles.length}
+      <br/>
+      points: {points.join()}
       <br/>
       tiles: {`${width}×${height}`} ({width*height})
       <br/>
