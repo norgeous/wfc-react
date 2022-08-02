@@ -17,8 +17,6 @@ const ConstraintEditor = () => {
 
   const { tileConfig } = tileset;
 
-  console.log(tiles);
-
   return (
     <>
       <Table
