@@ -33,10 +33,8 @@ const GridDisplay = ({
               onClick={() => collapse4(x, y)}
             >
               <TileFace
-                // tilesetName={tileset.name}
                 tileId={tileValue}
                 solveLevel={solveLevel}
-                // valid={valid}
                 size={size}
               />
             </Tile>
