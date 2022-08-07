@@ -34,15 +34,10 @@ const Form = () => {
   } = useAppContext();
 
   return (
-    <Layout style={{ padding: 20, gap: 20 }}>
+    <Layout style={{ padding: 20, gap: 20, height: '100%' }}>
       <Radio.Group value={tileset.name} onChange={event => setSelectedTilesetName(event.target.value)}>
         {tilesetNames.map(name => <div key={name}><Radio value={name}>{name}</Radio></div>)}
       </Radio.Group>
-
-      <Space>
-        Size
-        <InputNumber value={size} onChange={setSize} step={10} min={30} /> px
-      </Space>
 
       <Button onClick={randomize}>Randomize</Button>
 
@@ -56,6 +51,11 @@ const Form = () => {
       </Button>
 
       <Button onClick={reset}>Reset</Button>
+
+      <Space>
+        Tile Size
+        <InputNumber style={{ width: 70 }} value={size} onChange={setSize} step={10} min={30} /> px
+      </Space>
 
       <Space>
         Debug

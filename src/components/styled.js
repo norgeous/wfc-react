@@ -17,18 +17,23 @@ export const Tile = styled.button`
   padding: 0;
   background: transparent;
   cursor: pointer;
-  :hover {
-    opacity: 0.5;
-  }
+  position: relative;
   ${({ valid }) => !valid && `
-    position: relative;
     :after {
       content: '';
       position: absolute;
-      inset: 10%;
-      border: 2px solid #f007;
+      inset: 5%;
+      border: 1px solid #f007;
     }
   `}
+  :hover {
+    :after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid #777;
+    }
+  }
 `;
 
 export const PointGrid = styled.div`
@@ -51,18 +56,18 @@ export const Point = styled.button`
   position: absolute;
   pointer-events: auto;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 20px;
+  width: ${({ size }) => size/3}px;
+  height: ${({ size }) => size/3}px;
+  line-height: 0;
+  font-size: ${({ size }) => size/5}px;
   text-align: center;
   border-radius: 50%;
-  color: black;
   opacity: ${({ debug }) => debug ? 1 : 0};
-  background: #0ff2;
+  background: #022;
+  color: #888;
   :hover {
     opacity: 1;
-    background-color: #222;
+    background-color: #111;
   }
 `;
 
@@ -96,11 +101,11 @@ const getShape = (constraint) => {
 };
 
 const backgrounds = {
-  0: '#ff02',
-  1: '#0ff3',
-  2: '#0ff4',
-  3: '#0ff5',
-  4: '#f0f2',
+  0: '#220',
+  1: '#033',
+  2: '#044',
+  3: '#055',
+  4: '#202',
 };
 
 const wallPolygonPaths = {

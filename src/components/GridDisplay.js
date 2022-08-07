@@ -73,6 +73,7 @@ const GridDisplay = ({
                   title={`${x}:${y}`}
                   tabIndex={tabIndex}
                   debug={debug}
+                  size={size}
                   onClick={() => collapseSingle(x, y)}
                 >
                   {v === '*' ? '✸' : v}
