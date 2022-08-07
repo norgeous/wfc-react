@@ -4,6 +4,7 @@ import { useAppContext } from '../contexts/AppContext';
 const Grid = () => {
   const {
     grid,
+    tileGrid,
     width,
     height,
     size,
@@ -18,6 +19,7 @@ const Grid = () => {
   return (
     <GridDisplay
       grid={grid}
+      tileGrid={tileGrid}
       width={width}
       height={height}
       size={size}

@@ -24,21 +24,14 @@ const Form = () => {
     reset,
     randomize,
 
+    collapseLowestEntropy,
+
     continual,
     toggleContinual,
 
     debug,
     setDebug,
   } = useAppContext();
-
-  // React.useEffect(() => {
-  //   if (continual) {
-  //     const t = setInterval(() => {
-  //       collapseRandomHighEntropyCell();
-  //     }, 100);
-  //     return () => clearInterval(t);
-  //   }
-  // }, [continual, collapseRandomHighEntropyCell]);
 
   return (
     <Layout style={{ padding: 20, gap: 20 }}>
@@ -52,12 +45,10 @@ const Form = () => {
       </Space>
 
       <Button onClick={randomize}>Randomize</Button>
-      
-      {/* <Button onClick={collapseRandomHighEntropyCell}>
-        Collapse next
-      </Button> */}
 
-      <Button onClick={toggleContinual} >
+      <Button onClick={collapseLowestEntropy}>Collapse Next</Button>
+
+      <Button onClick={toggleContinual}>
         <Space>
           Solve All 
           {continual && <Spin size="small" />}
@@ -65,12 +56,6 @@ const Form = () => {
       </Button>
 
       <Button onClick={reset}>Reset</Button>
-
-      {/* <GridDebug
-        tileset={tileset}
-        rawGrid={rawGrid}
-        collapseSingle={collapseSingle}
-      /> */}
 
       <Space>
         Debug

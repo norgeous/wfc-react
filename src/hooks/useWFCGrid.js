@@ -1,6 +1,6 @@
 import { byXY, randomFrom } from '../utils';
 
-const useWFCGrid = ({ w, h, points }) => {
+const useWFCGrid = ({ w, h, points, tiles }) => {
   const [grid, setGrid] = React.useState([]);
 
   const updateGridSize = () => {
@@ -67,8 +67,24 @@ const useWFCGrid = ({ w, h, points }) => {
     setGrid(newGrid);
   };
 
+  const tileGrid = grid
+    .filter(({ x, y }) => x < w-1 && y < h-1)
+    .map(({ x, y }) => {
+      const tileValue = getTileValue(x, y);
+      const solveLevel = 4 - [...tileValue].filter(d => d === '*').length;
+      const valid = tileValue.includes('*') || tiles.map(({ pattern }) => pattern).includes(tileValue);
+      return {
+        x,
+        y,
+        tileValue,
+        solveLevel,
+        valid,
+      };
+    });
+
   return {
     grid,
+    tileGrid,
     getCellByXY,
     getCellNeighboursByXY,
     getTileValue,

@@ -64,10 +64,13 @@ const ConstraintEditor = () => {
                       { x: 0, y: 1, v: tile[3] },
                       { x: 1, y: 1, v: tile[2] },
                     ]}
+                    tileGrid={[
+                      { x: 0, y: 0, solveLevel: 4, valid: true, tileValue: tile },
+                    ]}
                     getTileValue={() => tile}
                     width={1}
                     height={1}
-                    size={50}
+                    size={30}
                     tileset={tileset}
                     tiles={tiles}
                     debug={false}
@@ -81,10 +84,13 @@ const ConstraintEditor = () => {
                       { x: 0, y: 1, v: pattern[3] },
                       { x: 1, y: 1, v: pattern[2] },
                     ]}
+                    tileGrid={[
+                      { x: 0, y: 0, solveLevel: 4, valid: true, tileValue: pattern },
+                    ]}
                     getTileValue={() => pattern}
                     width={1}
                     height={1}
-                    size={50}
+                    size={30}
                     tileset={tileset}
                     tiles={tiles}
                     debug={false}

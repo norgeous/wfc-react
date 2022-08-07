@@ -20,8 +20,9 @@
 
   './src/contexts/AppContext.js',
   './src/components/GridDisplay.js',
-  './src/components/ConstraintEditor.js',
   './src/components/Grid.js',
+  './src/components/ConstraintEditor.js',
+  './src/components/Export.js',
   './src/components/DebugInfo.js',
   './src/components/Form.js',
   './src/components/AppHeader.js',

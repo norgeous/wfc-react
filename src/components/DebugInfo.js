@@ -15,9 +15,9 @@ const DebugInfo = () => {
       <br/>
       points: {points.join()}
       <br/>
-      grid tiles: {`${width}×${height}`} ({width*height})
-      <br/>
       grid points: {`${width+1}×${height+1}`} ({grid.length})
+      <br/>
+      grid tiles: {`${width}×${height}`} ({width*height})
     </div>
   );
 };

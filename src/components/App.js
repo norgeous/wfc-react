@@ -3,8 +3,10 @@ import { useAppContext } from '../contexts/AppContext';
 
 import AppHeader from './AppHeader';
 import Form from './Form';
+
 import Grid from './Grid';
 import ConstraintEditor from './ConstraintEditor';
+import Export from './Export';
 
 const { Content, Sider } = Layout;
 
@@ -22,6 +24,7 @@ const App = () => {
           <Content>
             {route === routes.solve && <Grid />}
             {route === routes.constraints && <ConstraintEditor />}
+            {route === routes.export && <Export />}
           </Content>
         </Layout>
       </Content>

@@ -4,6 +4,7 @@ import { AppProvider } from './components/AppContext';
 const routes = {
   solve: 'SOLVE',
   constraints: 'CONSTRAINTS',
+  export: 'EXPORT',
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render((
