@@ -54,7 +54,7 @@ const Form = () => {
 
       <Space>
         Tile Size
-        <InputNumber style={{ width: 70 }} value={size} onChange={setSize} step={10} min={30} /> px
+        <InputNumber style={{ width: 70 }} value={size} onChange={setSize} step={5} min={25} /> px
       </Space>
 
       <Space>
