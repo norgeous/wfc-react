@@ -48,9 +48,9 @@ const SvgTextIcon = ({ children }) => (
     viewBox="0 0 100 100"
   >
     <text
-      font-size="90"
+      font-size="80"
       x="50%"
-      y="55%"
+      y="54%"
       text-anchor="middle"
       dominant-baseline="middle" 
     >
