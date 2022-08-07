@@ -28,6 +28,7 @@ export const Tile = styled.button`
   `}
   :hover {
     :after {
+      pointer-events: none;
       content: '';
       position: absolute;
       inset: 0;
@@ -182,4 +183,7 @@ export const TerrainTile = ({ tileId, ...props }) => {
 
 export const AsciiTile = styled(TileBase)`
   transform: scale(2.5) rotate(-45deg);
+  :hover {
+    transform: none;
+  }
 `;

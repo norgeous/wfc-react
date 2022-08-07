@@ -235,12 +235,6 @@ const SvgTextIcon = ({ children }) => (
     viewBox="0 0 100 100"
   >
     <text
-      // x="50"
-      // y="77"
-      // text-align="center"
-      // textLength="100"
-      // lengthAdjust="spacing"
-      
       font-size="90"
       x="50%"
       y="55%"
