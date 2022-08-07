@@ -7,5 +7,5 @@ export default [
   walls,
   triangles,
   terrain,
-  // asciiBoxDrawing,
+  asciiBoxDrawing,
 ];

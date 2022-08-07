@@ -5,18 +5,13 @@
   './src/tilesets/triangles.js',
   './src/tilesets/walls.js',
   './src/tilesets/terrain.js',
-  // './src/tilesets/ascii-box-drawing.js',
+  './src/tilesets/ascii-box-drawing.js',
   './src/tilesets/index.js',
 
   './src/hooks/useResize.js',
-  
   './src/hooks/useTileset.js',
   './src/hooks/useWFCGrid.js',
   './src/hooks/useWFCCollapser.js',
-
-  // './src/hooks/useRawGrid.js',
-  // './src/hooks/useGrid.js',
-  './src/hooks/useDomainSizes.js',
 
   './src/contexts/AppContext.js',
   './src/components/GridDisplay.js',

@@ -34,6 +34,7 @@ export const Tile = styled.button`
       border: 1px solid #777;
     }
   }
+  overflow: hidden;
 `;
 
 export const PointGrid = styled.div`
@@ -178,3 +179,7 @@ export const TerrainTile = ({ tileId, ...props }) => {
     </TileBase>
   );
 };
+
+export const AsciiTile = styled(TileBase)`
+  transform: scale(2.5) rotate(-45deg);
+`;

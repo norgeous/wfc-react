@@ -2,7 +2,7 @@ import { TerrainTile } from '../components/styled';
 
 export default {
   name: 'terrain',
-  TileFace: (props) => <TerrainTile tilesetName="terrain" {...props} />,
+  TileFace: TerrainTile,
   tileConfig: [
     { pattern: 'ssss' },
     { pattern: 'wsss', rotate: true },
