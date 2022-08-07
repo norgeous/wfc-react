@@ -68,10 +68,10 @@ export const AppProvider = ({
 
   React.useEffect(() => {
     if (continual) {
-      const t = setInterval(collapseLowestEntropy, 100);
+      const t = setInterval(collapseLowestEntropy, route === routes.export ? 1 : 200);
       return () => clearInterval(t);
     }
-  }, [tileGrid, continual]);
+  }, [tileGrid, continual, route]);
 
   const [debug, setDebug] = React.useState(false);
 

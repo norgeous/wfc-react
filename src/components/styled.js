@@ -105,7 +105,7 @@ const backgrounds = {
   1: '#033',
   2: '#044',
   3: '#055',
-  4: '#202',
+  4: '#505',
 };
 
 const wallPolygonPaths = {
