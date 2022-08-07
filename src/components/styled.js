@@ -183,8 +183,11 @@ export const TerrainTile = ({ tileId, ...props }) => {
 };
 
 export const AsciiTile = styled(TileBase)`
-  transform: ${({ solveLevel }) => solveLevel === 4 && `scale(2.5) rotate(-45deg)`};
+  ${({ solveLevel }) => solveLevel === 4 && `
+    transform: scale(2.5) rotate(-45deg);
+  `}
   :hover {
     transform: none;
+    padding-top: 4%;
   }
 `;
