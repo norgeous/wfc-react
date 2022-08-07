@@ -144,6 +144,7 @@ const getClipPath = ({ tilesetName, solveLevel, tileId }) => {
     triangles: getShape(tileId),
     walls: solveLevel === 4 ? getWallShape(tileId) : getShape(tileId),
     terrain: getShape([...tileId].map(d => d === '*' ? d : 1)),
+    ascii: getShape([...tileId].map(d => d === '*' ? d : 1)),
   };
   
   return setup[tilesetName];
@@ -182,7 +183,7 @@ export const TerrainTile = ({ tileId, ...props }) => {
 };
 
 export const AsciiTile = styled(TileBase)`
-  transform: scale(2.5) rotate(-45deg);
+  transform: ${({ solveLevel }) => solveLevel === 4 && `scale(2.5) rotate(-45deg)`};
   :hover {
     transform: none;
   }

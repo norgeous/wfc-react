@@ -62,7 +62,7 @@ const SvgTextIcon = ({ children }) => (
 export default {
   name: 'ascii box drawing',
   TileFace: (props) => (
-    <AsciiTile {...props}>
+    <AsciiTile tilesetName="ascii" {...props}>
       <SvgTextIcon>
         {tiles?.[props.tileId]?.[0]}
       </SvgTextIcon>
