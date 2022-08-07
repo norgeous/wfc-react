@@ -1,5 +1,9 @@
 # wfc-react
 
+Tiling "Wave Function Collapse" demo
+
+## Demo
+
 https://norgeous.github.io/wfc-react/
 
 or locally:
@@ -9,12 +13,6 @@ or locally:
 http://localhost:3000/
 
 
-## TODO
-- reset button
-- generate random grid button
-- collapse next button
-- collapse all button
-- clicking collaped should reroll (excluding current value)
-- remove unused code
-- is the tileids whitelist needed?
-- terrain tiles expanded
+## Example output
+
+![Terrain output sample](terrain.png?raw=true "Terrain")
