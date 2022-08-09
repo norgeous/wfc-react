@@ -21,6 +21,9 @@ const Form = () => {
     size,
     setSize,
 
+    fps,
+    setFPS,
+
     reset,
     randomize,
 
@@ -55,6 +58,11 @@ const Form = () => {
       <Space>
         Tile Size
         <InputNumber style={{ width: 70 }} value={size} onChange={setSize} step={5} min={25} /> px
+      </Space>
+
+      <Space>
+        Speed
+        <InputNumber style={{ width: 70 }} value={fps} onChange={setFPS} step={5} min={1} max={1000} /> fps
       </Space>
 
       <Space>

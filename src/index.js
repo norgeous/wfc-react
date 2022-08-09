@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render((
     defaultRoute={routes.solve}
     defaultTilesetName="walls"
     defaultSize={100}
+    defaultFPS={10}
   >
     <App />
   </AppProvider>

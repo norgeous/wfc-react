@@ -11,6 +11,7 @@ export const AppProvider = ({
   defaultRoute,
   defaultTilesetName,
   defaultSize,
+  defaultFPS,
   children,
 }) => {
   const [route, setRoute] = React.useState(defaultRoute);
@@ -25,6 +26,7 @@ export const AppProvider = ({
   } = useTileset(defaultTilesetName);
 
   const [size, setSize] = React.useState(defaultSize);
+  const [fps, setFPS] = React.useState(defaultFPS);
   const { width, height } = useResize(size);
 
   const {
@@ -68,10 +70,10 @@ export const AppProvider = ({
 
   React.useEffect(() => {
     if (continual) {
-      const t = setInterval(collapseLowestEntropy, route === routes.export ? 1 : 200);
+      const t = setInterval(collapseLowestEntropy, 1000/fps);
       return () => clearInterval(t);
     }
-  }, [tileGrid, continual, route]);
+  }, [tileGrid, continual, fps]);
 
   const [debug, setDebug] = React.useState(false);
 
@@ -91,6 +93,9 @@ export const AppProvider = ({
 
         size,
         setSize,
+
+        fps,
+        setFPS,
 
         width,
         height,
