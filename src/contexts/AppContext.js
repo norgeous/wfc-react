@@ -6,12 +6,20 @@ import { randomFrom } from '../utils';
 
 const AppContext = React.createContext({});
 
+const fpsSteps = [
+  1000,
+  100,
+  10,
+  1,
+  0,
+];
+
 export const AppProvider = ({
   routes,
   defaultRoute,
   defaultTilesetName,
   defaultSize,
-  defaultFPS,
+  defaultFpsStep,
   children,
 }) => {
   const [route, setRoute] = React.useState(defaultRoute);
@@ -26,7 +34,8 @@ export const AppProvider = ({
   } = useTileset(defaultTilesetName);
 
   const [size, setSize] = React.useState(defaultSize);
-  const [fps, setFPS] = React.useState(defaultFPS);
+  const [fpsStep, setFpsStep] = React.useState(defaultFpsStep);
+  const fps = fpsSteps[fpsStep];
   const { width, height } = useResize(size);
 
   const {
@@ -70,7 +79,7 @@ export const AppProvider = ({
 
   React.useEffect(() => {
     if (continual) {
-      const t = setInterval(collapseLowestEntropy, 1000/fps);
+      const t = setInterval(collapseLowestEntropy, fps);
       return () => clearInterval(t);
     }
   }, [tileGrid, continual, fps]);
@@ -94,8 +103,9 @@ export const AppProvider = ({
         size,
         setSize,
 
+        fpsStep,
+        setFpsStep,
         fps,
-        setFPS,
 
         width,
         height,

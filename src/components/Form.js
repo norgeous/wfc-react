@@ -6,6 +6,7 @@ import {
   Button,
   Switch,
   Spin,
+  Slider,
 } from 'antd';
 
 import { useAppContext } from '../contexts/AppContext';
@@ -21,8 +22,9 @@ const Form = () => {
     size,
     setSize,
 
+    fpsStep,
+    setFpsStep,
     fps,
-    setFPS,
 
     reset,
     randomize,
@@ -62,8 +64,16 @@ const Form = () => {
 
       <Space>
         Speed
-        <InputNumber style={{ width: 70 }} value={fps} onChange={setFPS} step={5} min={1} max={1000} /> fps
+        <Slider
+          min={0}
+          max={4}
+          onChange={setFpsStep}
+          value={fpsStep}
+          style={{ width: 100 }}
+        />
       </Space>
+
+      {1000/fps} fps
 
       <Space>
         Debug
