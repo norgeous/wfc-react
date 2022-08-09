@@ -4,8 +4,9 @@
 
   './src/tilesets/triangles.js',
   './src/tilesets/walls.js',
-  './src/tilesets/terrain.js',
   './src/tilesets/ascii-box-drawing.js',
+  './src/tilesets/terrain.js',
+  './src/tilesets/terrain-png.js',
   './src/tilesets/index.js',
 
   './src/hooks/useResize.js',
