@@ -1,4 +1,4 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 export const TileGrid = styled.div`
   height: calc(100vh - 64px);

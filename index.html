@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%22 y=%2280%22 text-anchor=%22middle%22 font-size=%2290%22>🌊</text></svg>">
     <title>wfc-react</title>
-    
+  <!--     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.2.0/umd/react-is.production.min.js"></script>
@@ -15,8 +15,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/styled-components/5.3.5/styled-components.min.js"></script>
     
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script> -->
-    <script src="https://unpkg.com/@babel/standalone@7.18.9/babel.min.js"></script>
+    < !-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script> -- >
+  -->
+    <!-- <script src="https://unpkg.com/@babel/standalone@7.18.9/babel.min.js"></script> -->
   </head>
   <body>
     <noscript>
@@ -24,6 +25,40 @@
       <style> .js-enabled { display: none; } </style>
     </noscript>
     <div id="root" class="js-enabled">Loading React from CDN...</div>
-    <script src="./entry.js"></script>
+
+
+    <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script>
+    
+    <!-- <script src="./entry.js"></script> -->
+    <!-- <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script> -->
+
+    <!-- <script type="importmap" src="./cdnjs.sourcemap"></script> -->
+    <!-- <script type="importmap" src="./jspm.sourcemap"></script> -->
+    <!-- <script defer async type="importmap" src="./skypack.sourcemap"></script> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://cdn.skypack.dev/react",
+          "react-dom": "https://cdn.skypack.dev/react-dom",
+          "styled-components": "https://cdn.skypack.dev/styled-components",
+          "antd": "https://cdn.skypack.dev/antd"
+        }
+      }      
+    </script>
+
+
+    <!-- <script type="text/babel" data-type="module" data-plugins="transform-modules-umd" data-presets="react,stage-3" src="./src/index.js"></script> -->
+    <!-- <script type="module" src="./src/index.js"></script> -->
+
+    <!-- <script async src="./sw-reg.js"></script> -->
+    <script async src="./babel-service-worker-register.js"></script>
+    <script type="module" src="./src/index.js"></script>
+
+
+    <!-- <script>
+      // const tag = '<script type="module" src="./src/index.js" />';
+      const tag = '<script src="./src/index.js" type="text/babel" data-type="module"/>';
+      document.head.insertAdjacentHTML('beforeend', tag);
+    </script> -->
   </body>
 </html>
