@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "react": "https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js",
-    "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"
-  }
-}

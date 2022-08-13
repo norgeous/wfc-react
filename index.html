@@ -12,19 +12,22 @@
     </noscript>
     <div id="root" class="js-enabled">Loading React from CDN...</div>
 
+    <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script>
+    <!-- <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script> -->
+    
+    <!-- jspm, jsdelivr, skypack, unpkg, cdnjs -->
     <script type="importmap">
       {
         "imports": {
           "react": "https://cdn.skypack.dev/react",
           "react-dom": "https://cdn.skypack.dev/react-dom",
           "styled-components": "https://cdn.skypack.dev/styled-components",
-          "antd": "https://cdn.jsdelivr.net/npm/antd@4.22.4/dist/antd.min.js"
+          "antd": "https://cdn.skypack.dev/antd"
         }
       }      
     </script>
-    <!-- "antd": "https://cdn.skypack.dev/antd" -->
 
     <script async src="./babel-service-worker-register.js"></script>
-    <script type="module" src="./src/index.js"></script>
+    <script async defer type="module" src="./src/index.js"></script>
   </body>
 </html>
