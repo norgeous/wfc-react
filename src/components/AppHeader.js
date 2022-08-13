@@ -1,5 +1,9 @@
-import { Layout, Menu } from 'antd';
+import React from 'react';
+// import { Layout, Menu } from 'antd';
+import * as antd from 'antd';
 import { useAppContext } from '../contexts/AppContext';
+
+console.log({ antd });
 
 const { Header } = Layout;
 

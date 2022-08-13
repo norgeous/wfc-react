@@ -2,35 +2,42 @@
 // if you do edit this file, call `await window.serviceWorkerRegistration.unregister()` in the browser to update it
 
 async function getBabel() {
-  console.log('jsx service worker: loading babel-standalone from unpkg.com');
+  // console.log('jsx service worker: loading babel-standalone from unpkg.com');
   const r = await fetch('https://unpkg.com/@babel/standalone/babel.min.js');
   eval(await r.text());
 }
 
-const modifyUrl = (url) => {
-  const { host, pathname } = new URL(url);
-  if (host === location.host && pathname.startsWith('/src/') && !pathname.endsWith('.js')) {
-    return new URL(`${pathname}.js`, url).toString();
-  }
-
-  return url.toString();
-};
-
-
 async function handleRequest(request) {
-  const url = new URL(modifyUrl(request.url));
-  // console.log('sw fetching', url.toString())
-  const r = await fetch(url);
+  const url = new URL(request.url);
 
-  // console.log('jsx service worker: got', {r});
+  const isSelfHosted = url.host === location.host;
+  const isSrc = url.pathname.startsWith('/src/');
+  url.ext = url.pathname.includes('.') ? url.pathname.split('.').pop() : undefined;
 
-  if (r.status === 200 & url.host === location.host && url.pathname.endsWith('.js')) {
-    const jsx = await r.text();
-    const js = Babel.transform(jsx, {presets: ['react']}).code;
-    return new Response(js, r);
-  } else {
-    return r;
+  if (isSelfHosted && isSrc && !url.ext) {
+    url.pathname = `${url.pathname}.js`;
+    url.ext = 'js';
   }
+
+  // console.log({
+  //   url: url.toString(),
+  //   isSelfHosted,
+  //   isSrc,
+  //   ext: url.ext,
+  // });
+
+  const response = await fetch(url);
+  const { status } = response;
+
+  // transpile /src/ files
+  if (status === 200 && isSelfHosted && isSrc && url.ext === 'js') {
+    const text = await response.text();
+    // console.log(Babel);
+    const { code } = Babel.transform(text, { presets: ['react'] });
+    return new Response(code, response);
+  }
+
+  return response;
 }
 
 self.addEventListener('install', e => e.waitUntil(getBabel()));
