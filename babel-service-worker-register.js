@@ -6,13 +6,13 @@ const onError = (err) => {
 };
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/babel-service-worker.js', {scope: '/'})
-  .then(registration => {
-      window.serviceWorkerRegistration = registration;
-      // console.log('sw registered');
-      // window.serviceWorkerRegistration.unregister(); // to unregister the service worker
+  navigator.serviceWorker
+    .register('/babel-service-worker.js', { scope: '/' })
+    .then(registration => {
+      const event = new CustomEvent('babel-service-worker-ready', { detail: { registration } });
+      window.dispatchEvent(event);
     })
-    .catch(onError)
+    .catch(onError);
 } else {
-  onError('Browser does not support service workers :-(')
+  onError('Browser does not support service workers :-(');
 }

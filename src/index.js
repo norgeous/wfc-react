@@ -6,11 +6,11 @@ import TestC from './TestC';
 // import App from './components/App';
 // import { AppProvider } from './components/AppContext';
 
-// const routes = {
-//   solve: 'SOLVE',
-//   constraints: 'CONSTRAINTS',
-//   export: 'EXPORT',
-// };
+const routes = {
+  solve: 'SOLVE',
+  constraints: 'CONSTRAINTS',
+  export: 'EXPORT',
+};
 
 
 
@@ -29,8 +29,8 @@ ReactDOM.render(
   rootElement,
 );
 
-import { PRNG } from './utils';
-const r = new PRNG();
-console.log(r.next());
-console.log(r.next());
-console.log(r.next());
+// import { PRNG } from './utils';
+// const r = new PRNG();
+// console.log(r.next());
+// console.log(r.next());
+// console.log(r.next());

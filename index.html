@@ -12,8 +12,8 @@
     </noscript>
     <div id="root" class="js-enabled">Loading React from CDN...</div>
 
-    <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script>
-    <!-- <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script> -->
+    <!-- <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script> -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script>
     
     <!-- jspm, jsdelivr, skypack, unpkg, cdnjs -->
     <script type="importmap">
@@ -27,7 +27,19 @@
       }      
     </script>
 
+    
     <script async src="./babel-service-worker-register.js"></script>
-    <script async defer type="module" src="./src/index.js"></script>
+    <!-- <script async defer type="module" src="./src/index.js"></script> -->
+    <script type="module">
+      window.addEventListener('babel-service-worker-ready', (event) => {
+        const { installing, active, active: { state } } = event.detail.registration;
+        console.log(event.detail.registration, { installing, active, state });
+        // event.detail.registration.unregister();
+        // import('./src/index');
+
+        const tag = '<script type="module" src="./src/index.js" />';
+        document.head.insertAdjacentHTML('beforeend', tag);
+      });
+    </script>
   </body>
 </html>

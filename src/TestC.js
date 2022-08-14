@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React from 'react';
+
+console.log(React);
 
 const TestC = () => <h1>TEST</h1>;
 
