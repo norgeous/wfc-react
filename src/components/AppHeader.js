@@ -16,20 +16,13 @@ const AppHeader = () => {
   }));
 
   return (
-    <div style={{ padding: '0 20px' }}>
-      <a href="https://github.com/norgeous/wfc-react" style={{ float: 'left', paddingRight: '20px' }}>
-        <h1>
-          🌊 norgeous/wfc-react
-        </h1>
-      </a>
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        items={mainMenuItems}
-        selectedKeys={[route]}
-        onSelect={({ key }) => setRoute(key)}
-      />
-    </div>
+    <Menu
+      theme="dark"
+      mode="horizontal"
+      items={mainMenuItems}
+      selectedKeys={[route]}
+      onSelect={({ key }) => setRoute(key)}
+    />
   );
 };
 
