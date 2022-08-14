@@ -1,11 +1,7 @@
 import React from 'react';
-// import { Layout, Menu } from 'antd';
-import * as antd from 'antd';
 import { useAppContext } from '../contexts/AppContext';
 
-console.log({ antd });
-
-const { Header } = Layout;
+const Menu = () => <nav>menu goes here</nav>;
 
 const AppHeader = () => {
   const {
@@ -20,7 +16,7 @@ const AppHeader = () => {
   }));
 
   return (
-    <Header className="header" style={{ padding: '0 20px' }}>
+    <div style={{ padding: '0 20px' }}>
       <a href="https://github.com/norgeous/wfc-react" style={{ float: 'left', paddingRight: '20px' }}>
         <h1>
           🌊 norgeous/wfc-react
@@ -33,7 +29,7 @@ const AppHeader = () => {
         selectedKeys={[route]}
         onSelect={({ key }) => setRoute(key)}
       />
-    </Header>
+    </div>
   );
 };
 

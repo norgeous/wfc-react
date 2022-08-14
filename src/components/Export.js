@@ -1,7 +1,4 @@
-import { Space, Input } from 'antd';
 import { useAppContext } from '../contexts/AppContext';
-
-const { TextArea } = Input;
 
 const Export = () => {
   const { grid } = useAppContext();

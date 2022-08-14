@@ -1,3 +1,4 @@
+import React from 'react';
 import { TileBase } from '../components/styled';
 
 export default {

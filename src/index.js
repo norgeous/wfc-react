@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppProvider } from './contexts/AppContext';
-import TestC from './TestC';
-// import App from './components/App';
+// import TestC from './TestC';
+import App from './components/App';
 
 const routes = {
   solve: 'SOLVE',
@@ -19,8 +19,8 @@ ReactDOM.render((
       defaultSize={75}
       defaultFpsStep={0}
     >
-      <TestC />
-      {/* <App /> */}
+      {/* <TestC /> */}
+      <App />
     </AppProvider>
   ),
   rootElement,

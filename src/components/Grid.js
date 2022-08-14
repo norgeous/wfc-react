@@ -1,3 +1,4 @@
+import React from 'react';
 import GridDisplay from './GridDisplay';
 import { useAppContext } from '../contexts/AppContext';
 

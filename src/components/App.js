@@ -1,34 +1,30 @@
-import { Layout } from 'antd';
+import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
-
 import AppHeader from './AppHeader';
-import Form from './Form';
-
+// import Form from './Form';
 import Grid from './Grid';
-import ConstraintEditor from './ConstraintEditor';
+// import ConstraintEditor from './ConstraintEditor';
 import Export from './Export';
-
-const { Content, Sider } = Layout;
 
 const App = () => {
   const { routes, route } = useAppContext();
 
   return (
-    <Layout>
+    <div>
       <AppHeader />
-      <Content>  
-        <Layout>
-          <Sider width={200}>
-            <Form />
-          </Sider>
-          <Content>
+      <div>  
+        <div>
+          <aside width={200}>
+            {/* <Form /> */}
+          </aside>
+          <div>
             {route === routes.solve && <Grid />}
-            {route === routes.constraints && <ConstraintEditor />}
+            {/* {route === routes.constraints && <ConstraintEditor />} */}
             {route === routes.export && <Export />}
-          </Content>
-        </Layout>
-      </Content>
-    </Layout>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

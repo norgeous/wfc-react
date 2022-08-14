@@ -1,3 +1,4 @@
+import React from 'react';
 import { TileGrid, Tile, PointGrid, Point } from './styled';
 
 const GridDisplay = ({
@@ -6,9 +7,7 @@ const GridDisplay = ({
   width,
   height,
   size,
-  getTileValue,
   tileset,
-  tiles,
   collapseSingle,
   collapse4,
   debug,
@@ -18,35 +17,9 @@ const GridDisplay = ({
 
   return (
     <TileGrid size={size} width={width} height={height} style={style}>
-      {/* {grid
-        .filter(({ x, y }) => x < width && y < height)
-        .map(({ x, y, v }) => {
-          const tabIndexOffset = 1;
-          const tabIndex = tabIndexOffset + x + ((y+1) * (width+1)) + (y*width);
-          const tileValue = getTileValue(x, y);
-          const solveLevel = 4 - [...tileValue].filter(d => d === '*').length;
-          const valid = tileValue.includes('*') || tiles.map(({ pattern }) => pattern).includes(tileValue);
-          return (
-            <Tile
-              key={`${x}:${y}`}
-              tabIndex={tabIndex}
-              valid={valid}
-              onClick={() => collapse4(x, y)}
-            >
-              <TileFace
-                tileId={tileValue}
-                solveLevel={solveLevel}
-                size={size}
-              />
-            </Tile>
-          );
-        })} */}
         {tileGrid.map(({ x, y, tileValue, solveLevel, valid }) => {
             const tabIndexOffset = 1;
             const tabIndex = tabIndexOffset + x + ((y+1) * (width+1)) + (y*width);
-            // const tileValue = getTileValue(x, y);
-            // const solveLevel = 4 - [...tileValue].filter(d => d === '*').length;
-            // const valid = tileValue.includes('*') || tiles.map(({ pattern }) => pattern).includes(tileValue);
             return (
               <Tile
                 key={`${x}:${y}`}
