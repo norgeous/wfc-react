@@ -12,18 +12,18 @@ const routes = {
 
 const rootElement = document.getElementById('root');
 ReactDOM.render((
-    <AppProvider
-      routes={routes}
-      defaultRoute={routes.solve}
-      defaultTilesetName="walls"
-      defaultSize={75}
-      defaultFpsStep={0}
-    >
-      {/* <TestC /> */}
-      <App />
-    </AppProvider>
-  ),
-  rootElement,
+  <AppProvider
+    routes={routes}
+    defaultRoute={routes.solve}
+    defaultTilesetName="walls"
+    defaultSize={75}
+    defaultFpsStep={0}
+  >
+    {/* <TestC /> */}
+    <App />
+  </AppProvider>
+),
+rootElement,
 );
 
 import { PRNG } from './utils';
