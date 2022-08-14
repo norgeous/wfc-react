@@ -9,8 +9,6 @@ const handleRequest = async (request) => {
   const isRoot = url.pathname === '/';
   url.ext = url.pathname.includes('.') ? url.pathname.split('.').pop() : undefined;
 
-  console.log(url.pathname);
-
   if (isSelfHosted && !isRoot && !url.ext) {
     url.pathname = `${url.pathname}.js`;
     url.ext = 'js';
