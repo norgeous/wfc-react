@@ -6,12 +6,11 @@ Tiling "Wave Function Collapse" demo
 
 https://norgeous.github.io/wfc-react/
 
-or locally:
+## Dev
 
 `npx serve`
 
 http://localhost:3000/
-
 
 ## Example output
 
