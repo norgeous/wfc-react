@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { byXY, randomFrom } from '../utils';
 
 const useWFCGrid = ({ w, h, points, tiles }) => {
-  const [grid, setGrid] = React.useState([]);
+  const [grid, setGrid] = useState([]);
 
   const updateGridSize = () => {
     setGrid(oldGrid => {
@@ -21,7 +21,7 @@ const useWFCGrid = ({ w, h, points, tiles }) => {
     });
   };
 
-  React.useEffect(updateGridSize, [w, h]);
+  useEffect(updateGridSize, [w, h]);
 
   const getCellByXY = (x, y) => grid.find(byXY(x, y)) || { v: '*' };
 

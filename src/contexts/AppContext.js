@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import useTileset from '../hooks/useTileset';
-import useResize from '../hooks/useResize';
+import useElementSize from '../hooks/useElementSize';
+import useGridDimensions from '../hooks/useGridDimensions';
 import useWFCGrid from '../hooks/useWFCGrid';
 import useWFCCollapser from '../hooks/useWFCCollapser';
 import { randomFrom } from '../utils';
 
-const AppContext = React.createContext({});
+const AppContext = createContext({});
 
 const fpsSteps = [
   1000,
@@ -23,7 +24,7 @@ export const AppProvider = ({
   defaultFpsStep,
   children,
 }) => {
-  const [route, setRoute] = React.useState(defaultRoute);
+  const [route, setRoute] = useState(defaultRoute);
 
   const {
     tilesetNames,
@@ -34,10 +35,17 @@ export const AppProvider = ({
     updatePatternConfig,
   } = useTileset(defaultTilesetName);
 
-  const [size, setSize] = React.useState(defaultSize);
-  const [fpsStep, setFpsStep] = React.useState(defaultFpsStep);
+  const [size, setSize] = useState(defaultSize);
+  const { setElementRef, elementWidth, elementHeight } = useElementSize();
+  const { width, height } = useGridDimensions({ elementWidth, elementHeight, size });
+
+  console.log({
+    elementWidth, elementHeight,
+    width, height,
+  });
+
+  const [fpsStep, setFpsStep] = useState(defaultFpsStep);
   const fps = fpsSteps[fpsStep];
-  const { width, height } = useResize(size);
 
   const {
     grid,
@@ -66,7 +74,7 @@ export const AppProvider = ({
     updateCellByXY,
   });
 
-  const [continual, setContinual] = React.useState(false);
+  const [continual, setContinual] = useState(false);
   const toggleContinual = () => setContinual(old => !old);
 
   const collapseLowestEntropy = () => {
@@ -78,14 +86,14 @@ export const AppProvider = ({
     else setContinual(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (continual) {
       const t = setInterval(collapseLowestEntropy, fps);
       return () => clearInterval(t);
     }
   }, [tileGrid, continual, fps]);
 
-  const [debug, setDebug] = React.useState(false);
+  const [debug, setDebug] = useState(false);
 
   return (
     <AppContext.Provider
@@ -108,6 +116,7 @@ export const AppProvider = ({
         setFpsStep,
         fps,
 
+        setElementRef,
         width,
         height,
 
@@ -136,4 +145,4 @@ export const AppProvider = ({
   );
 };
 
-export const useAppContext = () => React.useContext(AppContext);
+export const useAppContext = () => useContext(AppContext);

@@ -1,10 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import { rotate4, unique } from '../utils';
 import tilesets from '../tilesets/index';
 
-// const unpackTileset = (newTilesetName) => {
 const unpackTileset = (newTileset) => {
-  // const newTileset = tilesets.find(({ name }) => name === newTilesetName);
   const { tileConfig } = newTileset;
 
   return {
@@ -16,8 +14,8 @@ const unpackTileset = (newTileset) => {
 };
 
 const useTileset = (defaultTilesetName) => {
-  const [selectedTilesetName, setSelectedTilesetName] = React.useState(defaultTilesetName);
-  const [tilesetsState, setTilesetsState] = React.useState(tilesets.map(unpackTileset));
+  const [selectedTilesetName, setSelectedTilesetName] = useState(defaultTilesetName);
+  const [tilesetsState, setTilesetsState] = useState(tilesets.map(unpackTileset));
 
   const updatePatternConfig = (tilesetName, targetPattern, newValues) => {
     const newState = tilesetsState.map(state => {
