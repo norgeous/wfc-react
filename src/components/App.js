@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import AppHeader from './AppHeader';
 // import Form from './Form';
@@ -10,6 +10,7 @@ import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../
 
 const App = () => {
   const { routes, route } = useAppContext();
+  const ref = useRef();
 
   return (
     <Container>
@@ -24,7 +25,8 @@ const App = () => {
           {/* <Form /> */}
           form here
         </Sidebar>
-        <Content>
+        <Content ref={ref}>
+          {ref.current?.clientWidth}w x {ref.current?.clientHeight}h
           {/* {route === routes.solve && <Grid />} */}
           {/* {route === routes.constraints && <ConstraintEditor />} */}
           {route === routes.export && <Export />}
