@@ -5,33 +5,33 @@ import AppHeader from './AppHeader';
 import Grid from './Grid';
 // import ConstraintEditor from './ConstraintEditor';
 import Export from './Export';
-import { Header, LogoLink, Main, Sidebar, Footer } from '../styled-components/app-layout';
+import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../styled-components/app-layout';
 
 
 const App = () => {
   const { routes, route } = useAppContext();
 
   return (
-    <>
+    <Container>
       <Header>
-        <LogoLink href="https://github.com/norgeous/wfc-react" style={{ float: 'left', paddingRight: '20px' }}>
+        <LogoLink href="https://github.com/norgeous/wfc-react">
           🌊 norgeous/wfc-react
         </LogoLink>
         <AppHeader />
       </Header>
       <Main>
-          <Sidebar width={200}>
-            {/* <Form /> */}
-            form here
-          </Sidebar>
-          <div>
-            {route === routes.solve && <Grid />}
-            {/* {route === routes.constraints && <ConstraintEditor />} */}
-            {route === routes.export && <Export />}
-          </div>
+        <Sidebar width={200}>
+          {/* <Form /> */}
+          form here
+        </Sidebar>
+        <Content>
+          {/* {route === routes.solve && <Grid />} */}
+          {/* {route === routes.constraints && <ConstraintEditor />} */}
+          {route === routes.export && <Export />}
+        </Content>
       </Main>
       <Footer>Footer</Footer>
-    </>
+    </Container>
   );
 };
 
