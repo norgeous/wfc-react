@@ -3,7 +3,7 @@ const load = (uri) => {
   document.body.insertAdjacentHTML('beforeend', tag);
 };
 
-const loadIndex = () => load('./src/index.js');
+const loadIndex = () => load('./src/index');
 
 (async () => {
   await navigator.serviceWorker.register('/babel-service-worker.js', { scope: '/' });

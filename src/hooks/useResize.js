@@ -1,3 +1,5 @@
+import React from 'react';
+
 const useResize = (tileSize) => {
   const [width, setWidth] = React.useState(0);
   const [height, setHeight] = React.useState(0);

@@ -1,6 +1,6 @@
 import { weightedRandomFrom } from '../utils';
 
-const getConstraintsForValue = (tileset, v) => tileset.wfc[v].canTouch.split('');
+// const getConstraintsForValue = (tileset, v) => tileset.wfc[v].canTouch.split('');
 
 const useWFCCollapser = ({
   tiles,

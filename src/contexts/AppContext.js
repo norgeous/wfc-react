@@ -1,3 +1,4 @@
+import React from 'react';
 import useTileset from '../hooks/useTileset';
 import useResize from '../hooks/useResize';
 import useWFCGrid from '../hooks/useWFCGrid';

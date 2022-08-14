@@ -1,3 +1,4 @@
+import React from 'react';
 import { rotate4, unique } from '../utils';
 import tilesets from '../tilesets/index';
 

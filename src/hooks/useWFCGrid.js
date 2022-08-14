@@ -1,3 +1,4 @@
+import React from 'react';
 import { byXY, randomFrom } from '../utils';
 
 const useWFCGrid = ({ w, h, points, tiles }) => {
