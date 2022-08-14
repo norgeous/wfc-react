@@ -12,8 +12,6 @@ const routes = {
   export: 'EXPORT',
 };
 
-
-
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <TestC />,

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%22 y=%2280%22 text-anchor=%22middle%22 font-size=%2290%22>🌊</text></svg>">
     <title>wfc-react</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <noscript>
       javascript must be enabled!
       <style> .js-enabled { display: none; } </style>
     </noscript>
-    <div id="root" class="js-enabled">Loading React from CDN...</div>
+    <div id="root" class="js-enabled">
+      <div class="loader">🌀</div>
+    </div>
 
     <!-- <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script> -->
     <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.min.js"></script>
@@ -26,20 +29,6 @@
         }
       }      
     </script>
-
-    
     <script async src="./babel-service-worker-register.js"></script>
-    <!-- <script async defer type="module" src="./src/index.js"></script> -->
-    <script type="module">
-      window.addEventListener('babel-service-worker-ready', (event) => {
-        const { installing, active, active: { state } } = event.detail.registration;
-        console.log(event.detail.registration, { installing, active, state });
-        // event.detail.registration.unregister();
-        // import('./src/index');
-
-        const tag = '<script type="module" src="./src/index.js" />';
-        document.head.insertAdjacentHTML('beforeend', tag);
-      });
-    </script>
   </body>
 </html>

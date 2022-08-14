@@ -1,18 +1,8 @@
-// https://github.com/babel/babel/discussions/12059
+navigator.serviceWorker.register('/babel-service-worker.js', { scope: '/' });
 
-const onError = (err) => {
-  console.error('Error registering service-worker:', err)
-  document.getElementById('root').innerText = err.toString()
-};
+navigator.serviceWorker.ready.then(() => {
+  if (!navigator.serviceWorker.controller) window.location.reload(); // https://stackoverflow.com/a/62596701
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/babel-service-worker.js', { scope: '/' })
-    .then(registration => {
-      const event = new CustomEvent('babel-service-worker-ready', { detail: { registration } });
-      window.dispatchEvent(event);
-    })
-    .catch(onError);
-} else {
-  onError('Browser does not support service workers :-(');
-}
+  const tag = '<script type="module" src="./src/index.js" />';
+  document.body.insertAdjacentHTML('beforeend', tag);
+});

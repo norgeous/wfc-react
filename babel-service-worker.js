@@ -2,23 +2,24 @@ importScripts(
   'https://unpkg.com/@babel/standalone@7.18.12/babel.min.js',
 );
 
-async function handleRequest(request) {
+const handleRequest = async (request) => {
   const url = new URL(request.url);
 
   const isSelfHosted = url.host === location.host;
-  const isSrc = url.pathname.startsWith('/src/');
+  const isRoot = url.pathname === '/';
   url.ext = url.pathname.includes('.') ? url.pathname.split('.').pop() : undefined;
 
-  if (isSelfHosted && isSrc && !url.ext) {
+  console.log(url.pathname);
+
+  if (isSelfHosted && !isRoot && !url.ext) {
     url.pathname = `${url.pathname}.js`;
     url.ext = 'js';
   }
 
-  const response = await fetch(url);
-  const { status } = response;
+  const response = await fetch(url);//.catch(console.info);
 
   // transpile /src/ files
-  if (status === 200 && isSelfHosted && isSrc && url.ext === 'js') {
+  if (response.status === 200 && isSelfHosted && url.ext === 'js') {
     const text = await response.text();
     const { code } = Babel.transform(text, { presets: ['react'] });
     return new Response(code, response);
@@ -27,4 +28,6 @@ async function handleRequest(request) {
   return response;
 }
 
-self.addEventListener('fetch', e => e.respondWith(handleRequest(e.request)));
+// self.addEventListener('install', e => e.waitUntil(getBabel()));
+self.addEventListener('activate', event => event.waitUntil(clients.claim()));
+self.addEventListener('fetch', event => event.respondWith(handleRequest(event.request)));
