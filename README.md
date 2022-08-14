@@ -8,9 +8,11 @@ https://norgeous.github.io/wfc-react/
 
 ## Dev
 
-`npx serve`
+`npx serve` -> http://localhost:3000/
 
-http://localhost:3000/
+## Lint
+
+`npx eslint .`
 
 ## Example output
 
