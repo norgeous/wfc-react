@@ -16,7 +16,7 @@ const handleRequest = async (request) => {
 
   const response = await fetch(url);
 
-  // transpile js files
+  // transpile self hosted js files using react preset
   if (response.status === 200 && isSelfHosted && url.ext === 'js') {
     const text = await response.text();
     const { code } = Babel.transform(text, { presets: ['react'] });
