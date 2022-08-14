@@ -16,9 +16,9 @@ export const weightedRandomFrom = (obj = {}, weights = []) => {
 };
 
 const arrayRotate = (arr) => {
-  arr.unshift(arr.pop())
+  arr.unshift(arr.pop());
   return arr;
-}
+};
 
 export const rotate4 = (arr) => {
   const r1 = arrayRotate([...arr]);
@@ -29,7 +29,7 @@ export const rotate4 = (arr) => {
     r1.join(''),
     r2.join(''),
     r3.join(''),
- ];
+  ];
 };
 
 export const unique = (value, index, self) => self.indexOf(value) === index;
@@ -38,7 +38,7 @@ export const byXY = (x, y) => (cell) => cell.x === x && cell.y === y;
 export function PRNG(seed = 0) {
   this._seed = seed % 2147483647;
   if (this._seed <= 0) this._seed += 2147483646;
-};
+}
 PRNG.prototype.next = function () {
   return this._seed = this._seed * 16807 % 2147483647;
 };
