@@ -14,7 +14,13 @@
     "comma-dangle": ["error", "always-multiline"],
     "no-empty": "warn",
     "no-cond-assign": ["error", "always"],
-    "for-direction": "off"
+    "for-direction": "off", 
+    "no-unused-vars": [
+      "error",
+      {
+          "varsIgnorePattern": "^[A-Z]"
+      }
+    ]
   },
   "parserOptions": {
     "sourceType": "module",
@@ -23,5 +29,10 @@
       "jsx": true,
       "modules": true
     }
+  },
+  "globals": {
+    "importScripts": "readonly",
+    "Babel": "readonly",
+    "clients": "readonly"
   }
 }
