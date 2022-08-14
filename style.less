@@ -8,11 +8,7 @@ body {
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-#root {
-  overflow: hidden;
+  to { transform: rotate(-360deg); }
 }
 
 .loader {
@@ -21,8 +17,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 200px;
-  animation: spin 500ms infinite linear;
-  opacity: 0.2;
+  span {
+    opacity: 0.33;
+    animation: spin 500ms infinite linear;
+    font-size: 120px;
+  }
 }
 
