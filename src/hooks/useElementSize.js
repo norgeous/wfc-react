@@ -1,20 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
-const useElementSize = (elementRef) => {
+const useElementSize = () => {
   // const [elementRef, setElementRef] = useState();
+  const elementRef = useRef();
   const [elementWidth, setElementWidth] = useState(0);
   const [elementHeight, setElementHeight] = useState(0);
 
-  useEffect(() => {
+  const handleResize = () => {
     if (elementRef?.current) {
       setElementWidth(elementRef.current.clientWidth);
       setElementHeight(elementRef.current.clientHeight);
     }
-  });
+  };
 
-  console.log('useElementSize', elementRef);
+  useEffect(() => {
+    handleResize(); // trigger on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  return { elementWidth, elementHeight };
+  // console.log('useElementSize', elementRef);
+
+  return { elementRef, elementWidth, elementHeight };
 };
 
 export default useElementSize;

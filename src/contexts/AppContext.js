@@ -36,7 +36,7 @@ export const AppProvider = ({
   } = useTileset(defaultTilesetName);
 
   const [size, setSize] = useState(defaultSize);
-  const { setElementRef, elementWidth, elementHeight } = useElementSize();
+  const { elementRef, elementWidth, elementHeight } = useElementSize();
   const { width, height } = useGridDimensions({ elementWidth, elementHeight, size });
 
   console.log({
@@ -116,7 +116,7 @@ export const AppProvider = ({
         setFpsStep,
         fps,
 
-        setElementRef,
+        elementRef,
         width,
         height,
 

@@ -10,20 +10,20 @@ import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../
 
 
 const App = () => {
-  const { routes, route, setElementRef } = useAppContext();
+  const { routes, route, setElementRef, elementRef, width, height } = useAppContext();
 
-  // const x = useElementSize(ref);
-  const elementRef = useRef();
-  const [elementWidth, setElementWidth] = useState(0);
-  const [elementHeight, setElementHeight] = useState(0);
-  useEffect(() => {
-    if (elementRef?.current) {
-      setElementWidth(elementRef.current.clientWidth);
-      setElementHeight(elementRef.current.clientHeight);
-    }
-  }, [elementRef]);
+  // // const x = useElementSize(ref);
+  // const elementRef = useRef();
+  // const [elementWidth, setElementWidth] = useState(0);
+  // const [elementHeight, setElementHeight] = useState(0);
+  // useEffect(() => {
+  //   if (elementRef?.current) {
+  //     setElementWidth(elementRef.current.clientWidth);
+  //     setElementHeight(elementRef.current.clientHeight);
+  //   }
+  // }, [elementRef]);
 
-  console.log(elementRef, elementWidth, elementHeight);
+  // console.log(elementRef, elementWidth, elementHeight);
 
   return (
     <Container>
@@ -39,7 +39,7 @@ const App = () => {
           form here
         </Sidebar>
         <Content ref={elementRef}>
-          {elementWidth + elementHeight}
+          {width + height}
           {/* {route === routes.solve && <Grid />} */}
           {/* {route === routes.constraints && <ConstraintEditor />} */}
           {route === routes.export && <Export />}

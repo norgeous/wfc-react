@@ -7,7 +7,7 @@ const useGridDimensions = ({ elementWidth, elementHeight, size }) => {
   useEffect(() => {
     setWidth(Math.floor(elementWidth / size));
     setHeight(Math.floor(elementHeight / size));
-  }, [width, height, size]);
+  }, [elementWidth, elementHeight, size]);
 
   return {
     width,
