@@ -14,7 +14,9 @@ const DebugInfo = () => {
     width,
     height,
     grid,
-    seed, pointer, float, next,
+    seed,
+    prn,
+    prf,
   } = useAppContext();
 
   return (
@@ -33,10 +35,9 @@ const DebugInfo = () => {
       <Heading>PRNG</Heading>
       seed: {seed}
       <br/>
-      pointer: {pointer}
+      prn: {prn}
       <br/>
-      float: {float}
-      <Button onClick={next}>Next PRNG</Button>
+      prf: {prf}
     </div>
   );
 };

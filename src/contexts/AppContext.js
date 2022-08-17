@@ -93,7 +93,12 @@ export const AppProvider = ({
   const [debug, setDebug] = useState(false);
 
   const [seed, setSeed] = useState(0);
-  const { pointer, float, next } = usePRNG(seed);
+  const { 
+    prn,
+    prf,
+    nextPrn,
+    resetPrng,
+  } = usePRNG(seed);
 
   return (
     <AppContext.Provider
@@ -140,7 +145,12 @@ export const AppProvider = ({
         debug,
         setDebug,
 
-        seed, setSeed, pointer, float, next,
+        seed,
+        setSeed,
+        prn,
+        prf,
+        nextPrn,
+        resetPrng,
       }}
     >
       {children}
