@@ -6,24 +6,13 @@ import Grid from './Grid';
 // import ConstraintEditor from './ConstraintEditor';
 import Export from './Export';
 import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../styled-components/app-layout';
+import Input from './FormInput';
+import { Button } from './styled';
 // import useElementSize from '../hooks/useElementSize';
 
 
 const App = () => {
-  const { routes, route, setElementRef, elementRef, width, height } = useAppContext();
-
-  // // const x = useElementSize(ref);
-  // const elementRef = useRef();
-  // const [elementWidth, setElementWidth] = useState(0);
-  // const [elementHeight, setElementHeight] = useState(0);
-  // useEffect(() => {
-  //   if (elementRef?.current) {
-  //     setElementWidth(elementRef.current.clientWidth);
-  //     setElementHeight(elementRef.current.clientHeight);
-  //   }
-  // }, [elementRef]);
-
-  // console.log(elementRef, elementWidth, elementHeight);
+  const { routes, route, elementRef, width, height } = useAppContext();
 
   return (
     <Container>
@@ -36,7 +25,11 @@ const App = () => {
       <Main>
         <Sidebar width={200}>
           {/* <Form /> */}
-          form here
+          <Input label="test" type="number" />
+          <Input label="test" type="range" />
+          <Input label="test" type="checkbox" />
+          <Input label="test" type="radio" name="a"/>
+          <Input label="test" type="radio" name="a"/>
         </Sidebar>
         <Content ref={elementRef}>
           {width + height}
@@ -45,7 +38,9 @@ const App = () => {
           {route === routes.export && <Export />}
         </Content>
       </Main>
-      <Footer>Footer</Footer>
+      <Footer>
+        <Button>test</Button>
+      </Footer>
     </Container>
   );
 };

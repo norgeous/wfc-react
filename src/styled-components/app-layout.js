@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   display: flex;
-  background: ${({ theme }) => theme.bg[1]};
+  background: ${({ theme }) => theme.bg[3]};
   gap: ${({ theme }) => theme.gap.md};
   align-items: center;
 `;
@@ -22,7 +22,7 @@ export const LogoLink = styled.a`
   text-decoration: none;
   font-size: 20px;
   :hover {
-    background: ${({ theme }) => theme.bg[2]};
+    background: ${({ theme }) => theme.bg[4]};
     color: ${({ theme }) => theme.text[1]};
   }
 `;
@@ -34,7 +34,9 @@ export const Main = styled.main`
 
 export const Sidebar = styled.aside`
   display: flex;
-  background: ${({ theme }) => theme.bg[1]};
+  flex-direction: column;
+  gap: ${({ theme }) => theme.gap.md};
+  background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
   min-width: 200px;
 `;
@@ -46,6 +48,6 @@ export const Content = styled.section`
 
 export const Footer = styled.footer`
   display: flex;
-  background: ${({ theme }) => theme.bg[1]};
+  background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
 `;

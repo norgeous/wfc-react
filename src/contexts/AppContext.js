@@ -39,11 +39,6 @@ export const AppProvider = ({
   const { elementRef, elementWidth, elementHeight } = useElementSize();
   const { width, height } = useGridDimensions({ elementWidth, elementHeight, size });
 
-  console.log({
-    elementWidth, elementHeight,
-    width, height,
-  });
-
   const [fpsStep, setFpsStep] = useState(defaultFpsStep);
   const fps = fpsSteps[fpsStep];
 
