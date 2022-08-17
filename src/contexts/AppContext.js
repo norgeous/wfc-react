@@ -28,6 +28,7 @@ export const AppProvider = ({
 
   const {
     tilesetNames,
+    selectedTilesetName,
     setSelectedTilesetName,
     tileset,
     tiles,
@@ -98,6 +99,7 @@ export const AppProvider = ({
         setRoute,
 
         tilesetNames,
+        selectedTilesetName,
         setSelectedTilesetName,
         tileset,
         tiles,

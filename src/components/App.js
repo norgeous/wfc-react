@@ -1,13 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import Menu from './Menu';
-// import Form from './Form';
+import Form from './Form';
+import Buttons from './Buttons';
 import Grid from './Grid';
 // import ConstraintEditor from './ConstraintEditor';
 import Export from './Export';
 import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../styled-components/app-layout';
-import Input from './FormInput';
-import { Button } from '../styled-components/form';
 
 const App = () => {
   const { routes, route, elementRef, width, height } = useAppContext();
@@ -22,12 +21,7 @@ const App = () => {
       </Header>
       <Main>
         <Sidebar>
-          {/* <Form /> */}
-          <Input label="test" type="number" />
-          <Input label="test" type="range" />
-          <Input label="test" type="checkbox" />
-          <Input label="test" type="radio" name="a"/>
-          <Input label="test" type="radio" name="a"/>
+          <Form />
         </Sidebar>
         <Content ref={elementRef}>
           {width} x {height}
@@ -37,11 +31,7 @@ const App = () => {
         </Content>
       </Main>
       <Footer>
-        <Button>test</Button>
-        <Button>test</Button>
-        <Button>test</Button>
-        <Button>test</Button>
-        <Button>test</Button>
+        <Buttons />
       </Footer>
     </Container>
   );

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Label, Input } from '../styled-components/form';
+import { Label, Prefix, Input, Suffix } from '../styled-components/form';
 
-const FormInput = ({ label, type, ...props }) => (
+const FormInput = ({ label, suffix, type, ...props }) => (
   <Label type={type}>
-    <span>{label}</span>
+    {label && <Prefix type={type}>{label}</Prefix>}
     <Input type={type} {...props} />
+    {suffix && <Suffix>{suffix}</Suffix>}
   </Label>
 );
 

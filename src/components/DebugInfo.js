@@ -1,3 +1,4 @@
+import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
 
 const DebugInfo = () => {
@@ -10,7 +11,7 @@ const DebugInfo = () => {
   } = useAppContext();
 
   return (
-    <div>
+    <div style={{fontSize: 10}}>
       tiles: {tiles.length}
       <br/>
       points: {points.join()}

@@ -53,6 +53,7 @@ const useTileset = (defaultTilesetName) => {
 
   return {
     tilesetNames: tilesetsState.map(({ name }) => name),
+    selectedTilesetName,
     setSelectedTilesetName,
     tileset,
     tiles,

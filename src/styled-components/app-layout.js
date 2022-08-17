@@ -38,7 +38,7 @@ export const Sidebar = styled.aside`
   gap: ${({ theme }) => theme.gap.md};
   background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
-  min-width: 200px;
+  width: 160px;
 `;
 
 export const Content = styled.section`

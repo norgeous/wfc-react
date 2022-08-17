@@ -19,7 +19,7 @@ ReactDOM.render((
     defaultRoute={routes.solve}
     defaultTilesetName="walls"
     defaultSize={75}
-    defaultFpsStep={0}
+    defaultFpsStep={1}
   >
     <ThemeProvider theme={theme}>
       <App />
