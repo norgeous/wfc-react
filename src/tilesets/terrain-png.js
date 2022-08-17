@@ -1,3 +1,4 @@
+import React from 'react';
 import { TileBase } from '../styled-components/styled';
 
 // http://cr31.co.uk/stagecast/wang/2corn.html

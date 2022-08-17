@@ -1,3 +1,4 @@
+import React from 'react';
 import { TerrainTile } from '../styled-components/styled';
 
 export default {

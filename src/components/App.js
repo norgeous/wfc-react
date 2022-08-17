@@ -9,7 +9,7 @@ import Export from './Export';
 import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../styled-components/app-layout';
 
 const App = () => {
-  const { routes, route, elementRef, width, height } = useAppContext();
+  const { routes, route, elementRef } = useAppContext();
 
   return (
     <Container>
@@ -24,8 +24,7 @@ const App = () => {
           <Form />
         </Sidebar>
         <Content ref={elementRef}>
-          {width} x {height}
-          {/* {route === routes.solve && <Grid />} */}
+          {route === routes.solve && <Grid />}
           {/* {route === routes.constraints && <ConstraintEditor />} */}
           {route === routes.export && <Export />}
         </Content>

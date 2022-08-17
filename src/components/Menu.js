@@ -15,18 +15,16 @@ const Menu = () => {
   }));
 
   return (
-    <nav>
-      <Ol>
-        {mainMenuItems.map(({key, label}) => (
-          <Li
-            selected={route === key}
-            onClick={() => setRoute(key)}
-          >
-            {label}
-          </Li>
-        ))}
-      </Ol>
-    </nav>
+    <Ol>
+      {mainMenuItems.map(({key, label}) => (
+        <Li
+          selected={route === key}
+          onClick={() => setRoute(key)}
+        >
+          {label}
+        </Li>
+      ))}
+    </Ol>
   );
 };
 

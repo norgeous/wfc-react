@@ -1,3 +1,4 @@
+import React from 'react';
 import { AsciiTile } from '../styled-components/styled';
 
 const tiles = {

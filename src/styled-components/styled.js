@@ -1,7 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const TileGrid = styled.div`
-  height: calc(100vh - 64px);
+  /* height: calc(100vh - 64px); */
   display: grid;
   grid-template-columns: ${({width, size}) => `repeat(${width}, ${size}px)`};
   grid-template-rows: ${({height, size}) => `repeat(${height}, ${size}px)`};

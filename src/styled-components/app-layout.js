@@ -13,6 +13,8 @@ export const Header = styled.header`
   background: ${({ theme }) => theme.bg[3]};
   gap: ${({ theme }) => theme.gap.md};
   align-items: center;
+  a { flex-shrink: 0; }
+  ol { flex-shrink: 1; }
 `;
 
 export const LogoLink = styled.a`
@@ -44,6 +46,8 @@ export const Sidebar = styled.aside`
 export const Content = styled.section`
   background: ${({ theme }) => theme.bg[0]};
   flex-grow: 1;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Footer = styled.footer`

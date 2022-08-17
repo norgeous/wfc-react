@@ -5,6 +5,7 @@ export const Ol = styled.ol`
   margin: 0;
   padding: 0;
   display: flex;
+  overflow-x: scroll;
 `;
 
 export const Li = styled.li`
