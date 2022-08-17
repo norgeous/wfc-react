@@ -1,4 +1,4 @@
-import { TerrainTile } from '../components/styled';
+import { TerrainTile } from '../styled-components/styled';
 
 export default {
   name: 'terrain',

@@ -1,4 +1,4 @@
-import { AsciiTile } from '../components/styled';
+import { AsciiTile } from '../styled-components/styled';
 
 const tiles = {
   '0000': [' '],

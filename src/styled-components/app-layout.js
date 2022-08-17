@@ -48,6 +48,8 @@ export const Content = styled.section`
 
 export const Footer = styled.footer`
   display: flex;
+  gap: ${({ theme }) => theme.gap.sm};
   background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
+  overflow-x: scroll;
 `;

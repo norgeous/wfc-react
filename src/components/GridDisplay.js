@@ -1,5 +1,5 @@
 import React from 'react';
-import { TileGrid, Tile, PointGrid, Point } from './styled';
+import { TileGrid, Tile, PointGrid, Point } from '../styled-components/styled';
 
 const GridDisplay = ({
   grid,

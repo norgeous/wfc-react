@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label, Input } from './styled';
+import { Label, Input } from '../styled-components/form';
 
 const FormInput = ({ label, type, ...props }) => (
   <Label type={type}>

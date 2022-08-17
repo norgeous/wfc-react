@@ -1,4 +1,4 @@
-import { TileBase } from '../components/styled';
+import { TileBase } from '../styled-components/styled';
 
 export default {
   name: 'triangles',
