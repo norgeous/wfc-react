@@ -19,13 +19,8 @@ const Form = () => {
     debug,
     setDebug,
 
-    reset,
-    randomize,
-
-    collapseLowestEntropy,
-
-    continual,
-    toggleContinual,
+    seed,
+    setSeed,
   } = useAppContext();
 
   const fpsD = {
@@ -76,6 +71,13 @@ const Form = () => {
         label="Debug"
         checked={debug}
         onChange={() => setDebug(!debug)}
+      />
+      
+      <Input
+        type="number"
+        label="Seed"
+        value={seed}
+        onChange={event => setSeed(event.target.value)}
       />
 
       <DebugInfo />

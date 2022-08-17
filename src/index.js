@@ -13,23 +13,19 @@ const routes = {
 };
 
 const rootElement = document.getElementById('root');
-ReactDOM.render((
-  <AppProvider
-    routes={routes}
-    defaultRoute={routes.solve}
-    defaultTilesetName="walls"
-    defaultSize={75}
-    defaultFpsStep={1}
-  >
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </AppProvider>
-),
-rootElement,
+ReactDOM.render(
+  (
+    <AppProvider
+      routes={routes}
+      defaultRoute={routes.solve}
+      defaultTilesetName="walls"
+      defaultSize={75}
+      defaultFpsStep={1}
+    >
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </AppProvider>
+  ),
+  rootElement,
 );
-
-import { PRNG } from './utils';
-const r = new PRNG();
-console.log(r.next());
-console.log(r.next());

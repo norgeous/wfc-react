@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAppContext } from '../contexts/AppContext';
+import { Button } from '../styled-components/form';
 
 const Heading = styled.h4`
   margin: 15px 0 5px;
@@ -13,7 +14,7 @@ const DebugInfo = () => {
     width,
     height,
     grid,
-    seed, pointer, float
+    seed, pointer, float, next,
   } = useAppContext();
 
   return (
@@ -35,6 +36,7 @@ const DebugInfo = () => {
       pointer: {pointer}
       <br/>
       float: {float}
+      <Button onClick={next}>Next PRNG</Button>
     </div>
   );
 };

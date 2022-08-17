@@ -23,8 +23,8 @@ const Buttons = () => {
       <Button onClick={collapseLowestEntropy}>Collapse Next</Button>
 
       <Button onClick={toggleContinual}>
-          Solve All 
-          {continual && <Spin size="small" />}
+        Solve All 
+        {continual && <Spin size="small" />}
       </Button>
 
       <Button onClick={reset}>Reset</Button>

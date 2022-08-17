@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const mersenne8 = 2 ** 31 - 1;
 
@@ -8,11 +8,15 @@ const sanitise = (seed) => {
 };
 
 const usePRNG = (seed = 0) => {
-  const [pointer, setPointer] = useState(sanitise(seed));
+  const [pointer, setPointer] = useState();
   
   const next = () => {
     setPointer((pointer * (7**5)) % mersenne8);
   };
+
+  useEffect(() => {
+    setPointer(sanitise(seed));
+  }, [seed]);
   
   const float = (pointer - 1) / (mersenne8 - 1);
 
