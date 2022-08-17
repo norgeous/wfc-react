@@ -1,5 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useAppContext } from '../contexts/AppContext';
+
+const Heading = styled.h4`
+  margin: 15px 0 5px;
+`;
 
 const DebugInfo = () => {
   const {
@@ -8,17 +13,28 @@ const DebugInfo = () => {
     width,
     height,
     grid,
+    seed, pointer, float
   } = useAppContext();
 
   return (
     <div style={{fontSize: 10}}>
-      tiles: {tiles.length}
+      <Heading>CONSTRAINTS</Heading>
+      num tiles: {tiles.length}
       <br/>
-      points: {points.join()}
+      point names: {points.join()}
+
+
+      <Heading>GRID DISPLAY</Heading>
+      points: {`${width+1}×${height+1}`} ({grid.length})
       <br/>
-      grid points: {`${width+1}×${height+1}`} ({grid.length})
+      tiles: {`${width}×${height}`} ({width*height})
+
+      <Heading>PRNG</Heading>
+      seed: {seed}
       <br/>
-      grid tiles: {`${width}×${height}`} ({width*height})
+      pointer: {pointer}
+      <br/>
+      float: {float}
     </div>
   );
 };

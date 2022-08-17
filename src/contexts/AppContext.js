@@ -4,6 +4,7 @@ import useElementSize from '../hooks/useElementSize';
 import useGridDimensions from '../hooks/useGridDimensions';
 import useWFCGrid from '../hooks/useWFCGrid';
 import useWFCCollapser from '../hooks/useWFCCollapser';
+import usePRNG from '../hooks/usePRNG';
 import { randomFrom } from '../utils';
 
 const AppContext = createContext({});
@@ -91,6 +92,8 @@ export const AppProvider = ({
 
   const [debug, setDebug] = useState(false);
 
+  const { seed, pointer, float, next } = usePRNG();
+
   return (
     <AppContext.Provider
       value={{
@@ -135,6 +138,8 @@ export const AppProvider = ({
 
         debug,
         setDebug,
+
+        seed, pointer, float, next,
       }}
     >
       {children}
