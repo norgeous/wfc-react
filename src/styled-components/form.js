@@ -40,7 +40,7 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.text[0]};
   border: none;
   padding: ${({ theme }) => theme.gap.md};
-  min-width: 100px;
+  min-width: 120px;
   cursor: pointer;
   :hover {
     background: ${({ theme }) => theme.bg[2]};

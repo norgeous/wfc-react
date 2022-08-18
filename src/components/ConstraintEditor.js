@@ -1,12 +1,10 @@
-import {
-  Table,
-  Space,
-  Switch,
-  InputNumber,
-} from 'antd';
+import React from 'react';
+import Input from './FormInput';
 import GridDisplay from './GridDisplay';
 import { useAppContext } from '../contexts/AppContext';
 import { rotate4, unique } from '../utils';
+
+const Table = () => 'TABLE';
 
 const ConstraintEditor = () => {
   const {
@@ -33,21 +31,21 @@ const ConstraintEditor = () => {
             title: 'Enabled',
             key: 'enabled',
             render: (_, { pattern, enabled = true }) => (
-              <Switch checked={enabled} onChange={(newEnabled) => updatePatternConfig(tileset.name, pattern, { enabled: newEnabled })} />
+              <Input type="checkbox" checked={enabled} onChange={(newEnabled) => updatePatternConfig(tileset.name, pattern, { enabled: newEnabled })} />
             ),
           },
           {
             title: 'Rotate',
             key: 'rotate',
             render: (_, { pattern, rotate = false }) => (
-              <Switch checked={rotate} onChange={(newRotate) => updatePatternConfig(tileset.name, pattern, { rotate: newRotate })} />
+              <Input type="checkbox" checked={rotate} onChange={(newRotate) => updatePatternConfig(tileset.name, pattern, { rotate: newRotate })} />
             ),
           },
           {
             title: 'Weight',
             key: 'weight',
             render: (_, { pattern, weight = 1 }) => (
-              <InputNumber value={weight} onChange={(newWeight) => updatePatternConfig(tileset.name, pattern, { weight: newWeight })} min={0} />
+              <Input type="number" value={weight} onChange={(newWeight) => updatePatternConfig(tileset.name, pattern, { weight: newWeight })} min={0} />
             ),
           },
           {
