@@ -13,6 +13,16 @@ html, body, #root {
   to { transform: rotate(-360deg); }
 }
 
+.spin {
+  opacity: 0.5;
+  animation: spin 500ms infinite linear;
+}
+
+.loader {
+  font-size: 120px;
+  line-height: 0;
+}
+
 #root {
   width: 100%;
   height: 100%;
@@ -20,11 +30,3 @@ html, body, #root {
   justify-content: center;
   align-items: center;
 }
-
-.loader {
-  opacity: 0.5;
-  animation: spin 500ms infinite linear;
-  font-size: 120px;
-  line-height: 0;
-}
-

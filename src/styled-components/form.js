@@ -55,4 +55,7 @@ export const Button = styled.button`
   :hover {
     background: ${({ theme }) => theme.bg[2]};
   }
+  display: flex;
+  gap: ${({ theme }) => theme.gap.md};
+  justify-content: center;
 `;

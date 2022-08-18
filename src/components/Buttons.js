@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import { Button } from '../styled-components/form';
 
-const Spin = () => '🌀';
+const Spin = () => <span className="spin">🌀</span>;
 
 const Buttons = () => {
   const {
