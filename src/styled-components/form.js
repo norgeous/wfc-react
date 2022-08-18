@@ -6,6 +6,11 @@ export const Label = styled.label`
   gap: ${({ theme }) => theme.gap.sm};
   align-items: center;
   font-size: 12px;
+  ${({ type }) => ['checkbox', 'radio'].includes(type) && css`
+    cursor: pointer;
+    padding-top: ${({ theme }) => theme.gap.md};
+    padding-bottom: ${({ theme }) => theme.gap.md};
+  `}
 `;
 
 export const Prefix = styled.span`
@@ -25,6 +30,11 @@ export const Input = styled.input`
   `}
   ${({ type }) => ['text', 'number', 'range'].includes(type) && css`
     min-width: 50px;
+  `}
+  ${({ type }) => ['checkbox', 'radio'].includes(type) && css`
+    cursor: pointer;
+    transform: scale(1.4);
+    margin: 0 6px;
   `}
 `;
 

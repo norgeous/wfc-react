@@ -11,11 +11,7 @@ const Export = () => {
     };
   }, {})).join('\n');
 
-  return (
-    <pre style={{ textAlign: 'center', marginTop: 40 }}>
-      {exportText}
-    </pre>
-  );
+  return <pre>{exportText}</pre>;
 };
 
 export default Export;

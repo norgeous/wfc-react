@@ -30,17 +30,29 @@ const ConstraintEditor = () => {
               {pattern}
             </Td>
             <Td>
-              <Input type="checkbox" checked={enabled} onChange={event => updatePatternConfig(tileset.name, pattern, { enabled: event.target.checked })} />
+              <Input
+                type="checkbox"
+                checked={enabled}
+                onChange={event => updatePatternConfig(tileset.name, pattern, { enabled: event.target.checked })}
+              />
             </Td>
             <Td>
-              <Input type="checkbox" checked={rotate} onChange={event => updatePatternConfig(tileset.name, pattern, { rotate: event.target.checked })} />
+              <Input
+                type="checkbox"
+                checked={rotate}
+                onChange={event => updatePatternConfig(tileset.name, pattern, { rotate: event.target.checked })}
+              />
             </Td>
             <Td>
-              <Input type="number" value={weight} onChange={event => updatePatternConfig(tileset.name, pattern, { weight: event.target.value })} min={0} />
+              <Input
+                type="number"
+                value={weight}
+                onChange={event => updatePatternConfig(tileset.name, pattern, { weight: event.target.value })}
+                min={0}
+              />
             </Td>
             <Td>
               <FlexContents>
-
                 {rotate ? rotate4(pattern).filter(unique).map(tile => (
                   <GridDisplay
                     key={tile}
