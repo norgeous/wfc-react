@@ -5,7 +5,10 @@ export const Ol = styled.ol`
   margin: 0;
   padding: 0;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Li = styled.li`

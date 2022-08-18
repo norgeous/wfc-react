@@ -58,5 +58,8 @@ export const Footer = styled.footer`
   gap: ${({ theme }) => theme.gap.sm};
   background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
-  overflow-x: scroll;
+  overflow-x: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
