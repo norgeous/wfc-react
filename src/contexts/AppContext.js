@@ -93,7 +93,8 @@ export const AppProvider = ({
   const [debug, setDebug] = useState(false);
 
   const [seed, setSeed] = useState(0);
-  const { 
+  const {
+    prngStepCount,
     prn,
     prf,
     nextPrn,
@@ -147,6 +148,7 @@ export const AppProvider = ({
 
         seed,
         setSeed,
+        prngStepCount,
         prn,
         prf,
         nextPrn,

@@ -15,6 +15,7 @@ const DebugInfo = () => {
     height,
     grid,
     seed,
+    prngStepCount,
     prn,
     prf,
   } = useAppContext();
@@ -34,6 +35,8 @@ const DebugInfo = () => {
 
       <Heading>PRNG</Heading>
       seed: {seed}
+      <br/>
+      step: {prngStepCount}
       <br/>
       prn: {prn}
       <br/>
