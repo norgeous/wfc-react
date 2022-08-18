@@ -1,4 +1,5 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import { TileBase } from '../styled-components/styled';
 
 // http://cr31.co.uk/stagecast/wang/2corn.html
@@ -35,9 +36,6 @@ const t = {
   'wcwc': ['seasand', p[3][2]],
   'cwww': ['seasand', p[3][3]],
 
-
-
-
   
   'cccg': ['sandgrass', p[0][0]],
   'cggc': ['sandgrass', p[0][1]],
@@ -58,10 +56,6 @@ const t = {
   'ccgc': ['sandgrass', p[3][1]],
   'cgcg': ['sandgrass', p[3][2]],
   'gccc': ['sandgrass', p[3][3]],
-
-
-
-
 
   
   'mmmg': ['terrain', p[0][0]],
@@ -85,22 +79,28 @@ const t = {
   'gmmm': ['terrain', p[3][3]],
 };
 
+const Inside = styled.div`  
+  width: 100%;
+  height: 100%;
+  background-size: 400%;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  image-rendering: pixelated;
+  ${({ tileId }) => t[tileId] && css`
+    background-image: url(http://cr31.co.uk/stagecast/art/atlas/corn/${t[tileId][0]}.png);
+    background-position: ${t[tileId][1]};
+  `}
+`;
+
+const TerrainPng = (props) => (
+  <TileBase {...props}>
+    <Inside tileId={props.tileId}/>
+  </TileBase>
+);
+
 export default {
   name: 'terrain png',
-  TileFace: (props) => (
-    <TileBase {...props}>
-      <div style={{
-        width: '100%',
-        height: '100%',
-        backgroundSize: '400%',
-        backgroundRepeat: 'no-repeat',
-        backgroundOrigin: 'padding-box',
-        imageRendering: 'pixelated',
-        backgroundImage: `url(http://cr31.co.uk/stagecast/art/atlas/corn/${t[props.tileId]?.[0]}.png)`,
-        backgroundPosition: t[props.tileId]?.[1],
-      }}/>
-    </TileBase>
-  ),
+  TileFace: TerrainPng,
   tileConfig: [
     { pattern: 'wwww' },
     { pattern: 'cwww', rotate: true },
