@@ -8,6 +8,8 @@ export const Label = styled.label`
   font-size: 12px;
   ${({ type }) => ['checkbox', 'radio'].includes(type) && css`
     cursor: pointer;
+  `}
+  ${({ type }) => ['checkbox'].includes(type) && css`
     padding-top: ${({ theme }) => theme.gap.md};
     padding-bottom: ${({ theme }) => theme.gap.md};
   `}
@@ -43,6 +45,12 @@ export const Suffix = styled.span`
   line-height: 0px;
   flex-shrink: 0;
   white-space: nowrap;
+`;
+
+export const Radios = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.gap.md};
 `;
 
 export const Button = styled.button`

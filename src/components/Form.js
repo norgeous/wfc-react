@@ -1,7 +1,19 @@
 import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import Input from './FormInput';
-import DebugInfo from './DebugInfo';
+import { Radios } from '../styled-components/form';
+
+import styled from 'styled-components';
+
+const Heading = styled.h4`
+  margin: 0;
+  text-align: center;
+  text-decoration: underline;
+`;
+const Hr = styled.hr`
+  width: 100%;
+  color: ${({ theme }) => theme.bg[0]};
+`;
 
 const Form = () => {
   const {
@@ -21,6 +33,15 @@ const Form = () => {
 
     seed,
     setSeed,
+
+    tiles,
+    points,
+    width,
+    height,
+    grid,
+    prngStepCount,
+    prn,
+    prf,
   } = useAppContext();
 
   const fpsD = {
@@ -33,7 +54,8 @@ const Form = () => {
 
   return (
     <>
-      <div>
+      <Heading>CONSTRAINTS</Heading>
+      <Radios>
         {tilesetNames.map(name => (
           <Input
             key={name}
@@ -44,8 +66,21 @@ const Form = () => {
             onChange={() => setSelectedTilesetName(name)}
           />
         ))}
-      </div>
+      </Radios>
 
+      num tiles: {tiles.length}
+      <br/>
+      point names: {points.join()}
+
+      <Hr />
+
+      <Heading>DISPLAY</Heading>
+      <Input
+        type="checkbox"
+        label="Debug"
+        checked={debug}
+        onChange={() => setDebug(!debug)}
+      />
       <Input
         type="number"
         label="Tile Size"
@@ -56,6 +91,30 @@ const Form = () => {
         suffix="px"
       />
 
+      points: {`${width+1}×${height+1}`} ({grid.length})
+      <br/>
+      tiles: {`${width}×${height}`} ({width*height})
+
+      <Hr />
+
+      <Heading>PRNG</Heading>
+
+      <Input
+        type="number"
+        label="Seed"
+        value={seed}
+        onChange={event => setSeed(event.target.value)}
+      />
+      seed: {seed}
+      <br/>
+      step: {prngStepCount}
+      <br/>
+      prn: {prn}
+      <br/>
+      prf: {prf}
+
+      <Hr />
+
       <Input
         type="range"
         label="Speed"
@@ -65,22 +124,6 @@ const Form = () => {
         max={4}
         suffix={`${fpsD} fps`}
       />
-      
-      <Input
-        type="checkbox"
-        label="Debug"
-        checked={debug}
-        onChange={() => setDebug(!debug)}
-      />
-      
-      <Input
-        type="number"
-        label="Seed"
-        value={seed}
-        onChange={event => setSeed(event.target.value)}
-      />
-
-      <DebugInfo />
     </>
   );
 };

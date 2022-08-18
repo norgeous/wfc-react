@@ -41,6 +41,7 @@ export const Sidebar = styled.aside`
   background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
   width: 160px;
+  font-size: 10px;
 `;
 
 export const Content = styled.section`
