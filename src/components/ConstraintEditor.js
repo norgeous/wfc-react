@@ -1,10 +1,9 @@
 import React from 'react';
 import Input from './FormInput';
 import GridDisplay from './GridDisplay';
+import { Table, Tr, Th, Td, FlexContents } from '../styled-components/table';
 import { useAppContext } from '../contexts/AppContext';
 import { rotate4, unique } from '../utils';
-
-const Table = () => 'TABLE';
 
 const ConstraintEditor = () => {
   const {
@@ -16,43 +15,32 @@ const ConstraintEditor = () => {
   const { tileConfig } = tileset;
 
   return (
-    <>
-      <Table
-        style={{padding: 20}}
-        pagination={{ pageSize: 100, hideOnSinglePage: true }}
-        dataSource={tileConfig.map((config,i) => ({ ...config, key: i }))}
-        columns={[
-          {
-            title: 'Pattern',
-            dataIndex: 'pattern',
-            key: 'pattern',
-          },
-          {
-            title: 'Enabled',
-            key: 'enabled',
-            render: (_, { pattern, enabled = true }) => (
-              <Input type="checkbox" checked={enabled} onChange={(newEnabled) => updatePatternConfig(tileset.name, pattern, { enabled: newEnabled })} />
-            ),
-          },
-          {
-            title: 'Rotate',
-            key: 'rotate',
-            render: (_, { pattern, rotate = false }) => (
-              <Input type="checkbox" checked={rotate} onChange={(newRotate) => updatePatternConfig(tileset.name, pattern, { rotate: newRotate })} />
-            ),
-          },
-          {
-            title: 'Weight',
-            key: 'weight',
-            render: (_, { pattern, weight = 1 }) => (
-              <Input type="number" value={weight} onChange={(newWeight) => updatePatternConfig(tileset.name, pattern, { weight: newWeight })} min={0} />
-            ),
-          },
-          {
-            title: 'Tile(s)',
-            key: 'tiles',
-            render: (_, { rotate = false, pattern }) => (
-              <Space>
+    <div>
+      <Table>
+        <Tr>
+          <Th>Pattern</Th>
+          <Th>Enabled</Th>
+          <Th>Rotate</Th>
+          <Th>Weight</Th>
+          <Th>Tile(s)</Th>
+        </Tr>
+        {tileConfig.map(({ pattern, rotate, weight, enabled }) => (
+          <Tr key={pattern}>
+            <Td>
+              {pattern}
+            </Td>
+            <Td>
+              <Input type="checkbox" checked={enabled} onChange={event => updatePatternConfig(tileset.name, pattern, { enabled: event.target.checked })} />
+            </Td>
+            <Td>
+              <Input type="checkbox" checked={rotate} onChange={event => updatePatternConfig(tileset.name, pattern, { rotate: event.target.checked })} />
+            </Td>
+            <Td>
+              <Input type="number" value={weight} onChange={event => updatePatternConfig(tileset.name, pattern, { weight: event.target.value })} min={0} />
+            </Td>
+            <Td>
+              <FlexContents>
+
                 {rotate ? rotate4(pattern).filter(unique).map(tile => (
                   <GridDisplay
                     key={tile}
@@ -95,15 +83,12 @@ const ConstraintEditor = () => {
                     style={{ height: 'auto', border: '1px solid #222' }}
                   />
                 )}
-              </Space>
-            ),
-          },
-        ]}
-      />
-
-
-
-    </>
+              </FlexContents>
+            </Td>
+          </Tr>
+        ))}
+      </Table>
+    </div>
   );
 };
 
