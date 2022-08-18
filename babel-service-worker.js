@@ -14,7 +14,12 @@ const handleRequest = async (request) => {
     url.ext = 'js';
   }
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    mode: url?.ext === 'png' ? 'no-cors' : 'cors', // disable hotlink blocking?
+  }).catch(e => {
+    console.error(url);
+    console.error(e);
+  });
 
   // transpile self hosted js files using react preset
   if (response.status === 200 && isSelfHosted && url.ext === 'js') {
