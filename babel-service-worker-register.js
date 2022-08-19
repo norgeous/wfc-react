@@ -6,7 +6,7 @@ const load = (uri) => {
 const loadIndex = () => load('./src/index');
 
 (async () => {
-  await navigator.serviceWorker.register('/babel-service-worker.js', { scope: '/' });
+  await navigator.serviceWorker.register('./babel-service-worker.js', { scope: '/' });
   await navigator.serviceWorker.ready;
   if (!navigator.serviceWorker.controller) {
     window.location.reload(); // https://stackoverflow.com/a/62596701
