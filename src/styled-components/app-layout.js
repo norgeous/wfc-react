@@ -49,9 +49,20 @@ export const Content = styled.section`
   flex-grow: 1;
   width: 100%;
   height: 100%;
+  position: relative;
+`;
+
+export const ContentInner = styled.div`
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+`;
+
+export const Center = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 export const Footer = styled.footer`

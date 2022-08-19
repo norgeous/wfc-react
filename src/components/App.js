@@ -6,7 +6,7 @@ import Buttons from './Buttons';
 import Grid from './Grid';
 import ConstraintEditor from './ConstraintEditor';
 import Export from './Export';
-import { Container, Header, LogoLink, Main, Content, Sidebar, Footer } from '../styled-components/app-layout';
+import { Container, Header, LogoLink, Main, Content, Sidebar, Footer, ContentInner, Center } from '../styled-components/app-layout';
 
 const App = () => {
   const { routes, route, elementRef } = useAppContext();
@@ -24,9 +24,11 @@ const App = () => {
           <Form />
         </Sidebar>
         <Content ref={elementRef}>
-          {route === routes.solve && <Grid />}
-          {route === routes.constraints && <ConstraintEditor />}
-          {route === routes.export && <Export />}
+          <ContentInner>
+            {route === routes.solve && <Center><Grid /></Center>}
+            {route === routes.constraints && <ConstraintEditor />}
+            {route === routes.export && <Center><Export /></Center>}
+          </ContentInner>
         </Content>
       </Main>
       <Footer>
