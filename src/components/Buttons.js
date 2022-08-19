@@ -13,9 +13,6 @@ const Buttons = () => {
 
     continual,
     toggleContinual,
-
-    nextPrn,
-    resetPrng,
   } = useAppContext();
 
   return (
@@ -30,8 +27,6 @@ const Buttons = () => {
       </Button>
 
       <Button onClick={reset}>Reset</Button>
-      <Button onClick={nextPrn}>Next PRN</Button>
-      <Button onClick={resetPrng}>Reset PRNG</Button>
     </>
   );
 };

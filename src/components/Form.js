@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../contexts/AppContext';
 import Input from './FormInput';
-import { Radios } from '../styled-components/form';
+import { Radios, Button } from '../styled-components/form';
 
 import styled from 'styled-components';
 
@@ -31,7 +31,6 @@ const Form = () => {
     debug,
     setDebug,
 
-    seed,
     setSeed,
 
     tiles,
@@ -39,9 +38,8 @@ const Form = () => {
     width,
     height,
     grid,
-    prngStepCount,
-    prn,
-    prf,
+
+    prng,
   } = useAppContext();
 
   const fpsD = {
@@ -98,20 +96,19 @@ const Form = () => {
       <Hr />
 
       <Heading>PRNG</Heading>
-
       <Input
         type="number"
         label="Seed"
-        value={seed}
+        value={prng.seed}
         onChange={event => setSeed(event.target.value)}
       />
-      seed: {seed}
+      seed: {prng.seed}
       <br/>
-      step: {prngStepCount}
+      step count: {prng.stepCount}
       <br/>
-      prn: {prn}
+      prn: {prng.prn}
       <br/>
-      prf: {prf}
+      prf: {prng.prf}
 
       <Hr />
 

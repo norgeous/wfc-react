@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { byXY, randomFrom } from '../utils';
+import { byXY } from '../utils';
 
-const useWFCGrid = ({ w, h, points, tiles }) => {
+const useWFCGrid = ({ w, h, points, tiles, prng }) => {
   const [grid, setGrid] = useState([]);
 
   const updateGridSize = () => {
@@ -55,13 +55,14 @@ const useWFCGrid = ({ w, h, points, tiles }) => {
       }
     }
     setGrid(newGrid);
+    prng.reset();
   };
 
   const randomize = () => {
     const newGrid = [];
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
-        const newCell = { x, y, v: randomFrom(points) };
+        const newCell = { x, y, v: prng.randomFrom(points) };
         newGrid.push(newCell);
       }
     }

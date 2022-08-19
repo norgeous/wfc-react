@@ -1,5 +1,3 @@
-import { weightedRandomFrom } from '../utils';
-
 // const getConstraintsForValue = (tileset, v) => tileset.wfc[v].canTouch.split('');
 
 const useWFCCollapser = ({
@@ -8,6 +6,7 @@ const useWFCCollapser = ({
   getCellNeighboursByXY,
   getTileValue,
   updateCellByXY,
+  prng,
 }) => {
 
   const collapseSingle = (x, y) => {
@@ -49,10 +48,11 @@ const useWFCCollapser = ({
       ].every(c => c === true);
     });
 
-    const newValue = weightedRandomFrom(
+    const newValue = prng.weightedRandomFrom(
       options.map(({ pattern }) => pattern),
       options.map(({ weight }) => weight),
     );
+    prng.next();
     // console.log({tileValue, tiles, options, newValue});
     
     updateCellByXY({ x, y, v: newValue?.[0] || '*' });
@@ -61,25 +61,9 @@ const useWFCCollapser = ({
     updateCellByXY({ x, y: y+1, v: newValue?.[3] || '*' });
   };
 
-  // const randomizeAll = () => {
-  //   setGrid(oldGrid => [
-  //     ...oldGrid.map(cell => {
-  //       const newValue = weightedRandomFrom(
-  //         tileset.map(({ key }) => key),
-  //         options.map(({ weight }) => weight),
-  //       );
-  //       return {
-  //         ...cell,
-  //         v: newValue,
-  //       };
-  //     }),
-  //   ]);
-  // };
-
   return {
     collapseSingle,
     collapse4,
-    // randomizeAll,
   };
 };
 

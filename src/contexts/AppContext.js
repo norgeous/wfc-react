@@ -5,7 +5,6 @@ import useGridDimensions from '../hooks/useGridDimensions';
 import useWFCGrid from '../hooks/useWFCGrid';
 import useWFCCollapser from '../hooks/useWFCCollapser';
 import usePRNG from '../hooks/usePRNG';
-import { randomFrom } from '../utils';
 
 const AppContext = createContext({});
 
@@ -25,6 +24,9 @@ export const AppProvider = ({
   defaultFpsStep,
   children,
 }) => {
+  const [seed, setSeed] = useState(0);
+  const prng = usePRNG(seed);
+
   const [route, setRoute] = useState(defaultRoute);
 
   const {
@@ -58,6 +60,7 @@ export const AppProvider = ({
     h: height + 1,
     tiles,
     points,
+    prng,
   });
 
   const {
@@ -69,6 +72,7 @@ export const AppProvider = ({
     getCellNeighboursByXY,
     getTileValue,
     updateCellByXY,
+    prng,
   });
 
   const [continual, setContinual] = useState(false);
@@ -78,7 +82,8 @@ export const AppProvider = ({
     const unsolvedTiles = tileGrid.filter(({ solveLevel, valid }) => solveLevel < 4 || !valid);
     const lowestEntropy = unsolvedTiles.reduce((acc, { solveLevel }) => solveLevel > acc ? solveLevel : acc, 0);
     const lowestEntropyTiles = unsolvedTiles.filter(({ solveLevel }) => solveLevel === lowestEntropy);
-    const nextTile = randomFrom(lowestEntropyTiles);
+    const nextTile = prng.randomFrom(lowestEntropyTiles);
+    prng.next();
     if (nextTile) collapse4(nextTile.x, nextTile.y);
     else setContinual(false);
   };
@@ -92,18 +97,12 @@ export const AppProvider = ({
 
   const [debug, setDebug] = useState(false);
 
-  const [seed, setSeed] = useState(0);
-  const {
-    prngStepCount,
-    prn,
-    prf,
-    nextPrn,
-    resetPrng,
-  } = usePRNG(seed);
-
   return (
     <AppContext.Provider
       value={{
+        prng,
+        setSeed,
+
         route,
         routes,
         setRoute,
@@ -145,14 +144,6 @@ export const AppProvider = ({
 
         debug,
         setDebug,
-
-        seed,
-        setSeed,
-        prngStepCount,
-        prn,
-        prf,
-        nextPrn,
-        resetPrng,
       }}
     >
       {children}

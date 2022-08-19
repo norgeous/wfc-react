@@ -8,30 +8,57 @@ const sanitise = (seed) => {
   return newSeed > 0 ? newSeed : newSeed + (mersenne8 - 1);
 };
 
+let prn, prf;
+
 const usePRNG = (seed = 0) => {
-  const [prngStepCount, setPrngStepCount] = useState(0);
-  const [prn, setPrn] = useState();
-  const prf = (prn - 1) / (mersenne8 - 1);
+  const [stepCount, setStepCount] = useState(0);
   
-  const nextPrn = () => {
-    setPrn(prn => prn * cyv % mersenne8);
-    setPrngStepCount(s => s + 1);
-  };
-  const resetPrng = () => {
-    setPrn(sanitise(seed));
-    setPrngStepCount(0);
-    nextPrn();
+  const next = () => {
+    prn = prn * cyv % mersenne8;
+    prf = (prn - 1) / (mersenne8 - 1);
+    setStepCount(s => s + 1);
   };
 
-  useEffect(resetPrng, [seed]);
+  const reset = () => {
+    prn = sanitise(seed);
+    prf = (prn - 1) / (mersenne8 - 1);
+    setStepCount(0);
+    next();
+  };
 
-  return {
-    prngStepCount,
+  const randomFrom = (obj) => {
+    const keys = Object.keys(obj);
+    const item = obj[keys[keys.length * prf << 0]];
+    next();
+    return item;
+  };
+
+  const weightedRandomFrom = (obj, weights) => {
+    const keys = Object.keys(obj);
+    const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+    const r = prf * totalWeight;
+    next();
+    let i, sum = 0;
+    for (i in keys) {
+      sum += weights[i];
+      if (r <= sum) return obj[i];
+    }
+  };
+
+  useEffect(reset, [seed]);
+
+  const prng = {
+    seed,
+    stepCount,
     prn,
     prf,
-    nextPrn,
-    resetPrng,
+    next,
+    reset,
+    randomFrom,
+    weightedRandomFrom,
   };
+
+  return prng;
 };
 
 export default usePRNG;
