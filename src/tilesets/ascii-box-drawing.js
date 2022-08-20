@@ -51,7 +51,7 @@ const SvgTextIcon = ({ children }) => (
     <text
       font-size="80"
       x="50%"
-      y="54%"
+      y="52%"
       text-anchor="middle"
       dominant-baseline="middle" 
     >
