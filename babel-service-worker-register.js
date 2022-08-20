@@ -1,4 +1,4 @@
-const { pathname } = window.location
+const { pathname } = window.location;
 
 const load = (uri) => {
   const tag = `<script type="module" src="${uri}" />`;
