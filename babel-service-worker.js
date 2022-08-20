@@ -15,9 +15,6 @@ const handleRequest = async (request) => {
     url.ext = 'js';
   }
 
-  console.log(self, scope);
-  console.log('processing', {url, isSelfHosted, isRoot, location, request});
-
   const response = await fetch(url, {
     mode: url?.ext === 'png' ? 'no-cors' : 'cors', // disable hotlink blocking?
   }).catch(e => {
