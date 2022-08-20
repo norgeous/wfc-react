@@ -6,7 +6,7 @@ const handleRequest = async (request) => {
   const url = new URL(request.url);
 
   const isSelfHosted = url.host === location.host;
-  const isRoot = url.pathname === '/wfc-react/';
+  const isRoot = request.referrer === request.url;
   url.ext = url.pathname.includes('.') ? url.pathname.split('.').pop() : undefined;
 
   if (isSelfHosted && !isRoot && !url.ext) {
