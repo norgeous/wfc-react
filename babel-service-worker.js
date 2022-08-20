@@ -2,17 +2,21 @@ importScripts(
   'https://unpkg.com/@babel/standalone@7.18.12/babel.min.js',
 );
 
-const handleRequest = async (request) => {
+const handleRequest = async (request) => {  
+  const scope = self.registration.scope.replace(location.origin, '');
   const url = new URL(request.url);
 
   const isSelfHosted = url.host === location.host;
-  const isRoot = request.referrer === request.url;
+  const isRoot = scope === url.pathname;
   url.ext = url.pathname.includes('.') ? url.pathname.split('.').pop() : undefined;
 
   if (isSelfHosted && !isRoot && !url.ext) {
     url.pathname = `${url.pathname}.js`;
     url.ext = 'js';
   }
+
+  console.log(self, scope);
+  console.log('processing', {url, isSelfHosted, isRoot, location, request});
 
   const response = await fetch(url, {
     mode: url?.ext === 'png' ? 'no-cors' : 'cors', // disable hotlink blocking?
