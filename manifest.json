@@ -4,8 +4,8 @@
   "description" : "wave function collapse react",
   "theme_color" : "#007777",
   "background_color" : "#770077",
-  "scope" : "/wfc-react/",
-  "start_url" : "/wfc-react/",
+  "scope" : "./",
+  "start_url" : "./",
   "display" : "standalone",
   "orientation": "landscape",
   "icons": [
