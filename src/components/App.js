@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Container>
       <Header>
-        <LogoLink href="https://github.com/norgeous/wfc-react">
+        <LogoLink href="https://github.com/norgeous/wfc-react" target="_blank">
           🌊 norgeous/wfc-react
         </LogoLink>
         <Menu />
