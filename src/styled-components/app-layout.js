@@ -32,6 +32,7 @@ export const LogoLink = styled.a`
 export const Main = styled.main`
   display: flex;
   flex-grow: 1;
+  overflow: hidden;
 `;
 
 export const Sidebar = styled.aside`
@@ -42,6 +43,7 @@ export const Sidebar = styled.aside`
   padding: ${({ theme }) => theme.gap.md};
   width: 160px;
   font-size: 10px;
+  overflow-y: auto;
 `;
 
 export const Content = styled.section`
