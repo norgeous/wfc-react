@@ -45,6 +45,9 @@ export const Sidebar = styled.aside`
   font-size: 10px;
   overflow-x: hidden;
   overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Content = styled.section`
@@ -74,6 +77,7 @@ export const Footer = styled.footer`
   gap: ${({ theme }) => theme.gap.sm};
   background: ${({ theme }) => theme.bg[3]};
   padding: ${({ theme }) => theme.gap.md};
+  flex-shrink: 0;
   overflow-x: auto;
   ::-webkit-scrollbar {
     display: none;
