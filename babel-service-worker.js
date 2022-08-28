@@ -58,29 +58,6 @@ const getResponse = async url => {
 const handleRequest = async request => {
   const url = getUrl(request);
   const response = await getResponse(url);
-  // console.log({response2});
-
-  // const cachedResponse = await caches.match(request);
-  // const cachedResponse = await caches.match(url);
-  // console.log({cachedResponse,cachedResponse2});
-  // if (cachedResponse) { 
-  //   console.info('✅ CACHE HIT  :', request.url);
-  //   // return cachedResponse2;
-  // } else {
-  //   console.info('❌ CACHE MISS :', request.url);
-  //   const cache = await getCache();
-  //   cache.add(url);
-  //   // cache.add(request.url);
-
-  //   // const response = await fetch(url).catch(e => {
-  //   //   console.error(url);
-  //   //   console.error(e);
-  //   // });
-  // }
-  
-
-  // self hosted files are "basic", cross-origin files are "opaque"
-  // if (response.type !== 'basic') return response;
 
   // transpile self hosted js files using react preset
   if (response.status === 200 && url.isSelfHosted && url.ext === 'js') {
