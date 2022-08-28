@@ -2,15 +2,15 @@
   "name" : "wfc-react",
   "short_name" : "wfc",
   "description" : "wave function collapse react",
-  "theme_color" : "#077",
-  "background_color" : "#707",
+  "theme_color" : "#007777",
+  "background_color" : "#770077",
   "scope" : "/wfc-react/",
   "start_url" : "/wfc-react/",
   "display" : "standalone",
   "orientation": "landscape",
   "icons": [
     {
-      "src": "/wfc-react/icon.svg",
+      "src": "icon.svg",
       "sizes": "32x32 48x48 64x64 72x72 96x96 128x128 168x168 192x192 256x256 512x512 700x700 1280x1280",
       "type": "image/svg+xml",
       "purpose": "any"
