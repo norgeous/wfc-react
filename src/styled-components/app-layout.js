@@ -43,6 +43,7 @@ export const Sidebar = styled.aside`
   padding: ${({ theme }) => theme.gap.md};
   width: 160px;
   font-size: 10px;
+  overflow-x: hidden;
   overflow-y: auto;
 `;
 
