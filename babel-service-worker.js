@@ -33,33 +33,57 @@ const getUrl = request => {
   return url;
 };
 
-const handleRequest = async request => {
-  const url = getUrl(request);
-
-  const cachedResponse = await caches.match(request);
-  const cachedResponse2 = await caches.match(url);
-  console.log({cachedResponse,cachedResponse2});
-  if (cachedResponse) { 
-    console.info('✅ CACHE HIT  :', request.url);
+const getResponse = async url => {
+  // if found in cache return cached response
+  const cachedResponse = await caches.match(url);
+  if (cachedResponse) {
+    console.info('✅ CACHE HIT  :', url);
     return cachedResponse;
   }
-  
-  console.info('❌ CACHE MISS :', request.url);
 
-  const cache = await getCache();
-  cache.add(request.url);
-  // cache.add(url);
-  
-  const response = await fetch(url).catch(e => {
+  // otherwise fetch it
+  console.info('❌ CACHE MISS :', url);
+  const fetchedResponse = await fetch(url).catch(e => {
     console.error(url);
     console.error(e);
   });
 
+  // add new fetches into the cache
+  const cache = await getCache();
+  cache.add(url);
+
+  return fetchedResponse;
+};
+
+const handleRequest = async request => {
+  const url = getUrl(request);
+  const response = await getResponse(url);
+  // console.log({response2});
+
+  // const cachedResponse = await caches.match(request);
+  // const cachedResponse = await caches.match(url);
+  // console.log({cachedResponse,cachedResponse2});
+  // if (cachedResponse) { 
+  //   console.info('✅ CACHE HIT  :', request.url);
+  //   // return cachedResponse2;
+  // } else {
+  //   console.info('❌ CACHE MISS :', request.url);
+  //   const cache = await getCache();
+  //   cache.add(url);
+  //   // cache.add(request.url);
+
+  //   // const response = await fetch(url).catch(e => {
+  //   //   console.error(url);
+  //   //   console.error(e);
+  //   // });
+  // }
+  
+
   // self hosted files are "basic", cross-origin files are "opaque"
-  if (response.type !== 'basic') return response;
+  // if (response.type !== 'basic') return response;
 
   // transpile self hosted js files using react preset
-  if (response.status === 200 && url.ext === 'js') {
+  if (response.status === 200 && url.isSelfHosted && url.ext === 'js') {
     const text = await response.text();
     const { code } = Babel.transform(text, { presets: ['react'] });
     return new Response(code, response);
