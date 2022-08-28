@@ -57,7 +57,7 @@ const getResponse = async url => {
 
 const handleRequest = async request => {
   const url = getUrl(request);
-  const response = await getResponse(url);
+  const response = await getResponse(url); // from cache or fetch
 
   // transpile self hosted js files using react preset
   if (response.status === 200 && url.isSelfHosted && url.ext === 'js') {
