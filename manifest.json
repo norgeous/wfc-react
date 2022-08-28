@@ -1,12 +1,12 @@
 {
-  "name" : "wfc-react",
-  "short_name" : "wfc",
-  "description" : "wave function collapse react",
-  "theme_color" : "#007777",
-  "background_color" : "#770077",
-  "scope" : "./",
-  "start_url" : "./",
-  "display" : "standalone",
+  "name": "norgeous/wfc-react",
+  "short_name": "wfc",
+  "description": "wave function collapse react",
+  "theme_color": "#007777",
+  "background_color": "#770077",
+  "scope": "./",
+  "start_url": "./",
+  "display": "standalone",
   "orientation": "landscape",
   "icons": [
     {
