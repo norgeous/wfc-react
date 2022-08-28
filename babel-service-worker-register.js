@@ -11,8 +11,9 @@ const loadIndex = () => load('./src/index');
   await navigator.serviceWorker.register(`${pathname}babel-service-worker.js`, { scope: pathname });
   await navigator.serviceWorker.ready;
   if (!navigator.serviceWorker.controller) {
+    console.log('RELOAD!');
     window.location.reload(); // https://stackoverflow.com/a/62596701
-    // navigator.serviceWorker.addEventListener('controllerchange', loadIndex); 
+    // navigator.serviceWorker.addEventListener('controllerchange', loadIndex);
   } else {
     loadIndex();
   }
