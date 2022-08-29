@@ -9,10 +9,10 @@ import { TileBase } from '../styled-components/styled';
 // http://cr31.co.uk/stagecast/art/atlas/corn/terrain.png
 
 const p = [
-  ['0% 0%',  '33% 0%',  '67% 0%',  '100% 0%'],
-  ['0% 33%', '33% 33%', '67% 33%', '100% 33%'],
-  ['0% 67%', '33% 67%', '67% 67%', '100% 67%'],
-  ['0% 100%', '33% 100%', '67% 100%', '100% 100%'],
+  ['0% 0%',  '33.33% 0%',  '66.66% 0%',  '100% 0%'],
+  ['0% 33.33%', '33.33% 33.33%', '66.66% 33.33%', '100% 33.33%'],
+  ['0% 66.66%', '33.33% 66.66%', '66.66% 66.66%', '100% 66.66%'],
+  ['0% 100%', '33.33% 100%', '66.66% 100%', '100% 100%'],
 ];
 
 const t = {
@@ -89,6 +89,9 @@ const Inside = styled.div`
   ${({ tileId }) => t[tileId] && css`
     background-image: url(http://cr31.co.uk/stagecast/art/atlas/corn/${t[tileId][0]}.png);
     background-position: ${t[tileId][1]};
+  `}
+  ${({ tileId }) => t[tileId]?.[0] === 'seasand' && css`
+    background-image: url(src/tilesets/seasand.svg);
   `}
 `;
 
