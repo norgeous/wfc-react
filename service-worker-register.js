@@ -7,7 +7,7 @@ const loadIndex = () => load('./src/index');
 
 (async () => { 
   if (navigator.serviceWorker) {
-    await navigator.serviceWorker.register('./service-worker.js', { scope: './' });
+    await navigator.serviceWorker.register('service-worker.js', { scope: './' });
     await navigator.serviceWorker.ready;
     if (!navigator.serviceWorker.controller) {
       console.log('RELOAD!');
