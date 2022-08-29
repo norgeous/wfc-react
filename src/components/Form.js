@@ -75,19 +75,14 @@ const Form = () => {
       <Heading>DISPLAY</Heading>
       <Input
         type="checkbox"
-        label="Debug"
+        label="Show grid points"
         checked={debug}
         onChange={() => setDebug(!debug)}
       />
-      <Input
-        type="number"
-        label="Tile Size"
-        value={size}
-        onChange={event => setSize(event.target.value)}
-        step={5}
-        min={25}
-        suffix="px"
-      />
+
+      <Button onClick={() => setSize(size => size<=25?size:size-5)}>-</Button>
+      Tile size: {size}px
+      <Button onClick={() => setSize(size => size+5)}>+</Button>
 
       points: {`${width+1}×${height+1}`} ({grid.length})
       <br/>
