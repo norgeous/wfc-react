@@ -1,10 +1,10 @@
 importScripts('https://unpkg.com/@babel/standalone@7.18.12/babel.min.js');
 
-const CACHE_PREFIX = 'WFC_REACT';
+const CACHE_PREFIX = 'WFC-REACT';
 const CACHE_VERSION = '1.0.0'; // increase to invalidate old caches on clientside
-const CACHE_NAME = `${CACHE_PREFIX}_${CACHE_VERSION}`;
+const CACHE_NAME = `${CACHE_PREFIX}@${CACHE_VERSION}`;
+
 const isDev = location.hostname === 'localhost';
-const scope = self.registration.scope.replace(location.origin, '');
 
 const getCache = () => caches.open(CACHE_NAME);
 
@@ -19,6 +19,7 @@ const setupCache = async() => {
 };
 
 const getUrl = request => {
+  const scope = self.registration.scope.replace(location.origin, '');
   const url = new URL(request.url);
   url.isSelfHosted = url.host === location.host;
   url.isRoot = scope === url.pathname;
@@ -49,8 +50,10 @@ const getResponse = async url => {
   });
 
   // add new fetches into the cache
-  const cache = await getCache();
-  cache.add(url);
+  if (!isDev) {
+    const cache = await getCache();
+    cache.add(url);
+  }
 
   return fetchedResponse;
 };
