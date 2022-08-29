@@ -1,4 +1,5 @@
-importScripts('https://unpkg.com/@babel/standalone@7.18.12/babel.min.js');
+// importScripts('https://unpkg.com/@babel/standalone@7.18.13/babel.min.js');
+importScripts('https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.18.13/babel.min.js');
 
 const CACHE_PREFIX = 'WFC-REACT';
 const CACHE_VERSION = '1.0.0'; // increase to invalidate old caches on clientside
