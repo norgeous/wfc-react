@@ -65,7 +65,7 @@ const t = {
 
   'mgmg': ['grassmountain', p[1][0]],
   'gmmm': ['grassmountain', p[1][1]],
-  // 'mmmm': ['grassmountain', p[1][2]],
+  'mmmm': ['grassmountain', p[1][2]],
   'mmgm': ['grassmountain', p[1][3]],
 
   'gmgg': ['grassmountain', p[2][0]],
@@ -73,7 +73,7 @@ const t = {
   'mmmg': ['grassmountain', p[2][2]],
   'mggm': ['grassmountain', p[2][3]],
 
-  'gggg': ['grassmountain', p[3][0]],
+  // 'gggg': ['grassmountain', p[3][0]],
   'ggmg': ['grassmountain', p[3][1]],
   'gmgm': ['grassmountain', p[3][2]],
   'mggg': ['grassmountain', p[3][3]],
