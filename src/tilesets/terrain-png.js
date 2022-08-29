@@ -58,25 +58,25 @@ const t = {
   'gccc': ['sandgrass', p[3][3]],
 
   
-  'mmmg': ['terrain', p[0][0]],
-  'mggm': ['terrain', p[0][1]],
-  'gmgg': ['terrain', p[0][2]],
-  'mmgg': ['terrain', p[0][3]],
+  'gggm': ['grassmountain', p[0][0]],
+  'gmmg': ['grassmountain', p[0][1]],
+  'mgmm': ['grassmountain', p[0][2]],
+  'ggmm': ['grassmountain', p[0][3]],
 
-  'gmgm': ['terrain', p[1][0]],
-  'mggg': ['terrain', p[1][1]],
-  // 'gggg': ['terrain', p[1][2]],
-  'ggmg': ['terrain', p[1][3]],
+  'mgmg': ['grassmountain', p[1][0]],
+  'gmmm': ['grassmountain', p[1][1]],
+  // 'mmmm': ['grassmountain', p[1][2]],
+  'mmgm': ['grassmountain', p[1][3]],
 
-  'mgmm': ['terrain', p[2][0]],
-  'ggmm': ['terrain', p[2][1]],
-  'gggm': ['terrain', p[2][2]],
-  'gmmg': ['terrain', p[2][3]],
+  'gmgg': ['grassmountain', p[2][0]],
+  'mmgg': ['grassmountain', p[2][1]],
+  'mmmg': ['grassmountain', p[2][2]],
+  'mggm': ['grassmountain', p[2][3]],
 
-  'mmmm': ['terrain', p[3][0]],
-  'mmgm': ['terrain', p[3][1]],
-  'mgmg': ['terrain', p[3][2]],
-  'gmmm': ['terrain', p[3][3]],
+  'gggg': ['grassmountain', p[3][0]],
+  'ggmg': ['grassmountain', p[3][1]],
+  'gmgm': ['grassmountain', p[3][2]],
+  'mggg': ['grassmountain', p[3][3]],
 };
 
 const Inside = styled.div`  
@@ -87,11 +87,11 @@ const Inside = styled.div`
   background-origin: padding-box;
   image-rendering: pixelated;
   ${({ tileId }) => t[tileId] && css`
-    background-image: url(http://cr31.co.uk/stagecast/art/atlas/corn/${t[tileId][0]}.png);
+    /* background-image: url(http://cr31.co.uk/stagecast/art/atlas/corn/${t[tileId][0]}.png); */
+    background-image: url(src/tilesets/${t[tileId][0]}.svg);
     background-position: ${t[tileId][1]};
   `}
   ${({ tileId }) => t[tileId]?.[0] === 'seasand' && css`
-    background-image: url(src/tilesets/seasand.svg);
   `}
 `;
 
